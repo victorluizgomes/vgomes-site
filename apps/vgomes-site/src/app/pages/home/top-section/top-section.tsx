@@ -6,7 +6,7 @@ export interface TopSectionProps {}
 export function TopSection(props: TopSectionProps) {
   return (
     <div className={styles['container']}>
-      <h1>Welcome to TopSection!</h1>
+      <img className="w-56" src="../../../../assets/hq-header-picture.png" alt="stylized portrait of Victor" />
     </div>
   );
 }
