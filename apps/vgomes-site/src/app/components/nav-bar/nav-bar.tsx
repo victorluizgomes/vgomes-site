@@ -6,16 +6,17 @@ export interface NavBarProps {}
 
 export function NavBar(props: NavBarProps) {
   return (
+    // TODO: copy underline from current site or Sean Halpin
     <nav className={styles['container']}>
-      <ul className='flex flex-row'>
-        <li>
-          <Link className="m-4 border cursor-pointer" to="/">Home</Link>
+      <ul className='flex flex-row py-6 gap-10'>
+        <li className={`${styles['nav-animation']} hover:border-b-gold-yellow hover:border-b-2 pb-2 hover:pb-0`}>
+          <Link className="cursor-pointer font-bold" to="/">Home</Link>
         </li>
-        <li>
-          <Link className="m-4 border cursor-pointer" to="/art">Art</Link>
+        <li className={`${styles['nav-animation']} hover:border-b-gold-yellow hover:border-b-2 pb-2 hover:pb-0`}>
+          <Link className="cursor-pointer font-bold" to="/art">Art</Link>
         </li>
-        <li>
-          <Link className="m-4 border cursor-pointer" to="/nfts">NFTs</Link>
+        <li className={`${styles['nav-animation']} hover:border-b-gold-yellow hover:border-b-2 pb-2 hover:pb-0`}>
+          <Link className="cursor-pointer font-bold" to="/nfts">NFTs</Link>
         </li>
       </ul>
     </nav>
