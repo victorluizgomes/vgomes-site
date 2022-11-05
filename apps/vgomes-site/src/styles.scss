@@ -3,6 +3,8 @@
 @tailwind utilities;
 /* You can add global styles to this file, and also import other style files */
 
+// global styles
+
 body, html, #root {
     height: 100%;
 }
@@ -18,4 +20,8 @@ body {
 h1, h2, h3, h4, h5, h6, .title-font {
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
+}
+
+p, span {
+    font-size: 1.05rem;
 }
