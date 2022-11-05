@@ -3,13 +3,13 @@
 @tailwind utilities;
 /* You can add global styles to this file, and also import other style files */
 
-.bg-texture-img {
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
+body, html, #root {
     height: 100%;
-    opacity: 0.15;
+}
+
+body {
     background-image: url('./assets/bg-texture.jpg');
+    background-position: center;
     background-repeat: no-repeat;
+    background-size: cover;
 }

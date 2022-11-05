@@ -8,9 +8,7 @@ export interface HomeProps {}
 export function Home(props: HomeProps) {
   return (
     <div className={styles['container']}>
-      <NavBar></NavBar>
       <h1>Welcome to Home!</h1>
-      <Footer></Footer>
     </div>
   );
 }
