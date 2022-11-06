@@ -5,3 +5,16 @@
  * .container {
  * }
 */
+
+.main-text-container {
+    position: relative;
+    max-width: 550px;
+}
+
+.hi-img {
+    position: absolute;
+    width: 140px;
+    height: auto;
+    top: -120px;
+    left: -60px
+}

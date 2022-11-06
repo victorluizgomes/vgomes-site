@@ -8,7 +8,7 @@ export function NavBar(props: NavBarProps) {
   return (
     // TODO: copy underline from current site or Sean Halpin
     <nav className={styles['container']}>
-      <ul className='flex flex-row py-6 gap-10'>
+      <ul className='flex flex-row py-6 gap-12'>
         <li className={`${styles['nav-animation']} hover:border-b-gold-yellow hover:border-b-2 pb-2 hover:pb-0`}>
           <Link className="cursor-pointer font-bold" to="/">Home</Link>
         </li>

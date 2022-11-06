@@ -27,16 +27,16 @@ export function Footer(props: FooterProps) {
           <p>&#169; Victor Gomes {new Date().getFullYear()}</p>
           <ul className="flex gap-5">
             <li className="hover:border-b-gold-yellow hover:border-b-2">
-              <a href={TWITTER_URL}>TW</a>
+              <a target="_blank" rel="noreferrer" href={TWITTER_URL}>TW</a>
             </li>
             <li className="hover:border-b-gold-yellow hover:border-b-2">
-              <a href={INSTAGRAM_URL}>IG</a>
+              <a target="_blank" rel="noreferrer" href={INSTAGRAM_URL}>IG</a>
             </li>
             <li className="hover:border-b-gold-yellow hover:border-b-2">
-              <a href={GITHUB_URL}>GH</a>
+              <a target="_blank" rel="noreferrer" href={GITHUB_URL}>GH</a>
             </li>
             <li className="hover:border-b-gold-yellow hover:border-b-2">
-              <a href={LINKEDIN_URL}>LN</a>
+              <a target="_blank" rel="noreferrer" href={LINKEDIN_URL}>LN</a>
             </li>
           </ul>
         </div>
