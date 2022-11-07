@@ -9,3 +9,11 @@
 .container {
     padding: 1.5rem;
 }
+
+.project-links {
+    border-color: transparent;
+
+    &:hover {
+        border-color: black;
+    }
+}

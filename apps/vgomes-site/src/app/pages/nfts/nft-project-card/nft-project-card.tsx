@@ -29,7 +29,7 @@ export function NftProjectCard(props: NftProjectCardProps) {
       <div className="flex gap-4">
         {props.websiteLink && (
           <a
-            className="pt-4 hover:border-b hover:border-black pb-1 hover:pb-0"
+            className={`${styles['project-links']} pt-4 border-b`}
             href={props.websiteLink}
             target="_blank"
             rel="noreferrer"
@@ -39,7 +39,7 @@ export function NftProjectCard(props: NftProjectCardProps) {
         )}{' '}
         {props.openseaLink && (
           <a
-            className="pt-4 hover:border-b hover:border-black pb-1 hover:pb-0"
+            className={`${styles['project-links']} pt-4 border-b`}
             href={props.openseaLink}
             target="_blank"
             rel="noreferrer"
