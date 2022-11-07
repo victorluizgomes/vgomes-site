@@ -10,7 +10,7 @@
       "defaultConfiguration": "production",
       "options": {
         "compiler": "babel",
-        "outputPath": "dist/apps/vgomes-site",
+        "outputPath": "docs",
         "index": "apps/vgomes-site/src/index.html",
         "baseHref": "/",
         "main": "apps/vgomes-site/src/main.tsx",
