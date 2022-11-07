@@ -23,14 +23,14 @@ export function TopSection(props: TopSectionProps) {
       <div className="flex items-center justify-center gap-10 mx-24 my-24">
         <img
           className="min-w-80 w-80 max-w-80"
-          src="../../../../assets/hq-header-picture.png"
+          src="assets/hq-header-picture.png"
           alt="stylized portrait of Victor"
         />
         {/* main text area */}
         <div className={styles['main-text-container']}>
           <img
             className={styles['hi-img']}
-            src="../../../../assets/vectors/hi-vector.png"
+            src="assets/vectors/hi-vector.png"
             alt="a graphic spelling HI!"
           />
           <h1 className="text-5xl leading-tight">

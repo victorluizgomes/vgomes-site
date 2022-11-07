@@ -8,7 +8,7 @@ export interface HomeProps {}
 export function Home(props: HomeProps) {
   return (
     <div className={styles['container']}>
-      <img className={styles['big-bg-deco']} src="../../../../assets/vectors/big-bg-circle-vector.png" alt="blue circle vector" />
+      <img className={styles['big-bg-deco']} src="assets/vectors/big-bg-circle-vector.png" alt="blue circle vector" />
       <TopSection />
       <AboutSection />
     </div>

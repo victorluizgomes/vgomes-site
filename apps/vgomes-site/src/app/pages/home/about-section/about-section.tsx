@@ -10,7 +10,7 @@ export function AboutSection(props: AboutSectionProps) {
         <h2 className="text-5xl leading-tight relative pr-52">
           <img
             className={styles['arrow-vector']}
-            src="../../../../assets/vectors/arrow-vector.png"
+            src="assets/vectors/arrow-vector.png"
             alt="red arrow vector"
           />
           Who is Victor...
