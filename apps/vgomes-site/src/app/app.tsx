@@ -1,7 +1,7 @@
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import styles from './app.module.scss';
 import Home from './pages/home/home';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, redirect } from 'react-router-dom';
 import Art from './pages/art/art';
 import Nfts from './pages/nfts/nfts';
 import NavBar from './components/nav-bar/nav-bar';
@@ -12,6 +12,12 @@ export function App() {
     <BrowserRouter>
       <NavBar />
       <Routes>
+        <Route path="/"
+          action={async () => {
+            console.log('ACTION ROUTE')
+            return redirect('/vgomes-site/');
+          }}
+          element={<Home />}></Route>
         <Route path="vgomes-site/" element={<Home />}></Route>
         <Route path="vgomes-site/art" element={<Art />}></Route>
         <Route path="vgomes-site/nfts" element={<Nfts />}></Route>
