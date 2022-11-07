@@ -44,7 +44,7 @@ export function TopSection(props: TopSectionProps) {
             <span className="inline-block">
               Currently working as a Front-end Engineer at{' '}
               <a
-                className="border-b cursor-pointer"
+                className="border-b border-b-gold-yellow cursor-pointer"
                 href="https://www.blackrock.com/us/individual/about-us/about-blackrock"
                 target="_blank"
                 rel="noreferrer"

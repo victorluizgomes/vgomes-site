@@ -7,14 +7,14 @@ export function AboutSection(props: AboutSectionProps) {
   return (
     <div className={styles['container']}>
       <div className={`${styles['header']} px-24 w-full flex justify-center`}>
-        <h1 className="text-5xl leading-tight relative pr-52">
+        <h2 className="text-5xl leading-tight relative pr-52">
           <img
             className={styles['arrow-vector']}
             src="../../../../assets/vectors/arrow-vector.png"
             alt="red arrow vector"
           />
           Who is Victor...
-        </h1>
+        </h2>
       </div>
       <div className={`${styles['main-text-wrapper']} gap-4 mt-6`}>
         {/* TODO: change text here to UPDATED */}

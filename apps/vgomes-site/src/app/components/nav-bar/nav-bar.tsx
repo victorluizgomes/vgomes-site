@@ -12,9 +12,9 @@ export function NavBar(props: NavBarProps) {
         <li className={`${styles['nav-animation']} hover:border-b-gold-yellow hover:border-b-2 pb-2 hover:pb-0`}>
           <Link className="cursor-pointer font-bold" to="/">Home</Link>
         </li>
-        <li className={`${styles['nav-animation']} hover:border-b-gold-yellow hover:border-b-2 pb-2 hover:pb-0`}>
+        {/* <li className={`${styles['nav-animation']} hover:border-b-gold-yellow hover:border-b-2 pb-2 hover:pb-0`}>
           <Link className="cursor-pointer font-bold" to="/art">Art</Link>
-        </li>
+        </li> */}
         <li className={`${styles['nav-animation']} hover:border-b-gold-yellow hover:border-b-2 pb-2 hover:pb-0`}>
           <Link className="cursor-pointer font-bold" to="/nfts">NFTs</Link>
         </li>

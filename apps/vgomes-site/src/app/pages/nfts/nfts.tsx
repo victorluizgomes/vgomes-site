@@ -1,4 +1,6 @@
 import styles from './nfts.module.scss';
+import NftsHeader from './nfts-header/nfts-header';
+import NftProjects from './nft-projects/nft-projects';
 
 /* eslint-disable-next-line */
 export interface NftsProps {}
@@ -6,7 +8,8 @@ export interface NftsProps {}
 export function Nfts(props: NftsProps) {
   return (
     <div className={styles['container']}>
-      <h1>Welcome to Nfts!</h1>
+      <NftsHeader />
+      <NftProjects />
     </div>
   );
 }
