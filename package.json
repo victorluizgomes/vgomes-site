@@ -2,10 +2,11 @@
   "name": "vgomes-site",
   "version": "0.0.0",
   "license": "MIT",
+  "homepage": "https://victorluizgomes.github.io/vgomes-site",
   "scripts": {
     "start": "nx serve",
     "build": "nx build",
-    "build.prod": "npx nx build vgomes-site --configuration=production && npm run copy.index",
+    "build.prod": "npx nx build vgomes-site --baseHref='https://victorluizgomes.github.io/vgomes-site/' --configuration=production && npm run copy.index",
     "copy.index": "cp \"docs/index.html\" \"docs/404.html\"",
     "test": "nx test"
   },
