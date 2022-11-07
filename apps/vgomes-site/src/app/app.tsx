@@ -12,9 +12,9 @@ export function App() {
     <BrowserRouter>
       <NavBar />
       <Routes>
-        <Route path="/" element={<Home />}></Route>
-        <Route path="art" element={<Art />}></Route>
-        <Route path="nfts" element={<Nfts />}></Route>
+        <Route path="vgomes-site/" element={<Home />}></Route>
+        <Route path="vgomes-site/art" element={<Art />}></Route>
+        <Route path="vgomes-site/nfts" element={<Nfts />}></Route>
       </Routes>
       <Footer />
     </BrowserRouter>
