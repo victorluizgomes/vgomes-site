@@ -36,3 +36,13 @@
     width: 600px;
     line-height: 1.9;
 }
+
+@media (max-width: 768px) {
+    .arrow-vector {
+        display: none;
+    }
+    .main-text {
+        width: calc(100vw - 50px);
+        text-align: center;
+    }
+}
