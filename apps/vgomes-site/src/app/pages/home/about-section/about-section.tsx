@@ -6,7 +6,9 @@ export interface AboutSectionProps {}
 export function AboutSection(props: AboutSectionProps) {
   return (
     <div className={styles['container']}>
-      <div className={`${styles['header']} md:px-24 w-full flex justify-center`}>
+      <div
+        className={`${styles['header']} md:px-24 w-full flex justify-center`}
+      >
         <h2 className="text-3xl sm:text-4xl lg:text-5xl leading-tight relative md:pr-52">
           <img
             className={styles['arrow-vector']}
@@ -26,12 +28,12 @@ export function AboutSection(props: AboutSectionProps) {
           I love.
         </p>
         <p className={styles['main-text']}>
-          I moved to the United States when I was 18. Went to University
-          in Arizoza where I graduated with a Bachelor of Arts in Computer
-          Science. During that time, around 2017 was also the first time I
-          invested in Cryptocurrencies. Which has been quite the fun ride.
-          Recently I bought some digital painting tools and have started taking
-          digital art seriously by drawing every day.
+          I moved to the United States when I was 18. Went to University in
+          Arizoza where I graduated with a Bachelor of Arts in Computer Science.
+          During that time, around 2017 was also the first time I invested in
+          Cryptocurrencies. Which has been quite the fun ride. Recently I bought
+          some digital painting tools and have started taking digital art
+          seriously by drawing every day.
         </p>
       </div>
     </div>

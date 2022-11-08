@@ -27,7 +27,9 @@ export function TopSection(props: TopSectionProps) {
           alt="stylized portrait of Victor"
         />
         {/* main text area */}
-        <div className={`${styles['main-text-container']} text-center md:text-left`}>
+        <div
+          className={`${styles['main-text-container']} text-center md:text-left`}
+        >
           <img
             className={styles['hi-img']}
             src="assets/vectors/hi-vector.png"
