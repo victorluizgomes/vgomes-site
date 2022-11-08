@@ -12,8 +12,8 @@ export interface FooterProps {}
 export function Footer(props: FooterProps) {
   return (
     <div className={`${styles['container']} py-20`}>
-      <div className="px-16">
-        <p>
+      <div className="px-6 sm:px-16">
+        <p className='text-center sm:text-left'>
           Say Hello &#8212;{' '}
           <a
             className="hover:border-b-gold-yellow hover:border-b-2"
@@ -23,9 +23,9 @@ export function Footer(props: FooterProps) {
           </a>
         </p>
         <hr className={`my-6 border-gold-yellow border-t-4`} />
-        <div className="flex justify-between">
+        <div className="flex flex-col-reverse sm:flex-row justify-between text-center sm:text-left gap-4 sm:gap-0">
           <p>&#169; Victor Gomes {new Date().getFullYear()}</p>
-          <ul className="flex gap-5">
+          <ul className="flex justify-center sm:justify-start gap-5">
             <li className="hover:border-b-gold-yellow hover:border-b-2">
               <a target="_blank" rel="noreferrer" href={TWITTER_URL}>TW</a>
             </li>
