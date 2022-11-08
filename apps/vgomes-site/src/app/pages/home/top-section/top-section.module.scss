@@ -13,10 +13,16 @@
 
 .hi-img {
     position: absolute;
-    width: 140px;
+    width: 100px;
     height: auto;
-    top: -110px;
+    top: -90px;
     left: 30px;
+}
+
+@media (min-width: 640px) {
+    .hi-img {
+        width: 140px;
+    }
 }
 
 

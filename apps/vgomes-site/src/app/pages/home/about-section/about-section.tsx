@@ -7,7 +7,7 @@ export function AboutSection(props: AboutSectionProps) {
   return (
     <div className={styles['container']}>
       <div className={`${styles['header']} md:px-24 w-full flex justify-center`}>
-        <h2 className="text-4xl lg:text-5xl leading-tight relative md:pr-52">
+        <h2 className="text-3xl sm:text-4xl lg:text-5xl leading-tight relative md:pr-52">
           <img
             className={styles['arrow-vector']}
             src="assets/vectors/arrow-vector.png"
