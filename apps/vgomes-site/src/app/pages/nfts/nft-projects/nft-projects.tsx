@@ -10,8 +10,8 @@ export function NftProjects(props: NftProjectsProps) {
   return (
     <div className={`${styles['container']} py-20`}>
       <div className={styles['header-text']}>
-        <h2 className="text-5xl text-center leading-tight">NFT Projects</h2>
-        <p className="mt-6 leading-loose text-center">
+        <h2 className="text-3xl sm:text-4xl lg:text-5xl text-center leading-tight">NFT Projects</h2>
+        <p className="text-sm sm:text-base mt-6 leading-loose text-center">
           I started collecting and exploring NFTs in September 2021, ever since
           I feel in love with the space. So much so I've added a few things to
           web3 myself.

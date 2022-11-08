@@ -18,3 +18,9 @@
 .header-text, .projects-wrapper {
     width: 650px;
 }
+
+@media (max-width: 768px) {
+    .header-text, .projects-wrapper {
+        width: calc(100% - 40px);
+    }
+}
