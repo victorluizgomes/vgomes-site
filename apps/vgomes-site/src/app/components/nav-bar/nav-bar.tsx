@@ -10,13 +10,13 @@ export function NavBar(props: NavBarProps) {
     <nav className={styles['container']}>
       <ul className='flex flex-row py-6 gap-12'>
         <li className={`${styles['nav-animation']} hover:border-b-gold-yellow hover:border-b-2 pb-2 hover:pb-0`}>
-          <Link className="cursor-pointer font-bold" to="/vgomes-site/">Home</Link>
+          <Link className="cursor-pointer text-lg font-bold" to="/vgomes-site/">Home</Link>
         </li>
         {/* <li className={`${styles['nav-animation']} hover:border-b-gold-yellow hover:border-b-2 pb-2 hover:pb-0`}>
           <Link className="cursor-pointer font-bold" to="/art">Art</Link>
         </li> */}
         <li className={`${styles['nav-animation']} hover:border-b-gold-yellow hover:border-b-2 pb-2 hover:pb-0`}>
-          <Link className="cursor-pointer font-bold" to="/vgomes-site/nfts">NFTs</Link>
+          <Link className="cursor-pointer text-lg font-bold" to="/vgomes-site/nfts">NFTs</Link>
         </li>
       </ul>
     </nav>

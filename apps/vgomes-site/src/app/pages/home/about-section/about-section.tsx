@@ -19,21 +19,26 @@ export function AboutSection(props: AboutSectionProps) {
         </h2>
       </div>
       <div className={`${styles['main-text-wrapper']} gap-4 mt-6`}>
-        {/* TODO: change text here to UPDATED */}
         <p className={styles['main-text']}>
-          I'm originally from Brazil but live in Georgia, United States now.
-          Always drawing and fascinated with technology since I was young. I've
-          been split between art, problem-solving, creativity and engineering.
-          This is why I found a new addiction called NFTs, it packages all that
-          I love.
+          I'm from Brazil, lived there until I moved to the United States for
+          college. Growing up I loved to draw, I drew a lot of anime and cartoon
+          characters. I also was always on my computer, mostly playing video
+          games, things like Diablo, Starcraft, Minecraft, and MMORPGs. When I
+          moved to the United States, I studied Computer Science from the
+          University of Arizona, where I graduated from in 2019. I loved it, the
+          problem-solving of programming, experience being a teacher's assistant
+          and doing Virtual Reality research, made my time there fulfilling.
         </p>
         <p className={styles['main-text']}>
-          I moved to the United States when I was 18. Went to University in
-          Arizoza where I graduated with a Bachelor of Arts in Computer Science.
-          During that time, around 2017 was also the first time I invested in
-          Cryptocurrencies. Which has been quite the fun ride. Recently I bought
-          some digital painting tools and have started taking digital art
-          seriously by drawing every day.
+          During my time in University I had an internship with Blackrock as a
+          Software Engineer. In 2020, I started as a full-time software engineer
+          at Blackrock. That is when I discovered my love for Front-end web
+          development, and am currently working as a Front-end engineer. Outside
+          of work, I have been developing my art, I love to experiment with
+          different mediums. Things like generative art, acrylic paints, digital
+          art, and pen sketches. I also have been learning about web3
+          development, and together with some friends have worked in the NFT
+          space developing web3 technology.
         </p>
       </div>
     </div>
