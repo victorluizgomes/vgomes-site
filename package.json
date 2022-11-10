@@ -2,13 +2,12 @@
   "name": "vgomes-site",
   "version": "0.0.0",
   "license": "MIT",
-  "homepage": "https://vgomes.co",
   "scripts": {
     "start": "nx serve",
     "build": "nx build",
     "build.prod": "npx nx build vgomes-site --baseHref=\"https://vgomes.co/\" --configuration=production && npm run make.cname && npm run copy.index",
     "copy.index": "cp \"docs/index.html\" \"docs/404.html\" && cp CNAME docs/CNAME",
-    "make.cname": "touch CNAME && echo \"www.vgomes.co\" > CNAME",
+    "make.cname": "touch CNAME && echo \"vgomes.co\" > CNAME",
     "test": "nx test"
   },
   "dependencies": {
