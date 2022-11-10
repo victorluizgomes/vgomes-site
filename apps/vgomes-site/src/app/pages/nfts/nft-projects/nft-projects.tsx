@@ -14,8 +14,8 @@ export function NftProjects(props: NftProjectsProps) {
           NFT Projects
         </h2>
         <p className="text-sm sm:text-base mt-6 leading-loose text-center">
-          I started collecting and exploring NFTs in September 2021, ever since
-          I feel in love with the space. So much so I've added a few things to
+          In September 2021 I started collecting and exploring NFTs. Ever since then
+          I fell in love with the space; so much so I've added a few things to
           web3 myself.
         </p>
       </div>
@@ -25,7 +25,7 @@ export function NftProjects(props: NftProjectsProps) {
         <NftProjectCard
           bgColor={NftCardColorEnum.Blue}
           title="Lucid Paths"
-          description="A generative art & sound NFT collection, a collaboration with friend and
+          description="A generative art & sound NFT collection, a collaboration with a friend and
         co-creative Daniel Berger."
           websiteLink="https://lucidpaths.com/"
           openseaLink="https://opensea.io/collection/lucid-paths"
@@ -39,7 +39,7 @@ export function NftProjects(props: NftProjectsProps) {
         <NftProjectCard
           bgColor={NftCardColorEnum.Yellow}
           title="VesselVerse"
-          description="Working with an established artist involved with the NBA and basketball to create an auction based NFT."
+          description="Working with an established artist involved with basketball and the NBA to create an auction based NFT."
           websiteLink="https://vesselverse.io"
           openseaLink="https://opensea.io/VesselVerse?tab=created"
         />

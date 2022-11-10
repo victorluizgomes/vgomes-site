@@ -11,8 +11,7 @@ export function NftsHeader(props: NftsHeaderProps) {
           NFTs are cool.
         </h1>
         <p className="text-sm sm:text-base mt-6 px-2 leading-loose text-center">
-          Digital stuff that you can verify in a blockchain and use to access
-          other stuff. <br />
+          Digital collectibles that you can verify on the blockchain and use as access to communities, private events, tools, etc. <br />
           Also very cool digital art.
         </p>
       </div>
