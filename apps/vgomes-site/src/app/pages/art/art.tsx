@@ -1,4 +1,6 @@
 import styles from './art.module.scss';
+import ArtGallery from './art-gallery/art-gallery';
+import TopSection from './top-section/top-section';
 
 /* eslint-disable-next-line */
 export interface ArtProps {}
@@ -6,7 +8,8 @@ export interface ArtProps {}
 export function Art(props: ArtProps) {
   return (
     <div className={styles['container']}>
-      <h1>Welcome to Art!</h1>
+      <TopSection />
+      <ArtGallery />
     </div>
   );
 }
