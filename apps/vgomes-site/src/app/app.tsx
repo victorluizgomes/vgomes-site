@@ -15,12 +15,12 @@ export function App() {
         <Route path="/"
           action={async () => {
             console.log('ACTION ROUTE')
-            return redirect('/vgomes-site/');
+            return redirect('/');
           }}
           element={<Home />}></Route>
-        <Route path="vgomes-site/" element={<Home />}></Route>
-        <Route path="vgomes-site/art" element={<Art />}></Route>
-        <Route path="vgomes-site/nfts" element={<Nfts />}></Route>
+        <Route path="/" element={<Home />}></Route>
+        <Route path="art" element={<Art />}></Route>
+        <Route path="nfts" element={<Nfts />}></Route>
       </Routes>
       <Footer />
     </BrowserRouter>

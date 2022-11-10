@@ -2,11 +2,11 @@
   "name": "vgomes-site",
   "version": "0.0.0",
   "license": "MIT",
-  "homepage": "https://victorluizgomes.github.io/vgomes-site",
+  "homepage": "https://www.vgomes.co",
   "scripts": {
     "start": "nx serve",
     "build": "nx build",
-    "build.prod": "npx nx build vgomes-site --baseHref='https://victorluizgomes.github.io/vgomes-site/' --configuration=production && npm run copy.index && npm run make.cname",
+    "build.prod": "npx nx build vgomes-site --baseHref='https://www.vgomes.co' --configuration=production && npm run copy.index && npm run make.cname",
     "copy.index": "cp \"docs/index.html\" \"docs/404.html\"",
     "make.cname": "touch CNAME && echo \"www.vgomes.co\" > CNAME",
     "test": "nx test"
