@@ -19,8 +19,8 @@ export function App() {
           }}
           element={<Home />}></Route>
         <Route path="/" element={<Home />}></Route>
-        <Route path="art" element={<Art />}></Route>
-        <Route path="nfts" element={<Nfts />}></Route>
+        <Route path="/art" element={<Art />}></Route>
+        <Route path="/nfts" element={<Nfts />}></Route>
       </Routes>
       <Footer />
     </BrowserRouter>
