@@ -12,3 +12,9 @@
     top: 0;
     width: calc(100vw / 3);
 }
+
+@media (max-width: 600px) {
+    .big-bg-deco {
+        display: none;
+    }
+}
