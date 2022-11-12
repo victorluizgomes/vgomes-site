@@ -4,10 +4,10 @@
   "license": "MIT",
   "scripts": {
     "start": "nx serve",
-    "build": "nx build",
-    "build.prod": "npx nx build vgomes-site --baseHref=\"https://vgomes.co/\" --configuration=production && npm run make.cname && npm run copy.files",
-    "copy.files": "cp \"docs/index.html\" \"docs/404.html\" && cp CNAME docs/CNAME",
+    "build.prod": "npm run build && npm run make.cname && npm run copy.files",
+    "build": "npx nx build vgomes-site --baseHref=\"https://vgomes.co/\" --configuration=production",
     "make.cname": "touch CNAME && printf \"vgomes.co\" > CNAME",
+    "copy.files": "cp \"docs/index.html\" \"docs/404.html\" && cp CNAME docs/CNAME",
     "test": "nx test"
   },
   "dependencies": {
