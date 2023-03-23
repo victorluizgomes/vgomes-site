@@ -5,3 +5,27 @@
  * .container {
  * }
 */
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 3rem;
+}
+
+.art-grid-container {
+    padding-top: 2rem;
+    width: 90%;
+}
+
+@media (min-width: 768px) {
+    .art-grid-container {
+        width: 700px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .art-grid-container {
+        width: 1000px;
+    }
+}
