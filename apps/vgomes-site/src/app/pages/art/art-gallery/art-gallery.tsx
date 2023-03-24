@@ -12,7 +12,7 @@ export interface ArtGalleryProps {}
 
 export function ArtGallery(props: ArtGalleryProps) {
   const [paintingActive, setPaintingActive] = useState<boolean>(true);
-  // const [drawingActive, setDrawingActive] = useState<boolean>(false);
+  const [drawingActive, setDrawingActive] = useState<boolean>(false);
   // const [generativeActive, setGenerativeActive] = useState<boolean>(false);
   const [digitalActive, setDigitalActive] = useState<boolean>(false);
   const [pixelActive, setPixelActive] = useState<boolean>(false);
@@ -20,15 +20,16 @@ export function ArtGallery(props: ArtGalleryProps) {
   const [digitalArt, setDigitalArt] = useState<any>([]);
   const [paintingArt, setPaintingArt] = useState<any>([]);
   const [pixelArt, setPixelArt] = useState<any>([]);
+  const [drawingArt, setDrawingArt] = useState<any>([]);
 
   const setPainting = () => {
     resetBtns();
     setPaintingActive(true);
   }
-  // const setDrawing = () => {
-  //   resetBtns();
-  //   setDrawingActive(true);
-  // }
+  const setDrawing = () => {
+    resetBtns();
+    setDrawingActive(true);
+  }
   // const setGenerative = () => {
   //   resetBtns();
   //   setGenerativeActive(true);
@@ -44,7 +45,7 @@ export function ArtGallery(props: ArtGalleryProps) {
 
   const resetBtns = () => {
     setPaintingActive(false);
-    // setDrawingActive(false);
+    setDrawingActive(false);
     // setGenerativeActive(false);
     setDigitalActive(false);
     setPixelActive(false);
@@ -82,6 +83,9 @@ export function ArtGallery(props: ArtGalleryProps) {
 
       const pixel = await fetchArtworks('pixel');
       setPixelArt(pixel);
+
+      const drawing = await fetchArtworks('drawing');
+      setDrawingArt(drawing);
     };
 
     fetchAllCategories();
@@ -102,10 +106,11 @@ export function ArtGallery(props: ArtGalleryProps) {
       </div> */}
 
       <div className='flex item-center justify-center mb-3'>
+        {/* TODO: fix so it fits in mobile */}
         <Button label='Digital Art' active={digitalActive} onClick={setDigital} />
         <Button label='Paintings' active={paintingActive} onClick={setPainting} />
-        {/* <Button label='Drawing' active={drawingActive} onClick={setDrawing} />
-        <Button label='Generative' active={generativeActive} onClick={setGenerative} /> */}
+        <Button label='Drawing' active={drawingActive} onClick={setDrawing} />
+        {/* <Button label='Generative' active={generativeActive} onClick={setGenerative} /> */}
         <Button label='Pixel Art' active={pixelActive} onClick={setPixel} />
       </div>
       {digitalActive && <div className={`columns-2 md:columns-3 lg:columns-4 ${styles['art-grid-container']}`}>
@@ -124,6 +129,13 @@ export function ArtGallery(props: ArtGalleryProps) {
       </div>}
       {pixelActive && <div className={`columns-2 md:columns-3 lg:columns-4 ${styles['art-grid-container']}`}>
         {pixelArt.map((art: any) => (
+          <div key={art.id}>
+            <ArtWrapper type='image' src={art.thumbnails.thumbnail}/>
+          </div>
+        ))}
+      </div>}
+      {drawingActive && <div className={`columns-2 md:columns-3 lg:columns-4 ${styles['art-grid-container']}`}>
+        {drawingArt.map((art: any) => (
           <div key={art.id}>
             <ArtWrapper type='image' src={art.thumbnails.thumbnail}/>
           </div>
