@@ -1,0 +1,18 @@
+/*
+ * Replace this with your own classes
+ *
+ * e.g.
+ * .container {
+ * }
+*/
+
+// .container {
+//     width: 47%;
+// }
+
+.art-img-wrapper {
+    &:hover {
+        // background-color: rgb(202, 202, 202); // TODO: FOR TESTING HOVER REMOVE
+        cursor: pointer;
+    }
+}
