@@ -18,6 +18,8 @@ export function ArtGallery(props: ArtGalleryProps) {
   const [pixelActive, setPixelActive] = useState<boolean>(false);
 
   const [digitalArt, setDigitalArt] = useState<any>([]);
+  const [paintingArt, setPaintingArt] = useState<any>([]);
+  const [pixelArt, setPixelArt] = useState<any>([]);
 
   const setPainting = () => {
     resetBtns();
@@ -49,8 +51,8 @@ export function ArtGallery(props: ArtGalleryProps) {
   }
 
   useEffect(() => {
-    const fetchArtworks = async () => {
-      const artCollection = collection(db, 'digital');
+    const fetchArtworks = async (category: string) => {
+      const artCollection = collection(db, category);
       const artSnapshot = await getDocs(artCollection);
       const artDataPromises = artSnapshot.docs.map(async (doc) => {
         const art = doc.data();
@@ -64,17 +66,25 @@ export function ArtGallery(props: ArtGalleryProps) {
           thumbnails: {
             ...art['thumbnails'],
             thumbnail: thumbnailURL,
-            medium: mediumURL
+            medium: mediumURL,
           },
         };
       });
-
-      const artData = await Promise.all(artDataPromises);
-      setDigitalArt(artData);
+      return await Promise.all(artDataPromises);
     };
 
-    fetchArtworks();
+    const fetchAllCategories = async () => {
+      const digital = await fetchArtworks('digital');
+      setDigitalArt(digital);
 
+      const painting = await fetchArtworks('painting');
+      setPaintingArt(painting);
+
+      const pixel = await fetchArtworks('pixel');
+      setPixelArt(pixel);
+    };
+
+    fetchAllCategories();
   }, []);
 
   return (
@@ -100,7 +110,23 @@ export function ArtGallery(props: ArtGalleryProps) {
       </div>
       {digitalActive && <div className={`columns-2 md:columns-3 lg:columns-4 ${styles['art-grid-container']}`}>
         {digitalArt.map((art: any) => (
-          <ArtWrapper type='image' src={art.thumbnails.thumbnail}/>
+          <div key={art.id}>
+            <ArtWrapper type='image' src={art.thumbnails.thumbnail}/>
+          </div>
+        ))}
+      </div>}
+      {paintingActive && <div className={`columns-2 md:columns-3 lg:columns-4 ${styles['art-grid-container']}`}>
+        {paintingArt.map((art: any) => (
+          <div key={art.id}>
+            <ArtWrapper type='image' src={art.thumbnails.thumbnail}/>
+          </div>
+        ))}
+      </div>}
+      {pixelActive && <div className={`columns-2 md:columns-3 lg:columns-4 ${styles['art-grid-container']}`}>
+        {pixelArt.map((art: any) => (
+          <div key={art.id}>
+            <ArtWrapper type='image' src={art.thumbnails.thumbnail}/>
+          </div>
         ))}
       </div>}
     </div>
