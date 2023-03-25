@@ -16,11 +16,12 @@
     "@fortawesome/free-solid-svg-icons": "^6.2.0",
     "@fortawesome/react-fontawesome": "^0.2.0",
     "core-js": "^3.6.5",
+    "firebase": "^9.18.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-helmet": "^6.1.0",
     "react-router-dom": "^6.4.3",
     "regenerator-runtime": "0.13.7",
-    "firebase": "^9.18.0",
     "tslib": "^2.3.0"
   },
   "devDependencies": {
@@ -38,6 +39,7 @@
     "@types/node": "18.7.18",
     "@types/react": "18.0.20",
     "@types/react-dom": "18.0.6",
+    "@types/react-helmet": "^6.1.6",
     "@typescript-eslint/eslint-plugin": "^5.36.1",
     "@typescript-eslint/parser": "^5.36.1",
     "autoprefixer": "10.4.12",

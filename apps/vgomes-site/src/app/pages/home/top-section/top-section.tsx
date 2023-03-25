@@ -44,7 +44,7 @@ export function TopSection(props: TopSectionProps) {
               I'm a general creative, with a love for art & technology.
             </span>
             <span className="inline-block">
-              Currently working as a Front-end Engineer at{' '}
+              Currently working as a Front-end Engineer 2 at{' '}
               <a
                 className="border-b border-b-gold-yellow cursor-pointer"
                 href="https://www.blackrock.com/us/individual/about-us/about-blackrock"
