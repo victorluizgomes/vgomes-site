@@ -13,11 +13,11 @@ export function Home(props: HomeProps) {
         <title>Victor Gomes (vgomes.co)</title>
         <meta name="description" content="Victor Gomes personal website, showcasing his interests, hobbies and work. Some things you will find are Art, NFT and programming." />
       </Helmet>
-      <div className={styles['container']}>
-        <img className={styles['big-bg-deco']} src="assets/vectors/big-bg-circle-vector.png" alt="blue circle vector" />
+      <main className={styles['container']}>
+        <img className={styles['big-bg-deco']} src="assets/vectors/big-bg-circle-vector.png" role="presentation" alt="" />
         <TopSection />
         <AboutSection />
-      </div>
+      </main>
     </>
   );
 }

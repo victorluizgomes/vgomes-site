@@ -8,7 +8,7 @@ export interface NftProjectsProps {}
 
 export function NftProjects(props: NftProjectsProps) {
   return (
-    <div className={`${styles['container']} py-20`}>
+    <section className={`${styles['container']} py-20`}>
       <div className={styles['header-text']}>
         <h2 className="text-3xl sm:text-4xl lg:text-5xl text-center leading-tight">
           NFT Projects
@@ -44,7 +44,7 @@ export function NftProjects(props: NftProjectsProps) {
           openseaLink="https://opensea.io/VesselVerse?tab=created"
         />
       </div>
-    </div>
+    </section>
   );
 }
 

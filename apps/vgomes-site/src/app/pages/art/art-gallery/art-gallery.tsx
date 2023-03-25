@@ -92,7 +92,7 @@ export function ArtGallery(props: ArtGalleryProps) {
   }, []);
 
   return (
-    <div className={styles['container']}>
+    <section className={styles['container']}>
       {/* <div>
         <div>
           {artworks.map((art: any) => (
@@ -105,14 +105,14 @@ export function ArtGallery(props: ArtGalleryProps) {
         </div>
       </div> */}
 
-      <div className='flex item-center justify-center mb-3'>
+      <nav className='flex item-center justify-center mb-3'>
         {/* TODO: fix so it fits in mobile */}
         <Button label='Digital Art' active={digitalActive} onClick={setDigital} />
         <Button label='Paintings' active={paintingActive} onClick={setPainting} />
         <Button label='Drawing' active={drawingActive} onClick={setDrawing} />
         {/* <Button label='Generative' active={generativeActive} onClick={setGenerative} /> */}
         <Button label='Pixel Art' active={pixelActive} onClick={setPixel} />
-      </div>
+      </nav>
       {digitalActive && <div className={`columns-2 md:columns-3 lg:columns-4 ${styles['art-grid-container']}`}>
         {digitalArt.map((art: any) => (
           <div key={art.id}>
@@ -141,7 +141,7 @@ export function ArtGallery(props: ArtGalleryProps) {
           </div>
         ))}
       </div>}
-    </div>
+    </section>
   );
 }
 

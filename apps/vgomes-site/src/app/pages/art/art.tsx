@@ -16,10 +16,10 @@ export function Art(props: ArtProps) {
           content="Discover a diverse range of Victor Gomes' art, from painting and drawing to digital and generative creations. Experience a unique fusion of creativity and imagination."
         />
       </Helmet>
-      <div className={styles['container']}>
+      <main className={styles['container']}>
         <TopSection />
         <ArtGallery />
-      </div>
+      </main>
     </>
   );
 }

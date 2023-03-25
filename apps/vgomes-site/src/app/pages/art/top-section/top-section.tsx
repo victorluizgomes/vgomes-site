@@ -5,7 +5,7 @@ export interface TopSectionProps {}
 
 export function TopSection(props: TopSectionProps) {
   return (
-    <div className={styles['container']}>
+    <section className={styles['container']}>
       <div className="text-center my-20">
         <h1 className="text-3xl sm:text-4xl lg:text-5xl leading-tight">
           Sometimes I work on creative projects and art.
@@ -14,7 +14,7 @@ export function TopSection(props: TopSectionProps) {
           "Every child is an artist. The problem is how to remain an artist once we grow up." - Pablo Picasso
         </p>
       </div>
-    </div>
+    </section>
   );
 }
 

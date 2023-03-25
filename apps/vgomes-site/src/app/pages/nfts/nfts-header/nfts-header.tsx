@@ -5,7 +5,7 @@ export interface NftsHeaderProps {}
 
 export function NftsHeader(props: NftsHeaderProps) {
   return (
-    <div className={styles['container']}>
+    <section className={styles['container']}>
       <div className="text-center my-20">
         <h1 className="text-3xl sm:text-4xl lg:text-5xl leading-tight">
           NFTs are cool.
@@ -39,7 +39,7 @@ export function NftsHeader(props: NftsHeaderProps) {
           ></iframe>
         </div>
       </div>
-    </div>
+    </section>
   );
 }
 

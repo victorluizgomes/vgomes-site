@@ -16,10 +16,10 @@ export function Nfts(props: NftsProps) {
           content="Explore Victor Gomes' NFT collection, featuring unique digital, generative, and pixel art. Pieces that Victor has created and collected, also Projects he has worked on in the NFT space."
         />
       </Helmet>
-      <div className={styles['container']}>
+      <main className={styles['container']}>
         <NftsHeader />
         <NftProjects />
-      </div>
+      </main>
     </>
   );
 }

@@ -18,7 +18,7 @@ export interface TopSectionProps {}
 
 export function TopSection(props: TopSectionProps) {
   return (
-    <div className={styles['container']}>
+    <section className={styles['container']}>
       {/* main picture and text area */}
       <div className="flex flex-col-reverse md:flex-row items-center justify-center gap-6 md:gap-3 lg:gap-10 mx-1 sm:mx-6 lg:mx-20 mb-10 md:mb-24 mt-24">
         <img
@@ -80,7 +80,7 @@ export function TopSection(props: TopSectionProps) {
           </li>
         </ul>
       </div>
-    </div>
+    </section>
   );
 }
 

@@ -5,7 +5,7 @@ export interface AboutSectionProps {}
 
 export function AboutSection(props: AboutSectionProps) {
   return (
-    <div className={styles['container']}>
+    <section className={styles['container']}>
       <div
         className={`${styles['header']} md:px-24 w-full flex justify-center`}
       >
@@ -13,7 +13,7 @@ export function AboutSection(props: AboutSectionProps) {
           <img
             className={styles['arrow-vector']}
             src="assets/vectors/arrow-vector.png"
-            alt="red arrow vector"
+            alt="red arrow pointing down at the text vector"
           />
           Who is Victor...
         </h2>
@@ -43,7 +43,7 @@ export function AboutSection(props: AboutSectionProps) {
           web3 technology.
         </p>
       </div>
-    </div>
+    </section>
   );
 }
 
