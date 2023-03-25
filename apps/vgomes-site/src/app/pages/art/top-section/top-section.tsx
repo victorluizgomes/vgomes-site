@@ -6,7 +6,7 @@ export interface TopSectionProps {}
 export function TopSection(props: TopSectionProps) {
   return (
     <section className={styles['container']}>
-      <div className="text-center my-20">
+      <div className="text-center mx-2 my-12 sm:my-20">
         <h1 className="text-3xl sm:text-4xl lg:text-5xl leading-tight">
           Sometimes I work on creative projects and art.
         </h1>

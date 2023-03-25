@@ -11,7 +11,7 @@ export interface FooterProps {}
 
 export function Footer(props: FooterProps) {
   return (
-    <footer className={`${styles['container']} py-20`}>
+    <footer className={`${styles['container']} pb-14 pt-10 sm:py-20`}>
       <div className="px-6 sm:px-16">
         <p className='text-center sm:text-left'>
           Say Hello &#8212;{' '}

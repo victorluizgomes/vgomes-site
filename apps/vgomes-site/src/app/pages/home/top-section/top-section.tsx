@@ -20,7 +20,7 @@ export function TopSection(props: TopSectionProps) {
   return (
     <section className={styles['container']}>
       {/* main picture and text area */}
-      <div className="flex flex-col-reverse md:flex-row items-center justify-center gap-6 md:gap-3 lg:gap-10 mx-1 sm:mx-6 lg:mx-20 mb-10 md:mb-24 mt-24">
+      <div className="flex flex-col-reverse md:flex-row items-center justify-center gap-6 md:gap-3 lg:gap-10 mx-2 sm:mx-6 lg:mx-20 mb-10 md:mb-24 mt-24">
         <img
           className="min-w-72 w-72 max-w-72 lg:min-w-80 lg:w-80 lg:max-w-80"
           src="assets/hq-header-picture.png"
@@ -41,7 +41,7 @@ export function TopSection(props: TopSectionProps) {
           </h1>
           <p className=" mt-6 text-sm sm:text-base lg:text-base leading-loose lg:leading-loose">
             <span className="inline-block">
-              I'm a general creative, with a love for art & technology.
+              I'm a general creative, with a love for art & technology.&nbsp;
             </span>
             <span className="inline-block">
               Currently working as a Front-end Engineer 2 at{' '}

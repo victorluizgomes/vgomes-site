@@ -38,6 +38,10 @@
 }
 
 @media (max-width: 768px) {
+    .container {
+        padding-top: 3rem;
+        padding-bottom: 3rem;
+    }
     .arrow-vector {
         display: none;
     }
