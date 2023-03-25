@@ -11,10 +11,10 @@ import styles from './art-gallery.module.scss';
 export interface ArtGalleryProps {}
 
 export function ArtGallery(props: ArtGalleryProps) {
-  const [paintingActive, setPaintingActive] = useState<boolean>(true);
+  const [paintingActive, setPaintingActive] = useState<boolean>(false);
   const [drawingActive, setDrawingActive] = useState<boolean>(false);
   // const [generativeActive, setGenerativeActive] = useState<boolean>(false);
-  const [digitalActive, setDigitalActive] = useState<boolean>(false);
+  const [digitalActive, setDigitalActive] = useState<boolean>(true);
   const [pixelActive, setPixelActive] = useState<boolean>(false);
 
   const [digitalArt, setDigitalArt] = useState<any>([]);
