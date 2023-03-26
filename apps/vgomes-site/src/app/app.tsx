@@ -14,7 +14,6 @@ export function App() {
       <Routes>
         <Route path="/"
           action={async () => {
-            console.log('ACTION ROUTE')
             return redirect('/');
           }}
           element={<Home />}></Route>

@@ -15,3 +15,10 @@
     border: 2px solid #E8BA74;
     background-color: #e8ba7439;
 }
+
+@media (max-width: 768px) {
+    .button-wrapper {
+        padding: .45rem .75rem;
+        font-size: .94em;
+    }
+}

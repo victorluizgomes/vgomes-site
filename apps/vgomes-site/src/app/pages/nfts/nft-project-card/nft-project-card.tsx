@@ -17,7 +17,7 @@ export enum NftCardColorEnum {
 
 export function NftProjectCard(props: NftProjectCardProps) {
   return (
-    <div
+    <article
       className={`${styles['container']} ${
         props.bgColor === NftCardColorEnum.Blue ? 'bg-mid-blue' : ''
       } ${props.bgColor === NftCardColorEnum.Red ? 'bg-mid-red' : ''} ${
@@ -48,7 +48,7 @@ export function NftProjectCard(props: NftProjectCardProps) {
           </a>
         )}
       </div>
-    </div>
+    </article>
   );
 }
 
