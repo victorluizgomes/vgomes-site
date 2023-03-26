@@ -3,7 +3,7 @@ import { getFirestore } from 'firebase/firestore';
 import { getStorage } from 'firebase/storage';
 
 const firebaseConfig = {
-    apiKey: "AIzaSyDhveh-HnH2n04lUqJqSoDtO5FtFc6KN_M",
+    apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
     authDomain: "vgomes-site.firebaseapp.com",
     projectId: "vgomes-site",
     storageBucket: "vgomes-site.appspot.com",
