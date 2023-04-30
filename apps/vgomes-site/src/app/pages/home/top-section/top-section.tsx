@@ -46,7 +46,7 @@ export function TopSection(props: TopSectionProps) {
             <span className="inline-block">
               Currently working as a Front-end Engineer 2 at{' '}
               <a
-                className="border-b border-b-gold-yellow cursor-pointer"
+                className={`border-b border-b-gold-yellow cursor-pointer hover:border-b-2 ${styles['header-link']}`}
                 href="https://www.blackrock.com/us/individual/about-us/about-blackrock"
                 target="_blank"
                 rel="noreferrer"
