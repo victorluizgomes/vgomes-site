@@ -17,6 +17,13 @@
     height: auto;
     top: -90px;
     left: 30px;
+    opacity: 0;
+    transition: opacity 2.5s ease-in-out;
+    animation: fade-in 2.5s ease-in-out forwards;
+}
+
+.header-link {
+    transition: border-width 0.2s ease-in-out;
 }
 
 @media (min-width: 640px) {
@@ -31,5 +38,14 @@
         width: 140px;
         top: -120px;
         left: -60px;
+    }
+}
+
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
     }
 }

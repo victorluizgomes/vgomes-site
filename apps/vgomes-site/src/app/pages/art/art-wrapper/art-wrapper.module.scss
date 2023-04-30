@@ -6,13 +6,18 @@
  * }
 */
 
-// .container {
-//     width: 47%;
-// }
-
 .art-img-wrapper {
+    background-color: rgb(0, 0, 0);
+    display: inline-block;
+    line-height: 0;
+    width: 100%;
+
     &:hover {
-        // background-color: rgb(202, 202, 202); // TODO: FOR TESTING HOVER REMOVE
         cursor: pointer;
+    }
+
+    & img:hover {
+        transition: opacity .2s ease-in-out;
+        opacity: .8;
     }
 }

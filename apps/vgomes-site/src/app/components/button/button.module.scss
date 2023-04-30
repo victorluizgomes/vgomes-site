@@ -9,12 +9,32 @@
 .button-wrapper {
     padding: .75rem 1.25rem;
     border: 2px solid #E5E5E5;
+
+    &:hover {
+        transition: background-color 0.2s ease-in-out;
+        background-color: #e8ba741d;
+    }
 }
 
 .button-active {
     border: 2px solid #E8BA74;
     background-color: #e8ba7439;
+    transition: background-color 0.2s ease-in-out;
+    animation: border-animation .4s ease-in-out 1;
+
+    &:hover {
+        background-color: #e8ba7439;
+    }
 }
+
+@keyframes border-animation {
+    0% {
+      border-color: #e8ba741d;
+    }
+    100% {
+      border-color: #E8BA74;
+    }
+  }
 
 @media (max-width: 768px) {
     .button-wrapper {

@@ -12,6 +12,10 @@
     margin: 3rem 1rem;
 }
 
+.text-link {
+    transition: border-width 0.2s ease-in-out;
+}
+
 @media (max-width: 640px) {
     .oncyber-wrapper {
         width: calc(100% - .5rem);

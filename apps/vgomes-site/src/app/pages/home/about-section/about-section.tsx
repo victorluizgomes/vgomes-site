@@ -20,27 +20,27 @@ export function AboutSection(props: AboutSectionProps) {
       </div>
       <div className={`${styles['main-text-wrapper']} gap-4 mt-6`}>
         <p className={styles['main-text']}>
-          Growing up I loved to draw, I drew a lot of anime and cartoon
-          characters. I spent much of my time playing video games with friends;
-          things like Diablo, League of Legends, Minecraft, and MMORPGs. Both my love of
-          art and technology grew as I got older and always has been a huge part
-          of my life. I was born and raised in Brazil. Lived there until I moved
-          to the United States for college, where I studied Computer Science at
-          the University of Arizona and graduated in 2019. I loved it. Being a
-          teacher's assistant, doing Virtual Reality research, and all of the
-          problem-solving involved with programming made my time there
-          fulfilling and I learned a lot from my experience.
+          I am a Front-end Engineer with a passion for art and technology. I
+          currently work at Blackrock, where I discovered my love for Front-end
+          web development. In 2020, I started working there as a full-time
+          Software Engineer after completing my Computer Science degree from the
+          University of Arizona. Outside of work, I enjoy developing my art
+          skills, experimenting with different mediums such as digital and
+          generative art, acrylic paints, and pen sketches. I am also interested
+          in web3 development and have been working in the NFT space with some
+          friends to develop web3 technology.
         </p>
         <p className={styles['main-text']}>
-          During my time in University I interned with Blackrock as a Software
-          Engineer; and in 2020 I began as a full-time software engineer there.
-          That is when I discovered my love for Front-end web development, and
-          am currently working as a Front-end engineer. Outside of work, I have
-          been developing my art; I love to experiment with different mediums.
-          Digital and generative art, acrylic paints, and pen sketches are just
-          a few examples. I also have been learning about web3 development, and
-          together with some friends have worked in the NFT space developing
-          web3 technology.
+          My love for art and technology began at a young age. I spent much of
+          my childhood drawing anime and cartoon characters, playing video games
+          like Diablo, League of Legends, Minecraft, and MMORPGs. As I got
+          older, my love for both art and technology continued to grow and has
+          become a huge part of my life. I was born and raised in Brazil and
+          moved to the United States for college, where I studied Computer
+          Science. During my time in University, I worked as a teacher's
+          assistant and did Virtual Reality research, which was fulfilling and
+          taught me a lot. I also interned with Blackrock as a Software
+          Engineer, which led me to my current role.
         </p>
       </div>
     </section>
