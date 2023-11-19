@@ -21,12 +21,12 @@ export function NavBar(props: NavBarProps) {
           } hover:border-b-gold-yellow hover:border-b-2 pb-2`}
         >
           <Link href="/" className="cursor-pointer text-lg font-bold">
-            Home
+            About
           </Link>
         </li>
         <li
           className={`${
-            router.pathname === "/art"
+            router.pathname.startsWith("/art")
               ? "border-b-2 !border-b-gold-yellow pb-0"
               : "hover:pb-0"
           } ${
@@ -39,7 +39,7 @@ export function NavBar(props: NavBarProps) {
         </li>
         <li
           className={`${
-            router.pathname === "/blog"
+            router.pathname.startsWith("/blog")
               ? "border-b-2 !border-b-gold-yellow pb-0"
               : "hover:pb-0"
           } ${
