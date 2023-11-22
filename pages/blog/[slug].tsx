@@ -32,7 +32,7 @@ export default function BlogPost(props: BlogPostProps) {
         <meta name="description" content={props.frontmatter.description} />
         {/* TODO: Add other SEO relevant tags */}
       </Head>
-      <article className="flex flex-col items-center justify-between">
+      <article className="flex flex-col items-center justify-between pb-6">
         <div className="max-w-4xl px-6 mt-6">
           <Link
             href="/blog"
