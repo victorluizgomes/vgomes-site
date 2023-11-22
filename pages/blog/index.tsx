@@ -11,7 +11,7 @@ export interface BlogProps {
 
 export default function Blog(props: BlogProps) {
   return (
-    <main className="flex flex-col items-center justify-between px-24 pb-6">
+    <main className="flex flex-col items-center justify-between">
       <Head>
         <title>Victor Gomes | Blog</title>
       </Head>
@@ -21,16 +21,20 @@ export default function Blog(props: BlogProps) {
                 <h1 className="text-3xl sm:text-4xl lg:text-5xl leading-tight">
                     Victor Gomes - Blog
                 </h1>
+                <p className="text-sm sm:text-base mt-6 px-2 leading-loose text-center">
+                  Where I write about my developer journey and sometimes a few technical tutorials.
+                </p>
             </div>
         </section>
-        <ul>
+        <ul className="px-6 md:px-24 pb-6">
             {props.posts.map((post) => (
             <li key={post.slug} className="my-3">
                 <Link href={`/blog/${post.slug}`}>
-                    <div className="flex flex-col p-6 text-left border border-gold-yellow/70 hover:bg-gold-yellow/10 rounded-md">
+                    <div className="flex flex-col p-4 md:p-6 text-left border border-gold-yellow/70 hover:bg-gold-yellow/10 rounded-md">
                         <span className="text-neutral-600 pb-1">{formatDate(post.frontmatter.date)}</span>
-                        <h2 className="font-bold text-2xl text-neutral-800 pb-4">{post.frontmatter.title}</h2>
-                        <p className="text-neutral-700">{post.frontmatter.description}</p>
+                        <h2 className="font-bold text-xl md:text-2xl text-neutral-800 pb-4">{post.frontmatter.title}</h2>
+                        <p className="text-sm md:text-base text-neutral-700">{post.frontmatter.description}</p>
+                        <span className="mt-2 flex w-full justify-end text-sm md:text-base text-[#ab6945]">Read More</span>
                     </div>
                 </Link>
             </li>

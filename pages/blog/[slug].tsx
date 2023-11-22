@@ -33,7 +33,7 @@ export default function BlogPost(props: BlogPostProps) {
         {/* TODO: Add other SEO relevant tags */}
       </Head>
       <article className="flex flex-col items-center justify-between pb-6">
-        <div className="max-w-4xl px-6 mt-6">
+        <div className="max-w-4xl px-4 md:px-6 mt-3 md:mt-6">
           <Link
             href="/blog"
             className="cursor-pointer w-fit items-center flex gap-3"
@@ -41,12 +41,15 @@ export default function BlogPost(props: BlogPostProps) {
             <FontAwesomeIcon className="text-neutral-600 h-4 w-4" icon={faArrowLeft} />
             <span className="text-neutral-600">Go back to blogs</span>
           </Link>
-          <h1 className="text-neutral-900 mt-8 mb-4 text-5xl leading-tight">
+          <h1 className="text-neutral-900 mt-6 sm:mt-8 mb-4 text-3xl md:text-4xl lg:text-5xl leading-tight">
             {props.frontmatter.title}
           </h1>
-          <p className="text-neutral-700 mb-12">
-            {formatDate(props.frontmatter.date)}
-          </p>
+          <div>
+            <p className="text-neutral-700 mb-8 text-sm sm:text-md">
+              {formatDate(props.frontmatter.date)}
+            </p>
+            <hr className="pb-4 border-neutral-300"/>
+          </div>
           <div
             className={styles.markdown}
             dangerouslySetInnerHTML={{ __html: props.content }}

@@ -1,7 +1,7 @@
 ---
 title: 'How to be motivated to code and learn after a 9 to 5 job'
 date: '2023-11-21'
-description: 'For over 1 year now I have been working a 9 to 5 job and working on something on the side at nights and weekends. It seemed impossible to me at the beginning, but I learned a few things along the way that made it fun and made me look forward to it everyday. Hopefully they can help you too.'
+description: 'For over 1 year now I have been working a 9 to 5 job and working on something on the side at nights and weekends. Here is what I learned.'
 ---
 
 For over 1 year now I have been working a 9 to 5 job and working on something on the side at nights and weekends. It seemed impossible to me at the beginning, but I learned a few things along the way that made it fun and made me look forward to it everyday. Hopefully they can help you too.
