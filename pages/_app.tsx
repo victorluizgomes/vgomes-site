@@ -7,25 +7,30 @@ import Script from "next/script";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <div className="flex flex-col min-h-screen justify-between">
-      {/* Google tag (gtag.js) */}
-      <Script src="https://www.googletagmanager.com/gtag/js?id=G-MG32JXNQ3P" />
-      <Script id="google-analytics">
-        {`
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
+    <>
+      <Head>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+      </Head>
+      <div className="flex flex-col min-h-screen justify-between">
+        {/* Google tag (gtag.js) */}
+        <Script src="https://www.googletagmanager.com/gtag/js?id=G-MG32JXNQ3P" />
+        <Script id="google-analytics">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
 
-          gtag('config', 'G-MG32JXNQ3P');
-        `}
-      </Script>
+            gtag('config', 'G-MG32JXNQ3P');
+          `}
+        </Script>
 
-      <div>
-        <NavBar />
-        <Component {...pageProps} />
+        <div>
+          <NavBar />
+          <Component {...pageProps} />
+        </div>
+        <Footer />
       </div>
-      <Footer />
-    </div>
+    </>
   );
 }
 
