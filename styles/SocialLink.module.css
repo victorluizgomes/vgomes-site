@@ -1,0 +1,6 @@
+.container {
+    width: 46px;
+    height: 46px;
+    border-radius: 8px;
+    transition: background-color 0.2s ease-in-out;
+}

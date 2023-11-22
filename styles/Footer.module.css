@@ -1,0 +1,8 @@
+.container {
+    width: 100%;
+    background-color: white;
+}
+
+.email-link, .social-link {
+    transition: border-color 0.2s ease-in-out;
+}

@@ -1,0 +1,17 @@
+.art-img-wrapper {
+    /* position: relative; */
+    display: inline-block;
+    line-height: 0;
+    width: 100%;
+    object-fit: contain;
+}
+
+.art-img-wrapper:hover {
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.art-img-wrapper > img:hover{
+    transition: opacity .2s ease-in-out;
+    opacity: .8;
+}

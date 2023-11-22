@@ -1,0 +1,40 @@
+.main-text-container {
+    position: relative;
+    max-width: 550px;
+}
+
+.hi-img {
+    position: absolute;
+    width: 100px;
+    height: auto;
+    top: -90px;
+    left: 30px;
+}
+
+.header-link {
+    transition: border-width 0.2s ease-in-out;
+}
+
+@media (min-width: 640px) {
+    .hi-img {
+        width: 140px;
+    }
+}
+
+
+@media (min-width: 768px) {
+    .hi-img {
+        width: 140px;
+        top: -120px;
+        left: -60px;
+    }
+}
+
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}

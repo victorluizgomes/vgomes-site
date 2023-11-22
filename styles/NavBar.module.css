@@ -1,0 +1,10 @@
+.container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav-animation {
+    transition: border-color 0.2s ease-in-out;
+}
