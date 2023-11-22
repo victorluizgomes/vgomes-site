@@ -29,9 +29,10 @@ export function AboutSection(props: AboutSectionProps) {
           Software Engineer after completing my Computer Science degree from the
           University of Arizona. Outside of work, I enjoy developing my art
           skills, experimenting with different mediums such as digital and
-          generative art, acrylic paints, and pen sketches. I am also interested
-          in web3 development and have been working in the NFT space with some
-          friends to develop web3 technology.
+          generative art, acrylic paints, and pen sketches.
+          I love learning different technologies, starting new coding projects on the side.
+          The past few years I also delve into web3 development and worked
+          in the NFT space with some friends to develop web3 technology.
         </p>
         <p className={styles['main-text']}>
           My love for art and technology began at a young age. I spent much of
