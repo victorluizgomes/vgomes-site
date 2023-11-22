@@ -9,11 +9,7 @@ vgomes.co personal site in Next.js React
 - HTML
 - CSS
 - Tailwind
-
-## Figma Original Web Design file screenshot
-<img width="1011" alt="Screen Shot 2022-11-06 at 8 03 34 PM" src="https://user-images.githubusercontent.com/25330748/200206535-1de6bc03-d535-47e6-9615-e7b47154acd5.png">
-
-Will add more pictures here in the future
+- Figma for Design
 
 ## Notes on Changes
 
@@ -26,6 +22,12 @@ Another interesting change was that my art used to be hosted in Firebase.
 But I learned that it was overly engineering when these images won't change much.
 I am now directly pushing the art images to the repo and makes handling them much easier.
 
+## Notes on SEO
+
+- scripts/generate-sitemap.js generates the sitemap dynamically for my blog posts on `npm run build`
+- robots.txt does not disallow any pages, and points to the sitemap.
+- all main pages have a unique `<title></title>` and `<meta description />`
+
 ## Plans for the Future
 
 - Projects tab
@@ -33,3 +35,4 @@ I am now directly pushing the art images to the repo and makes handling them muc
 - Dark mode
 - Lots more blog posts
 - Maybe a fun Web Game?
+

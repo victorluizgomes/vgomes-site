@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "license": "MIT",
   "scripts": {
-    "build": "next build",
+    "build": "node scripts/generate-sitemap.js && next build",
     "dev": "next dev",
     "start": "next start"
   },

@@ -14,6 +14,7 @@ export default function Blog(props: BlogProps) {
     <main className="flex flex-col items-center justify-between">
       <Head>
         <title>Victor Gomes | Blog</title>
+        <meta name="description" content="Victor Gomes dev blog, Where I write about my developer journey and sometimes a few technical tutorials." />
       </Head>
       <div className="max-w-3xl">
         <section>
@@ -31,10 +32,10 @@ export default function Blog(props: BlogProps) {
             <li key={post.slug} className="my-3">
                 <Link href={`/blog/${post.slug}`}>
                     <div className="flex flex-col p-4 md:p-6 text-left border border-gold-yellow/70 hover:bg-gold-yellow/10 rounded-md">
-                        <span className="text-neutral-600 pb-1">{formatDate(post.frontmatter.date)}</span>
+                        <span className="text-neutral-600 text-sm md:text-base pb-1">{formatDate(post.frontmatter.date)}</span>
                         <h2 className="font-bold text-xl md:text-2xl text-neutral-800 pb-4">{post.frontmatter.title}</h2>
                         <p className="text-sm md:text-base text-neutral-700">{post.frontmatter.description}</p>
-                        <span className="mt-2 flex w-full justify-end text-sm md:text-base text-[#ab6945]">Read More</span>
+                        <span className="mt-2 flex w-full justify-end text-sm md:text-base text-[#ab6945]">Read more</span>
                     </div>
                 </Link>
             </li>
