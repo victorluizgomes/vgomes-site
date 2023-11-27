@@ -16,12 +16,16 @@ export interface BlogPostProps {
 }
 
 export function formatDate(dateString: string): string {
+  const [year, month, day] = dateString.split('-').map(num => parseInt(num, 10));
+  const date = new Date(year, month - 1, day);
+
   const options: Intl.DateTimeFormatOptions = {
     year: "numeric",
     month: "short",
     day: "2-digit",
+    timeZone: 'America/New_York'
   };
-  return new Intl.DateTimeFormat("en-US", options).format(new Date(dateString));
+  return new Intl.DateTimeFormat("en-US", options).format(date);
 }
 
 export default function BlogPost(props: BlogPostProps) {
@@ -33,7 +37,7 @@ export default function BlogPost(props: BlogPostProps) {
         {/* TODO: Add other SEO relevant tags */}
       </Head>
       <article className="flex flex-col items-center justify-between pb-6">
-        <div className="max-w-4xl px-4 md:px-6 mt-3 md:mt-6">
+        <div className="w-full max-w-4xl px-4 md:px-6 mt-3 md:mt-6">
           <Link
             href="/blog"
             className="cursor-pointer w-fit items-center flex gap-3"

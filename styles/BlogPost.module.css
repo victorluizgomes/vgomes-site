@@ -68,8 +68,30 @@
 }
 
 .markdown a {
-    color: #ab6945;
+    color: #8b4b37;
     text-decoration: underline;
+}
+
+.markdown code {
+  background-color: #DDD;
+  padding: 0 1px;
+  white-space: pre;
+}
+
+.markdown pre {
+  padding: .4rem .4rem .4rem .6rem;
+  border-radius: 5px;
+  background-color: rgb(240, 235, 222);
+  overflow-x: auto;
+  word-wrap: normal;
+  white-space: pre;
+  max-width: 100%;
+}
+
+.markdown pre > code {
+  white-space: pre;
+  display: block;
+  background-color: unset;
 }
 
 @media (max-width: 768px) {
@@ -100,5 +122,9 @@
 
   .markdown p {
     margin: .3rem 0;
+  }
+
+  .markdown pre > code {
+    font-size: .8em;
   }
 }
