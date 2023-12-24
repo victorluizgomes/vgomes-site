@@ -69,16 +69,16 @@ export function TopSection(props: TopSectionProps) {
         <p>Check out</p>
         <ul className="flex gap-2 sm:gap-4">
           <li>
-            <SocialLink url={X_TWITTER_URL} icon={faXTwitter} />
+            <SocialLink url={X_TWITTER_URL} icon={faXTwitter} ariaLabel="Twitter/X" />
           </li>
           <li>
-            <SocialLink url={INSTAGRAM_URL} icon={faInstagram} />
+            <SocialLink url={INSTAGRAM_URL} icon={faInstagram} ariaLabel="Instagram" />
           </li>
           <li>
-            <SocialLink url={GITHUB_URL} icon={faGithub} />
+            <SocialLink url={GITHUB_URL} icon={faGithub} ariaLabel="Github" />
           </li>
           <li>
-            <SocialLink url={LINKEDIN_URL} icon={faLinkedinIn} />
+            <SocialLink url={LINKEDIN_URL} icon={faLinkedinIn} ariaLabel="LinkedIn" />
           </li>
         </ul>
       </div>

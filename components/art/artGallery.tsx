@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { TabButton as Button } from "../../components/tabButton";
 import ArtWrapper from "./artWrapper";
 import styles from "../../styles/art/ArtGallery.module.css";

@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 export interface SocialLinkProps {
   url: string;
   icon: any;
+  ariaLabel: string;
 }
 
 export function SocialLink(props: SocialLinkProps) {
@@ -13,6 +14,7 @@ export function SocialLink(props: SocialLinkProps) {
       href={props.url}
       target="_blank"
       rel="noreferrer"
+      aria-label={props.ariaLabel}
       className={`${styles["container"]} bg-off-grey hover:bg-gold-yellow flex items-center justify-center`}
     >
       <div className="flex justify-center h-8 w-8">
