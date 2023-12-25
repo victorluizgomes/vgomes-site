@@ -1,7 +1,16 @@
 /* Styling for the markdown Blog Posts */
 /* use of the .markdown prefix is required to keep the classes in scope of the blog posts */
 
-.markdown * {
+.markdown p,
+.markdown h1,
+.markdown h2,
+.markdown h3,
+.markdown h4,
+.markdown h5,
+.markdown h6,
+.markdown ol,
+.markdown li,
+.markdown ul {
   color: #222;
 }
 
@@ -73,7 +82,6 @@
 }
 
 .markdown code {
-  background-color: #DDD;
   padding: 0 1px;
   white-space: pre;
 }
@@ -81,7 +89,7 @@
 .markdown pre {
   padding: .4rem .4rem .4rem .6rem;
   border-radius: 5px;
-  background-color: rgb(240, 235, 222);
+  background-color: #0d1117;
   overflow-x: auto;
   word-wrap: normal;
   white-space: pre;

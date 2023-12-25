@@ -12,7 +12,7 @@ I have been wanting to build a blog for awhile, I have heard of the wonders of b
 
 Organize your blog posts in a specific directory within your project. A common approach is to use a `posts` directory within the `public` or a dedicated content directory.
 
-```
+```markdown
 - /pages
   - /blog
     - index.tsx (or .js)
@@ -295,7 +295,7 @@ Modify the styles to your taste and add more as you need them.
 `robots.txt` is used to instruct web crawlers about the pages you want or don't want to be crawled and indexed.
 It typically contains rules for search engine bots, like disallowing access to certain directories or specifying the location of the sitemap. An example would be:
 
-```
+```markdown
 User-agent: *
 Allow: /admin/
 Sitemap: https://www.yourdomain.com/sitemap.xml
@@ -365,6 +365,8 @@ generateSitemap();
 ### Google Search Console
 
 After deploying your site with the sitemap, use Google Search Console to submit your sitemap URL. Google will report if there are any issues found.
+
+Also if it has been some time and your page is not yet indexed by Google when you search, you can manually request indexing for that page or route.
 
 ---
 

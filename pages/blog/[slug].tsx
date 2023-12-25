@@ -3,7 +3,12 @@ import path from "path";
 import matter from "gray-matter";
 import { remark } from "remark";
 import html from "remark-html";
+import highlight from 'rehype-highlight';
+import rehypeRaw from 'rehype-raw';
+import rehypeStringify from 'rehype-stringify';
+import remarkRehype from 'remark-rehype';
 import Head from "next/head";
+import 'highlight.js/styles/github-dark.css';
 import styles from "../../styles/BlogPost.module.css";
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -87,7 +92,13 @@ export async function getStaticProps({ params: { slug } }) {
   const { data: frontmatter, content } = matter(markdownWithMeta);
 
   // Convert markdown into HTML string
-  const processedContent = await remark().use(html).process(content);
+  const processedContent = await remark()
+    .use(html)
+    .use(remarkRehype, { allowDangerousHtml: true })
+    .use(rehypeRaw)
+    .use(highlight)
+    .use(rehypeStringify)
+    .process(content);
   const contentHtml = processedContent.toString();
 
   return {
