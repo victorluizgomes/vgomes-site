@@ -36,3 +36,12 @@ I am now directly pushing the art images to the repo and makes handling them muc
 - Lots more blog posts
 - Maybe a fun Web Game?
 
+## Notes to self on adding artworks:
+
+1. Use terminal alias that I setup for converting from HEIC to jpeg and image resizing:
+- `heic` (Docs: https://github.com/victorluizgomes/heic-image-converter)
+- `img-re` (Docs: https://github.com/victorluizgomes/image-resizer)
+
+2. Then paste the image in `public/art/` folder, in the appropriate category.
+3. Add artwork details in `model/artworks.json` in the appropriate category.
+4. Build with `npm run build` then run the app to see changes.
