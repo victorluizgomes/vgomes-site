@@ -6,6 +6,7 @@
                 "description": "",
                 "link": "/art/digital/rainbow-people-3.MP4",
                 "descriptionLink": "",
+                "cover": "/art/digital/rainbow-people-3.jpg",
                 "isVideo": true
             },
             {
@@ -13,6 +14,7 @@
                 "description": "",
                 "link": "/art/digital/rainbow-people-2.MP4",
                 "descriptionLink": "",
+                "cover": "/art/digital/rainbow-people-2.jpg",
                 "isVideo": true
             },
             {
@@ -20,6 +22,7 @@
                 "description": "",
                 "link": "/art/digital/rainbow-people-4.MP4",
                 "descriptionLink": "",
+                "cover": "/art/digital/rainbow-people-4.jpg",
                 "isVideo": true
             },
             {
@@ -276,6 +279,7 @@
                 "name": "Lucid Paths Unrevealed",
                 "description": "",
                 "link": "/art/generative/lucid-paths-unrevealed.MP4",
+                "cover": "/art/generative/lucid-paths-unrevealed.png",
                 "descriptionLink": "",
                 "isVideo": true
             },
@@ -283,6 +287,7 @@
                 "name": "Lucid Paths Manual Generation 1",
                 "description": "",
                 "link": "/art/generative/lucid-paths-1.MP4",
+                "cover": "/art/generative/lucid-paths-1.png",
                 "descriptionLink": "",
                 "isVideo": true
             },
@@ -290,6 +295,7 @@
                 "name": "Lucid Paths Manual Generation 2",
                 "description": "",
                 "link": "/art/generative/lucid-paths-2.MP4",
+                "cover": "/art/generative/lucid-paths-2.png",
                 "descriptionLink": "",
                 "isVideo": true
             },
@@ -297,6 +303,7 @@
                 "name": "Lucid Paths 39",
                 "description": "",
                 "link": "/art/generative/lucid-paths-39.MP4",
+                "cover": "/art/generative/lucid-paths-39.png",
                 "descriptionLink": "",
                 "isVideo": true
             },
@@ -304,6 +311,7 @@
                 "name": "Lucid Paths 437",
                 "description": "",
                 "link": "/art/generative/lucid-paths-437.MP4",
+                "cover": "/art/generative/lucid-paths-437.png",
                 "descriptionLink": "",
                 "isVideo": true
             }

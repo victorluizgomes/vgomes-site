@@ -8,6 +8,7 @@ export interface ArtWrapperProps {
   thumbnailSrc?: string;
   imgName?: string;
   videoSrc?: string;
+  cover?: string;
   onExpandArt: (art: ArtPropertiesInterface) => void;
   onLoad?: () => void;
   onError?: () => void;
@@ -38,6 +39,7 @@ export function ArtWrapper(props: ArtWrapperProps) {
             height="auto"
             controls
             loop
+            poster={props.cover || ''}
             onLoadStart={props.onLoad}
             onError={props.onError}
           >

@@ -186,6 +186,7 @@ export function ArtGallery(props: ArtGalleryProps) {
                       art={art}
                       imgName={art.name}
                       videoSrc={art.link}
+                      cover={art.cover}
                       onLoad={() => handleVideoLoad(digitalArt.length)}
                       onError={() => handleVideoLoad(digitalArt.length)}
                       onExpandArt={() =>
@@ -298,6 +299,7 @@ export function ArtGallery(props: ArtGalleryProps) {
                       art={art}
                       imgName={art.name}
                       videoSrc={art.link}
+                      cover={art.cover}
                       onLoad={() => handleVideoLoad(generativeArt.length)}
                       onError={() => handleVideoLoad(generativeArt.length)}
                       onExpandArt={() =>
