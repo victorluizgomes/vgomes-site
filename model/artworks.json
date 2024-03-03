@@ -182,6 +182,12 @@
     {
         "drawing": [
             {
+                "name": "Zeus",
+                "description": "",
+                "link": "/art/drawing/zeus.jpg",
+                "descriptionLink": ""
+            },
+            {
                 "name": "Red Coloring Pencil Portrait Study",
                 "description": "",
                 "link": "/art/drawing/red-pencil-portrait.jpg",

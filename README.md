@@ -45,3 +45,5 @@ I am now directly pushing the art images to the repo and makes handling them muc
 2. Then paste the image in `public/art/` folder, in the appropriate category.
 3. Add artwork details in `model/artworks.json` in the appropriate category.
 4. Build with `npm run build` then run the app to see changes.
+
+Note: When adding videos, need to add a cover image as well, it can be low quality.
