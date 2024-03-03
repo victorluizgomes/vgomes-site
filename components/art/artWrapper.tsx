@@ -7,6 +7,7 @@ export interface ArtWrapperProps {
   art: ArtPropertiesInterface;
   thumbnailSrc?: string;
   imgName?: string;
+  videoSrc?: string;
   onExpandArt: (art: ArtPropertiesInterface) => void;
   onLoad?: () => void;
   onError?: () => void;
@@ -31,8 +32,19 @@ export function ArtWrapper(props: ArtWrapperProps) {
         </div>
       )}
       {props.type === ArtType.VIDEO && (
-        // TODO: Use <video> tag or <Video> from 'next/video' if available
-        <></>
+        <div className={`bg-off-grey ${styles["art-video-wrapper"]}`}>
+          <video
+            width="100%"
+            height="auto"
+            controls
+            loop
+            onLoadStart={props.onLoad}
+            onError={props.onError}
+          >
+            <source src={props.thumbnailSrc || props.videoSrc} type="video/mp4" />
+            Your browser does not support the videos.
+          </video>
+        </div>
       )}
     </div>
   );

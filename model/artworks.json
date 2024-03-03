@@ -2,22 +2,25 @@
     {
         "digital": [
             {
-                "name": "The Fairy - Rainbow People",
-                "description": "",
-                "link": "/art/digital/rainbow-people-3.jpg",
-                "descriptionLink": ""
-            },
-            {
-                "name": "The Being - Rainbow People",
-                "description": "",
-                "link": "/art/digital/rainbow-people-2.jpg",
-                "descriptionLink": ""
-            },
-            {
                 "name": "The Ethereal - Rainbow People",
                 "description": "",
-                "link": "/art/digital/rainbow-people-4.jpg",
-                "descriptionLink": ""
+                "link": "/art/digital/rainbow-people-3.MP4",
+                "descriptionLink": "",
+                "isVideo": true
+            },
+            {
+                "name": "The Being - Rainbow People Video",
+                "description": "",
+                "link": "/art/digital/rainbow-people-2.MP4",
+                "descriptionLink": "",
+                "isVideo": true
+            },
+            {
+                "name": "The Fairy - Rainbow People",
+                "description": "",
+                "link": "/art/digital/rainbow-people-4.MP4",
+                "descriptionLink": "",
+                "isVideo": true
             },
             {
                 "name": "Genesis - Rainbow People",
@@ -264,6 +267,45 @@
                 "description": "",
                 "link": "/art/drawing/pen-portrait.jpg",
                 "descriptionLink": ""
+            }
+        ]
+    },
+    {
+        "generative": [
+            {
+                "name": "Lucid Paths Unrevealed",
+                "description": "",
+                "link": "/art/generative/lucid-paths-unrevealed.MP4",
+                "descriptionLink": "",
+                "isVideo": true
+            },
+            {
+                "name": "Lucid Paths Manual Generation 1",
+                "description": "",
+                "link": "/art/generative/lucid-paths-1.MP4",
+                "descriptionLink": "",
+                "isVideo": true
+            },
+            {
+                "name": "Lucid Paths Manual Generation 2",
+                "description": "",
+                "link": "/art/generative/lucid-paths-2.MP4",
+                "descriptionLink": "",
+                "isVideo": true
+            },
+            {
+                "name": "Lucid Paths 39",
+                "description": "",
+                "link": "/art/generative/lucid-paths-39.MP4",
+                "descriptionLink": "",
+                "isVideo": true
+            },
+            {
+                "name": "Lucid Paths 437",
+                "description": "",
+                "link": "/art/generative/lucid-paths-437.MP4",
+                "descriptionLink": "",
+                "isVideo": true
             }
         ]
     }

@@ -11,6 +11,7 @@ export interface ArtPropertiesInterface {
   descriptionLink?: string;
   isFeatured?: boolean;
   thumbnails?: ArtThumbnailsMapInterface;
+  isVideo?: boolean;
 }
 
 export interface ArtThumbnailsMapInterface {

@@ -12,12 +12,13 @@ export interface ArtGalleryProps {}
 export function ArtGallery(props: ArtGalleryProps) {
   const [paintingActive, setPaintingActive] = useState<boolean>(false);
   const [drawingActive, setDrawingActive] = useState<boolean>(false);
-  // const [generativeActive, setGenerativeActive] = useState<boolean>(false);
+  const [generativeActive, setGenerativeActive] = useState<boolean>(false);
   const [digitalActive, setDigitalActive] = useState<boolean>(true);
   const [pixelActive, setPixelActive] = useState<boolean>(false);
 
   const [digitalArt] = useState(artworksData.find(category => category.digital)?.digital || []);
   const [paintingArt] = useState(artworksData.find(category => category.painting)?.painting || []);
+  const [generativeArt] = useState(artworksData.find(category => category.generative)?.generative || [])
   const [pixelArt] = useState(artworksData.find(category => category.pixel)?.pixel || []);
   const [drawingArt] = useState(artworksData.find(category => category.drawing)?.drawing || []);
 
@@ -39,10 +40,10 @@ export function ArtGallery(props: ArtGalleryProps) {
     resetBtns();
     setDrawingActive(true);
   };
-  // const setGenerative = () => {
-  //   resetBtns();
-  //   setGenerativeActive(true);
-  // }
+  const setGenerative = () => {
+    resetBtns();
+    setGenerativeActive(true);
+  }
   const setDigital = () => {
     resetBtns();
     setDigitalActive(true);
@@ -57,7 +58,7 @@ export function ArtGallery(props: ArtGalleryProps) {
     setImagesLoaded(0);
     setPaintingActive(false);
     setDrawingActive(false);
-    // setGenerativeActive(false);
+    setGenerativeActive(false);
     setDigitalActive(false);
     setPixelActive(false);
   };
@@ -86,6 +87,30 @@ export function ArtGallery(props: ArtGalleryProps) {
     }, maxLoadTime);
   };
 
+  const handleVideoLoad = (numVideos: number) => {
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+    }
+
+    setImagesLoaded((prevState) => {
+      const updatedState = prevState + 1;
+
+      if (updatedState >= numVideos) {
+        setTimeout(() => {
+            setIsLoading(false);
+        }, 300);
+      }
+
+      return updatedState;
+    });
+
+    // set a maximum load time, ensuring it doesn't load forever
+    const maxLoadTime = 1250;
+    timeoutRef.current = setTimeout(() => {
+      setIsLoading(false);
+    }, maxLoadTime);
+  }
+
   const handleExpandArt = (
     art: ArtPropertiesInterface,
     currArtArray: ArtPropertiesInterface[],
@@ -111,7 +136,8 @@ export function ArtGallery(props: ArtGalleryProps) {
           onClose={closeExpandedArt}
         />
       )}
-      <nav className={`flex item-center justify-center mb-3 `}>
+      {/* Desktop view */}
+      <nav className={`hidden sm:flex items-center justify-center mb-3 `}>
         <Button label="Digital" active={digitalActive} onClick={setDigital} />
         <Button
           label="Painting"
@@ -119,8 +145,24 @@ export function ArtGallery(props: ArtGalleryProps) {
           onClick={setPainting}
         />
         <Button label="Drawing" active={drawingActive} onClick={setDrawing} />
-        {/* <Button label='Generative' active={generativeActive} onClick={setGenerative} /> */}
+        <Button label='Generative' active={generativeActive} onClick={setGenerative} />
         <Button label="Pixel" active={pixelActive} onClick={setPixel} />
+      </nav>
+      {/* mobile view */}
+      <nav className={`flex flex-col sm:hidden items-center justify-center mb-3 `}>
+        <div className="flex items-center justify-center">
+          <Button label="Digital" active={digitalActive} onClick={setDigital} />
+          <Button
+            label="Painting"
+            active={paintingActive}
+            onClick={setPainting}
+          />
+          <Button label="Drawing" active={drawingActive} onClick={setDrawing} />
+        </div>
+        <div className="flex items-center justify-center">
+          <Button label='Generative' active={generativeActive} onClick={setGenerative} />
+          <Button label="Pixel" active={pixelActive} onClick={setPixel} />
+        </div>
       </nav>
       {isLoading && (
         <div className="flex flex-col w-full">
@@ -137,17 +179,33 @@ export function ArtGallery(props: ArtGalleryProps) {
           {digitalArt.map(
             (art: ArtPropertiesInterface, index: number) => (
               <div key={art.link}>
-                <ArtWrapper
-                  type="image"
-                  art={art}
-                  imgName={art.name}
-                  thumbnailSrc={art.link}
-                  onLoad={() => handleImageLoad(digitalArt.length)}
-                  onError={() => handleImageLoad(digitalArt.length)}
-                  onExpandArt={() =>
-                    handleExpandArt(art, digitalArt, index)
-                  }
-                />
+                {art.isVideo ?
+                  (
+                    <ArtWrapper
+                      type="video"
+                      art={art}
+                      imgName={art.name}
+                      videoSrc={art.link}
+                      onLoad={() => handleVideoLoad(digitalArt.length)}
+                      onError={() => handleVideoLoad(digitalArt.length)}
+                      onExpandArt={() =>
+                        console.log('use video controls for fullscreen')
+                      }
+                    />
+                  ) : (
+                    <ArtWrapper
+                      type="image"
+                      art={art}
+                      imgName={art.name}
+                      thumbnailSrc={art.link}
+                      onLoad={() => handleImageLoad(digitalArt.length)}
+                      onError={() => handleImageLoad(digitalArt.length)}
+                      onExpandArt={() =>
+                        handleExpandArt(art, digitalArt, index)
+                      }
+                    />
+                  )
+                }
               </div>
             )
           )}
@@ -219,6 +277,47 @@ export function ArtGallery(props: ArtGalleryProps) {
                     handleExpandArt(art, drawingArt, index)
                   }
                 />
+              </div>
+            )
+          )}
+        </div>
+      )}
+      {generativeActive && (
+        <div
+          className={`columns-1 sm:columns-2 md:columns-3 ${
+            styles["art-grid-container"]
+          } ${isLoading ? styles["hidden"] : ""}`}
+        >
+          {generativeArt.map(
+            (art: ArtPropertiesInterface, index: number) => (
+              <div key={art.link}>
+                {art.isVideo ?
+                  (
+                    <ArtWrapper
+                      type="video"
+                      art={art}
+                      imgName={art.name}
+                      videoSrc={art.link}
+                      onLoad={() => handleVideoLoad(generativeArt.length)}
+                      onError={() => handleVideoLoad(generativeArt.length)}
+                      onExpandArt={() =>
+                        console.log('use video controls for fullscreen')
+                      }
+                    />
+                  ) : (
+                    <ArtWrapper
+                      type="image"
+                      art={art}
+                      imgName={art.name}
+                      thumbnailSrc={art.link}
+                      onLoad={() => handleImageLoad(generativeArt.length)}
+                      onError={() => handleImageLoad(generativeArt.length)}
+                      onExpandArt={() =>
+                        handleExpandArt(art, digitalArt, index)
+                      }
+                    />
+                  )
+                }
               </div>
             )
           )}
