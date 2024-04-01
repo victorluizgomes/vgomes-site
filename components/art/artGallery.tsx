@@ -11,9 +11,9 @@ export interface ArtGalleryProps {}
 
 export function ArtGallery(props: ArtGalleryProps) {
   const [paintingActive, setPaintingActive] = useState<boolean>(false);
-  const [drawingActive, setDrawingActive] = useState<boolean>(false);
+  const [drawingActive, setDrawingActive] = useState<boolean>(true);
   const [generativeActive, setGenerativeActive] = useState<boolean>(false);
-  const [digitalActive, setDigitalActive] = useState<boolean>(true);
+  const [digitalActive, setDigitalActive] = useState<boolean>(false);
   const [pixelActive, setPixelActive] = useState<boolean>(false);
 
   const [digitalArt] = useState(artworksData.find(category => category.digital)?.digital || []);

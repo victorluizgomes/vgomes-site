@@ -182,6 +182,30 @@
     {
         "drawing": [
             {
+                "name": "Anime Girl Portrait",
+                "description": "",
+                "link": "/art/drawing/anime-girl-portrait.jpg",
+                "descriptionLink": ""
+            },
+            {
+                "name": "Floral Study",
+                "description": "",
+                "link": "/art/drawing/flower-drawing-2.jpg",
+                "descriptionLink": ""
+            },
+            {
+                "name": "Peonies Floral Study",
+                "description": "",
+                "link": "/art/drawing/flower-drawing.jpg",
+                "descriptionLink": ""
+            },
+            {
+                "name": "Floral Study Portrait",
+                "description": "",
+                "link": "/art/drawing/floral-portrait.jpg",
+                "descriptionLink": ""
+            },
+            {
                 "name": "Zeus",
                 "description": "",
                 "link": "/art/drawing/zeus.jpg",
