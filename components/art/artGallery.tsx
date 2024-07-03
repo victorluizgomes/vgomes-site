@@ -66,24 +66,36 @@ export function ArtGallery(props: ArtGalleryProps) {
     };
   }, []);
 
+  const scrollToTop = () => {
+    const spacer = document.getElementById("buttonBarSpacer");
+    if (spacer && window.scrollY > 600) {
+      spacer.scrollIntoView();
+    }
+  }
+
   const setPainting = () => {
     resetBtns();
+    scrollToTop();
     setPaintingActive(true);
   };
   const setDrawing = () => {
     resetBtns();
+    scrollToTop();
     setDrawingActive(true);
   };
   const setGenerative = () => {
     resetBtns();
+    scrollToTop();
     setGenerativeActive(true);
   }
   const setDigital = () => {
     resetBtns();
+    scrollToTop();
     setDigitalActive(true);
   };
   const setPixel = () => {
     resetBtns();
+    scrollToTop();
     setPixelActive(true);
   };
 
@@ -200,7 +212,7 @@ export function ArtGallery(props: ArtGalleryProps) {
       </nav>
       <div id="buttonBarSpacer"></div>
       {isLoading && (
-        <div className="flex flex-col w-full">
+        <div className="flex flex-col w-full pt-[150px]">
           <div className={styles["loader"]}></div>
           <p className="text-center pt-4">Loading artworks</p>
         </div>
