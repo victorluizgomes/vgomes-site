@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { TabButton as Button } from "../../components/tabButton";
 import ArtWrapper from "./artWrapper";
 import styles from "../../styles/art/ArtGallery.module.css";
@@ -31,6 +31,40 @@ export function ArtGallery(props: ArtGalleryProps) {
   const [expandedCurrArray, setExpandedCurrArray] = useState<
     ArtPropertiesInterface[]
   >([]);
+
+  useEffect(() => {
+    const desktopButtonBar = document.getElementById("desktopButtonBar");
+    const mobileButtonBar = document.getElementById("mobileButtonBar");
+    const spacer = document.getElementById("buttonBarSpacer");
+
+    const handleDesktopScroll = () => {
+      if (window.scrollY > spacer.offsetTop - 150 && window.innerWidth >= 640) {
+        desktopButtonBar.classList.add('fixed', 'bg-[#FCFCF8]', 'top-[4.5rem]', 'py-2', 'left-0', 'right-0', 'z-50');
+        spacer.classList.add('h-[56px]');
+      } else {
+        desktopButtonBar.classList.remove('fixed', 'bg-[#FCFCF8]', 'top-[4.5rem]', 'py-2', 'left-0', 'right-0', 'z-50');
+        spacer.classList.remove('h-[56px]');
+      }
+    };
+
+    const handleMobileScroll = () => {
+      if (window.scrollY > spacer.offsetTop - 150 && window.innerWidth < 640) {
+        mobileButtonBar.classList.add('fixed', 'bg-[#FCFCF8]', 'top-[3.25rem]', 'py-1', 'left-0', 'right-0', 'z-50');
+        spacer.classList.add('h-[88px]');
+      } else {
+        mobileButtonBar.classList.remove('fixed', 'bg-[#FCFCF8]', 'top-[3.25rem]', 'py-1', 'left-0', 'right-0', 'z-50');
+        spacer.classList.remove('h-[88px]');
+      }
+    };
+
+    window.addEventListener('scroll', handleDesktopScroll);
+    window.addEventListener('scroll', handleMobileScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleDesktopScroll);
+      window.removeEventListener('scroll', handleMobileScroll);
+    };
+  }, []);
 
   const setPainting = () => {
     resetBtns();
@@ -137,7 +171,7 @@ export function ArtGallery(props: ArtGalleryProps) {
         />
       )}
       {/* Desktop view */}
-      <nav className={`hidden sm:flex items-center justify-center mb-3 `}>
+      <nav id="desktopButtonBar" className={`hidden sm:flex items-center justify-center mb-3 `}>
         <Button label="Digital" active={digitalActive} onClick={setDigital} />
         <Button
           label="Painting"
@@ -149,8 +183,8 @@ export function ArtGallery(props: ArtGalleryProps) {
         <Button label="Pixel" active={pixelActive} onClick={setPixel} />
       </nav>
       {/* mobile view */}
-      <nav className={`flex flex-col sm:hidden items-center justify-center mb-3 `}>
-        <div className="flex items-center justify-center">
+      <nav id="mobileButtonBar" className={`flex flex-col sm:hidden items-center justify-center mb-3 `}>
+        <div className="flex pb-1 gap-1 items-center justify-center">
           <Button label="Digital" active={digitalActive} onClick={setDigital} />
           <Button
             label="Painting"
@@ -159,11 +193,12 @@ export function ArtGallery(props: ArtGalleryProps) {
           />
           <Button label="Drawing" active={drawingActive} onClick={setDrawing} />
         </div>
-        <div className="flex items-center justify-center">
+        <div className="flex gap-1 items-center justify-center">
           <Button label='Generative' active={generativeActive} onClick={setGenerative} />
           <Button label="Pixel" active={pixelActive} onClick={setPixel} />
         </div>
       </nav>
+      <div id="buttonBarSpacer"></div>
       {isLoading && (
         <div className="flex flex-col w-full">
           <div className={styles["loader"]}></div>
