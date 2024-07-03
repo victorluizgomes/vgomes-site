@@ -21,7 +21,7 @@ export function TopSection(props: TopSectionProps) {
     <section className={styles['container']}>
       <div className="flex flex-col-reverse md:flex-row items-center justify-center gap-6 md:gap-3 lg:gap-10 mx-2 sm:mx-6 lg:mx-20 mb-10 md:mb-24 mt-24">
         <Image
-          src="/profile-picture.jpg"
+          src="/profile-picture-2024.jpeg"
           alt="stylized portrait of Victor"
           width={288}
           height={288}
@@ -55,7 +55,10 @@ export function TopSection(props: TopSectionProps) {
               >
                 Coinbase
               </a>
-              . Previously worked at{' '}
+              .&nbsp;
+            </span>
+            <span className="inline-block">
+              Previously worked at{' '}
               <a
                 className={`border-b border-b-gold-yellow cursor-pointer hover:border-b-2 ${styles['header-link']}`}
                 href="https://www.blackrock.com/us/individual/about-us/about-blackrock"
@@ -64,10 +67,9 @@ export function TopSection(props: TopSectionProps) {
               >
                 Blackrock
               </a>
-              .
-            </span>{' '}
+              .&nbsp;
+            </span>
             <span className="inline-block">
-              {' '}
               Based in Atlanta, United States.
             </span>
           </p>

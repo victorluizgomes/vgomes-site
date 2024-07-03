@@ -1,10 +1,11 @@
 
 # vgomes-site
 
-vgomes.co personal site in Next.js React
+vgomes.co personal site built with Next.js React
 
 ## Technologies used
 - React
+- Next.js
 - Typescript
 - HTML
 - CSS

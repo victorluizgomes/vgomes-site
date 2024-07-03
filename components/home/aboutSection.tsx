@@ -23,7 +23,7 @@ export function AboutSection(props: AboutSectionProps) {
       </div>
       <div className={`${styles['main-text-wrapper']} gap-4 mt-6`}>
         <p className={styles['main-text']}>
-          I am a Front-end Engineer with a passion for art and technology. I
+          I am a Front-end Software Engineer with a passion for art and technology. I
           currently work at Blackrock, where I discovered my love for Front-end
           web development. In 2020, I started working there as a full-time
           Software Engineer after completing my Computer Science degree from the

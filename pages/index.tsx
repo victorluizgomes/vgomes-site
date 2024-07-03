@@ -8,7 +8,7 @@ export default function Home() {
     <main>
       <Head>
         <title>Victor Gomes | Front-end Enginer (vgomes.co)</title>
-        <meta name="description" content="Victor Gomes personal website, showcasing interests, hobbies and work. Some things you will find are Art and Programming." />
+        <meta name="description" content="Victor Gomes Front-end Software Engineer personal website, showcasing interests, hobbies and work. Some things you will find are Art and Programming." />
       </Head>
       <TopSection />
       <AboutSection />
