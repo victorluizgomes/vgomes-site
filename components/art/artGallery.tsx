@@ -49,10 +49,12 @@ export function ArtGallery(props: ArtGalleryProps) {
 
     const handleMobileScroll = () => {
       if (window.scrollY > spacer.offsetTop - 150 && window.innerWidth < 640) {
-        mobileButtonBar.classList.add('fixed', 'bg-[#FCFCF8]', 'top-[3.25rem]', 'py-1', 'left-0', 'right-0', 'z-50');
+        mobileButtonBar.classList.remove('mb-3');
+        mobileButtonBar.classList.add('fixed', 'bg-[#FCFCF8]', 'bottom-0', 'py-1', 'left-0', 'right-0', 'z-50');
         spacer.classList.add('h-[88px]');
       } else {
-        mobileButtonBar.classList.remove('fixed', 'bg-[#FCFCF8]', 'top-[3.25rem]', 'py-1', 'left-0', 'right-0', 'z-50');
+        mobileButtonBar.classList.add('mb-3');
+        mobileButtonBar.classList.remove('fixed', 'bg-[#FCFCF8]', 'bottom-0', 'py-1', 'left-0', 'right-0', 'z-50');
         spacer.classList.remove('h-[88px]');
       }
     };
