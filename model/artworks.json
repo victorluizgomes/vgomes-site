@@ -206,6 +206,12 @@
     {
         "drawing": [
             {
+                "name": "Cartoon colored portrait",
+                "description": "",
+                "link": "/art/drawing/cartoon-anime-head.jpg",
+                "descriptionLink": ""
+            },
+            {
                 "name": "Anime Girl Portrait",
                 "description": "",
                 "link": "/art/drawing/anime-girl-portrait.jpg",
@@ -218,9 +224,45 @@
                 "descriptionLink": ""
             },
             {
+                "name": "Rose Study",
+                "description": "",
+                "link": "/art/drawing/rose-study.jpg",
+                "descriptionLink": ""
+            },
+            {
+                "name": "Camellia Study",
+                "description": "",
+                "link": "/art/drawing/camellia-study.jpg",
+                "descriptionLink": ""
+            },
+            {
+                "name": "Live Flower Study",
+                "description": "",
+                "link": "/art/drawing/live-flower-study.jpg",
+                "descriptionLink": ""
+            },
+            {
                 "name": "Peonies Floral Study",
                 "description": "",
                 "link": "/art/drawing/flower-drawing.jpg",
+                "descriptionLink": ""
+            },
+            {
+                "name": "Stylized portrait colored",
+                "description": "",
+                "link": "/art/drawing/stylized-portrait.jpg",
+                "descriptionLink": ""
+            },
+            {
+                "name": "Anime portrait Study",
+                "description": "",
+                "link": "/art/drawing/anime-portrait-study.jpg",
+                "descriptionLink": ""
+            },
+            {
+                "name": "Solo Leveling fan art",
+                "description": "",
+                "link": "/art/drawing/solo-leveling-anime.jpg",
                 "descriptionLink": ""
             },
             {
@@ -233,6 +275,42 @@
                 "name": "Zeus",
                 "description": "",
                 "link": "/art/drawing/zeus.jpg",
+                "descriptionLink": ""
+            },
+            {
+                "name": "Pen marble torso study",
+                "description": "",
+                "link": "/art/drawing/pen-marble-torso.jpg",
+                "descriptionLink": ""
+            },
+            {
+                "name": "Full body figure studies",
+                "description": "",
+                "link": "/art/drawing/full-body-study.jpg",
+                "descriptionLink": ""
+            },
+            {
+                "name": "Full body figure studies",
+                "description": "",
+                "link": "/art/drawing/full-body-studies.jpg",
+                "descriptionLink": ""
+            },
+            {
+                "name": "Figure Study",
+                "description": "",
+                "link": "/art/drawing/figure-study.jpg",
+                "descriptionLink": ""
+            },
+            {
+                "name": "Figure from live Figure Drawing Class",
+                "description": "",
+                "link": "/art/drawing/figure-drawing-class.jpg",
+                "descriptionLink": ""
+            },
+            {
+                "name": "Pen portrait and figure studies",
+                "description": "",
+                "link": "/art/drawing/pen-portrait-n-figure.jpg",
                 "descriptionLink": ""
             },
             {
