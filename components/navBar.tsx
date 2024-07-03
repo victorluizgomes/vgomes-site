@@ -10,7 +10,7 @@ export function NavBar(props: NavBarProps) {
 
   return (
     <nav className={styles["container"]}>
-      <ul className="flex flex-row py-6 gap-12">
+      <ul className="flex flex-row py-3 sm:py-6 gap-8 sm:gap-12">
         <li
           className={`${
             router.pathname === "/"
@@ -18,9 +18,9 @@ export function NavBar(props: NavBarProps) {
               : "hover:pb-0"
           } ${
             styles["nav-animation"]
-          } hover:border-b-gold-yellow hover:border-b-2 pb-2`}
+          } hover:border-b-gold-yellow hover:border-b-2 pb-1`}
         >
-          <Link href="/" className="cursor-pointer text-lg font-bold">
+          <Link href="/" className="cursor-pointer text-regular sm:text-lg font-bold">
             About
           </Link>
         </li>
@@ -31,9 +31,9 @@ export function NavBar(props: NavBarProps) {
               : "hover:pb-0"
           } ${
             styles["nav-animation"]
-          } hover:border-b-gold-yellow hover:border-b-2 pb-2`}
+          } hover:border-b-gold-yellow hover:border-b-2 pb-1`}
         >
-          <Link href="/art" className="cursor-pointer text-lg font-bold">
+          <Link href="/art" className="cursor-pointer text-regular sm:text-lg font-bold">
             Art
           </Link>
         </li>
@@ -44,9 +44,9 @@ export function NavBar(props: NavBarProps) {
               : "hover:pb-0"
           } ${
             styles["nav-animation"]
-          } hover:border-b-gold-yellow hover:border-b-2 pb-2`}
+          } hover:border-b-gold-yellow hover:border-b-2 pb-1`}
         >
-          <Link href="/blog" className="cursor-pointer text-lg font-bold">
+          <Link href="/blog" className="cursor-pointer text-regular sm:text-lg font-bold">
             Blog
           </Link>
         </li>

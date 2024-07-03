@@ -43,10 +43,19 @@ export function TopSection(props: TopSectionProps) {
           </h1>
           <p className=" mt-6 text-sm sm:text-base lg:text-base leading-loose lg:leading-loose">
             <span className="inline-block">
-              I&apos;m a general creative, with a love for art & technology.&nbsp;
+              I&apos;m a general creative, with a love for technology & art.&nbsp;
             </span>
             <span className="inline-block">
-              Currently working as a Front-end Engineer 2 at{' '}
+              Currently working as a Front-end Software Engineer at{' '}
+              <a
+                className={`border-b border-b-gold-yellow cursor-pointer hover:border-b-2 ${styles['header-link']}`}
+                href="https://www.coinbase.com/about"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Coinbase
+              </a>
+              . Previously worked at{' '}
               <a
                 className={`border-b border-b-gold-yellow cursor-pointer hover:border-b-2 ${styles['header-link']}`}
                 href="https://www.blackrock.com/us/individual/about-us/about-blackrock"

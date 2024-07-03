@@ -45,7 +45,7 @@ export default function BlogPost(props: BlogPostProps) {
         <div className="w-full max-w-4xl px-4 md:px-6 mt-3 md:mt-6">
           <Link
             href="/blog"
-            className="cursor-pointer w-fit items-center flex gap-3"
+            className="cursor-pointer hover:bg-neutral-100 w-fit items-center flex gap-3"
           >
             <FontAwesomeIcon className="text-neutral-600 h-4 w-4" icon={faArrowLeft} />
             <span className="text-neutral-600">Go back to blogs</span>
