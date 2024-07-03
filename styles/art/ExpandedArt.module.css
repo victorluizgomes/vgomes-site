@@ -29,6 +29,11 @@
   margin-top: 1.5rem;
 }
 
+.expanded-video {
+  max-height: 75vh;
+  z-index: 100;
+}
+
 .art-nav-btns {
   border-radius: 50px;
   display: flex;

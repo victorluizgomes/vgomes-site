@@ -14,12 +14,14 @@ export interface ExpandedArtProps {
 export function ExpandedArt(props: ExpandedArtProps) {
   const [currentIndex, setCurrentIndex] = useState(props.currentIndex);
   const [currArt, setCurrArt] = useState(props.art);
+  const [isCurrArtVideo, setIsCurrArtVideo] = useState(props.art.isVideo)
 
   const leftClicked = (e: any) => {
     e.stopPropagation();
     if (currentIndex > 0) {
       setCurrentIndex(currentIndex - 1);
       setCurrArt(props.artArray[currentIndex - 1]);
+      setIsCurrArtVideo(props.artArray[currentIndex - 1].isVideo);
     }
   };
 
@@ -28,6 +30,7 @@ export function ExpandedArt(props: ExpandedArtProps) {
     if (currentIndex < props.artArray.length - 1) {
       setCurrentIndex(currentIndex + 1);
       setCurrArt(props.artArray[currentIndex + 1]);
+      setIsCurrArtVideo(props.artArray[currentIndex + 1].isVideo);
     }
   };
 
@@ -68,13 +71,31 @@ export function ExpandedArt(props: ExpandedArtProps) {
             {currArt.description}
           </p>
         )}
-        <Image
-          className={styles['expanded-image']}
-          src={currArt.link} // Your image URL
-          alt={currArt.name}
-          width={1000}
-          height={1000}
-        />
+        {isCurrArtVideo ? (
+          <div className={`mt-6`}
+          onClick={(e) => e.stopPropagation()}>
+            <video
+              className={`${styles['expanded-video']}`}
+              width="100%"
+              height="auto"
+              controls
+              loop
+              poster={currArt.cover || ''}
+            >
+              <source src={currArt.link} type="video/mp4" />
+              Your browser does not support the videos.
+            </video>
+          </div>
+        ) : (
+          <Image
+            className={styles['expanded-image']}
+            src={currArt.link} // Your image URL
+            alt={currArt.name}
+            width={1000}
+            height={1000}
+          />
+        )}
+
       </div>
       <div className="fixed left-0 bottom-0 w-full">
         <div className='flex flex-row w-full justify-center items-center gap-10 my-6'>
