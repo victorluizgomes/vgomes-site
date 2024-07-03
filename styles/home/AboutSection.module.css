@@ -23,7 +23,7 @@
 }
 
 .main-text {
-    width: 600px;
+    width: 800px;
     line-height: 1.9;
     text-align: left;
 }
@@ -40,6 +40,10 @@
     .arrow-vector {
         display: none;
     }
+}
+
+
+@media (max-width: 868px) {
     .main-text {
         width: calc(100vw - 50px);
         text-align: left;
