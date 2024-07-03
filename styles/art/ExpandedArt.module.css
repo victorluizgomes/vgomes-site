@@ -15,7 +15,7 @@
 .expanded-wrapper {
   display: flex;
   flex-direction: column;
-  padding: 45px 5px 0px;
+  padding: 45px 5px 70px;
   border-radius: 5px;
   max-width: 97.5%;
   max-height: 95%;

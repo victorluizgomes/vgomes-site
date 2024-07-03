@@ -75,7 +75,9 @@ export function ExpandedArt(props: ExpandedArtProps) {
           width={1000}
           height={1000}
         />
-        <div className="flex flex-row w-full justify-center items-center gap-10 my-6">
+      </div>
+      <div className="fixed left-0 bottom-0 w-full">
+        <div className='flex flex-row w-full justify-center items-center gap-10 my-6'>
           <button
             onClick={(e) => leftClicked(e)}
             className={`${
@@ -124,8 +126,8 @@ export function ExpandedArt(props: ExpandedArtProps) {
               />
             </svg>
           </button>
+          </div>
         </div>
-      </div>
     </div>
   );
 }
