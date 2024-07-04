@@ -38,8 +38,11 @@ This is mostly for myself to know what I can work on whenever I pick this up. ðŸ
 ### Short Term
 
 - Automate uploading artworks to art tab
-- Optimize arts loading, right now we get a loading spinner, but still on scrolling all artworks will flash sometimes and looks buggy
+- Optimize arts loading, right now we get a loading spinner, but still on scrolling all artworks will flash sometimes and looks buggy. (In Network tab we can see the images load multiple times as you scroll??? need to fix)
+- Add Highlights/Featured default tab of artworks which will display all my favorite curated works of art (from all categories)
 - Carrousel with latest blog posts in about page
+- Update the way I am displaying the artworks to be left to right first instead of each column (only relevant for desktop with multiple columns)
+- Add images to Blog posts
 
 ### Long Term
 
@@ -47,6 +50,7 @@ This is mostly for myself to know what I can work on whenever I pick this up. ðŸ
 - UI Improvements
 - Dark mode
 - Lots more blog posts
+- Enhancements to Blog posts (images, tags, featured)
 - Maybe a fun Web Game?
 
 ## Notes to self on adding artworks (to be automated more):
