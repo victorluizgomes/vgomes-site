@@ -37,12 +37,16 @@ This is mostly for myself to know what I can work on whenever I pick this up. ðŸ
 
 ### Short Term
 
-- Automate uploading artworks to art tab
 - Optimize arts loading, right now we get a loading spinner, but still on scrolling all artworks will flash sometimes and looks buggy. (In Network tab we can see the images load multiple times as you scroll??? need to fix)
 - Add Highlights/Featured default tab of artworks which will display all my favorite curated works of art (from all categories)
 - Carrousel with latest blog posts in about page
 - Update the way I am displaying the artworks to be left to right first instead of each column (only relevant for desktop with multiple columns)
 - Add images to Blog posts
+- Make so we can upload an image through mobile. Options:
+  - Use a cloud storage service like Google Drive or Dropbox that has mobile apps with automatic upload features.
+  - Set up a webhook or GitHub Action that triggers when files are added to your cloud storage, automatically pulling them into your repo.
+  - Alternatively, use a Git client on your phone (like Working Copy for iOS) to commit and push directly from your device.
+- Make art works loading into a placeholder grey square instead of loading progress indicator
 
 ### Long Term
 
@@ -53,7 +57,22 @@ This is mostly for myself to know what I can work on whenever I pick this up. ðŸ
 - Enhancements to Blog posts (images, tags, featured)
 - Maybe a fun Web Game?
 
-## Notes to self on adding artworks (to be automated more):
+### Done Items
+
+- Automate uploading artworks to art tab
+
+## Notes to self on adding artworks:
+
+Firstly add the image file as is to `temp/` folder in the root of the repo.
+
+Then Use `npm run optimize` to convert images from HEIC to Jpeg and optimize it to under 500 kb.
+It will also ask in a CLI what name you want to save it in the JSON as well as which category the artwork is.
+
+Make sure to not commit the files in temp/ folder and delete them after.
+
+Note: Videos still need to be added manually together with its cover image
+
+### Old method:
 
 1. Use terminal alias that I setup for converting from HEIC to jpeg and image resizing:
 
