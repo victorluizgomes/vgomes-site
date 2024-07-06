@@ -1,452 +1,452 @@
 [
-    {
-        "digital": [
-            {
-                "name": "The Ethereal - Rainbow People",
-                "description": "",
-                "link": "/art/digital/rainbow-people-3.MP4",
-                "descriptionLink": "",
-                "cover": "/art/digital/rainbow-people-3.jpg",
-                "isVideo": true
-            },
-            {
-                "name": "The Being - Rainbow People Video",
-                "description": "",
-                "link": "/art/digital/rainbow-people-2.MP4",
-                "descriptionLink": "",
-                "cover": "/art/digital/rainbow-people-2.jpg",
-                "isVideo": true
-            },
-            {
-                "name": "The Fairy - Rainbow People",
-                "description": "",
-                "link": "/art/digital/rainbow-people-4.MP4",
-                "descriptionLink": "",
-                "cover": "/art/digital/rainbow-people-4.jpg",
-                "isVideo": true
-            },
-            {
-                "name": "Genesis - Rainbow People",
-                "description": "",
-                "link": "/art/digital/rainbow-people-1.jpg",
-                "descriptionLink": ""
-            },
-            {
-                "name": "Rainbow People Buttheads Fan Art",
-                "description": "",
-                "link": "/art/digital/rainbow-people-butt.jpg",
-                "descriptionLink": ""
-            },
-            {
-                "name": "Untitled Portrait",
-                "description": "",
-                "link": "/art/digital/portrait-1.jpg",
-                "descriptionLink": ""
-            },
-            {
-                "name": "Untitled Portrait",
-                "description": "",
-                "link": "/art/digital/portrait-2.jpg",
-                "descriptionLink": ""
-            },
-            {
-                "name": "Anatomy Study",
-                "description": "",
-                "link": "/art/digital/anatomy-male.jpg",
-                "descriptionLink": ""
-            },
-            {
-                "name": "Divine Anarchy Fan Art",
-                "description": "",
-                "link": "/art/digital/divine-anarchy.jpg",
-                "descriptionLink": ""
-            },
-            {
-                "name": "Decentraland Character",
-                "description": "",
-                "link": "/art/digital/decentraland.jpg",
-                "descriptionLink": ""
-            },
-            {
-                "name": "Ethereum Character",
-                "description": "",
-                "link": "/art/digital/ethereum.jpg",
-                "descriptionLink": ""
-            },
-            {
-                "name": "Litecoin Character",
-                "description": "",
-                "link": "/art/digital/litecoin.jpg",
-                "descriptionLink": ""
-            }
-        ]
-    },
-    {
-        "painting": [
-            {
-                "name": "Réalité Virtuelle",
-                "description": "",
-                "link": "/art/painting/realite-virtuelle.jpg",
-                "descriptionLink": ""
-            },
-            {
-                "name": "Creation of Cyborg",
-                "description": "",
-                "link": "/art/painting/creation-of-cyborg.jpg",
-                "descriptionLink": ""
-            },
-            {
-                "name": "Laptop Eating His Som",
-                "description": "",
-                "link": "/art/painting/laptop-eating-his-son.jpg",
-                "descriptionLink": ""
-            },
-            {
-                "name": "Abstract Untitled",
-                "description": "",
-                "link": "/art/painting/abstract-untitled.jpg",
-                "descriptionLink": ""
-            }
-        ]
-    },
-    {
-        "pixel": [
-            {
-                "name": "Red Eye",
-                "description": "",
-                "link": "/art/pixel/red-eye.png",
-                "descriptionLink": ""
-            },
-            {
-                "name": "Purple Moonbird",
-                "description": "",
-                "link": "/art/pixel/purple-moonbird.png",
-                "descriptionLink": ""
-            },
-            {
-                "name": "GENE_SIS Fan Art",
-                "description": "",
-                "link": "/art/pixel/gene-sis-fan-art.png",
-                "descriptionLink": ""
-            },
-            {
-                "name": "Pixel Warrior",
-                "description": "",
-                "link": "/art/pixel/warrior-full-body.png",
-                "descriptionLink": ""
-            },
-            {
-                "name": "Gold Farmers Example 1",
-                "description": "",
-                "link": "/art/pixel/gold-farmers-1.jpg",
-                "descriptionLink": ""
-            },
-            {
-                "name": "Gold Farmers Example 2",
-                "description": "",
-                "link": "/art/pixel/gold-farmers-2.jpg",
-                "descriptionLink": ""
-            },
-            {
-                "name": "Gold Farmers Example 3",
-                "description": "",
-                "link": "/art/pixel/gold-farmers-3.jpg",
-                "descriptionLink": ""
-            },
-            {
-                "name": "Gold Farmers Flower",
-                "description": "",
-                "link": "/art/pixel/gold-farmers-flower.PNG",
-                "descriptionLink": ""
-            },
-            {
-                "name": "Wizard Avatar",
-                "description": "",
-                "link": "/art/pixel/wizzard-avatar.png",
-                "descriptionLink": ""
-            },
-            {
-                "name": "Warrior Avatar",
-                "description": "",
-                "link": "/art/pixel/warrior-avatar.png",
-                "descriptionLink": ""
-            },
-            {
-                "name": "Hunter Avatar",
-                "description": "",
-                "link": "/art/pixel/hunter-avatar.png",
-                "descriptionLink": ""
-            },
-            {
-                "name": "Portrait Pixel Study",
-                "description": "",
-                "link": "/art/pixel/portrait-practice.png",
-                "descriptionLink": ""
-            },
-            {
-                "name": "6 32x32 Icons",
-                "description": "",
-                "link": "/art/pixel/6-icons.png",
-                "descriptionLink": ""
-            },
-            {
-                "name": "Fantasy Characters Sheet",
-                "description": "",
-                "link": "/art/pixel/fantasy-characters.png",
-                "descriptionLink": ""
-            },
-            {
-                "name": "1-Bit Animals Sheet",
-                "description": "",
-                "link": "/art/pixel/1-bit-animals.png",
-                "descriptionLink": ""
-            }
-        ]
-    },
-    {
-        "drawing": [
-            {
-                "name": "Cartoon colored portrait",
-                "description": "",
-                "link": "/art/drawing/cartoon-anime-head.jpg",
-                "descriptionLink": ""
-            },
-            {
-                "name": "Anime Girl Portrait",
-                "description": "",
-                "link": "/art/drawing/anime-girl-portrait.jpg",
-                "descriptionLink": ""
-            },
-            {
-                "name": "Floral Study",
-                "description": "",
-                "link": "/art/drawing/flower-drawing-2.jpg",
-                "descriptionLink": ""
-            },
-            {
-                "name": "Rose Study",
-                "description": "",
-                "link": "/art/drawing/rose-study.jpg",
-                "descriptionLink": ""
-            },
-            {
-                "name": "Camellia Study",
-                "description": "",
-                "link": "/art/drawing/camellia-study.jpg",
-                "descriptionLink": ""
-            },
-            {
-                "name": "Live Flower Study",
-                "description": "",
-                "link": "/art/drawing/live-flower-study.jpg",
-                "descriptionLink": ""
-            },
-            {
-                "name": "Peonies Floral Study",
-                "description": "",
-                "link": "/art/drawing/flower-drawing.jpg",
-                "descriptionLink": ""
-            },
-            {
-                "name": "Stylized portrait colored",
-                "description": "",
-                "link": "/art/drawing/stylized-portrait.jpg",
-                "descriptionLink": ""
-            },
-            {
-                "name": "Anime portrait Study",
-                "description": "",
-                "link": "/art/drawing/anime-portrait-study.jpg",
-                "descriptionLink": ""
-            },
-            {
-                "name": "Solo Leveling fan art",
-                "description": "",
-                "link": "/art/drawing/solo-leveling-anime.jpg",
-                "descriptionLink": ""
-            },
-            {
-                "name": "Floral Study Portrait",
-                "description": "",
-                "link": "/art/drawing/floral-portrait.jpg",
-                "descriptionLink": ""
-            },
-            {
-                "name": "Zeus",
-                "description": "",
-                "link": "/art/drawing/zeus.jpg",
-                "descriptionLink": ""
-            },
-            {
-                "name": "Pen marble torso study",
-                "description": "",
-                "link": "/art/drawing/pen-marble-torso.jpg",
-                "descriptionLink": ""
-            },
-            {
-                "name": "Full body figure studies",
-                "description": "",
-                "link": "/art/drawing/full-body-study.jpg",
-                "descriptionLink": ""
-            },
-            {
-                "name": "Full body figure studies",
-                "description": "",
-                "link": "/art/drawing/full-body-studies.jpg",
-                "descriptionLink": ""
-            },
-            {
-                "name": "Figure Study",
-                "description": "",
-                "link": "/art/drawing/figure-study.jpg",
-                "descriptionLink": ""
-            },
-            {
-                "name": "Figure from live Figure Drawing Class",
-                "description": "",
-                "link": "/art/drawing/figure-drawing-class.jpg",
-                "descriptionLink": ""
-            },
-            {
-                "name": "Pen portrait and figure studies",
-                "description": "",
-                "link": "/art/drawing/pen-portrait-n-figure.jpg",
-                "descriptionLink": ""
-            },
-            {
-                "name": "Red Coloring Pencil Portrait Study",
-                "description": "",
-                "link": "/art/drawing/red-pencil-portrait.jpg",
-                "descriptionLink": ""
-            },
-            {
-                "name": "Portrait Study",
-                "description": "",
-                "link": "/art/drawing/pen-portrait-3.jpg",
-                "descriptionLink": ""
-            },
-            {
-                "name": "Fallen Angel Stylized",
-                "description": "",
-                "link": "/art/drawing/fallen-angel.jpg",
-                "descriptionLink": ""
-            },
-            {
-                "name": "Dramatic Figure holding Flower",
-                "description": "",
-                "link": "/art/drawing/dramatic-flower-figure.jpg",
-                "descriptionLink": ""
-            },
-            {
-                "name": "Portrait Study",
-                "description": "",
-                "link": "/art/drawing/pen-portrait-2.jpg",
-                "descriptionLink": ""
-            },
-            {
-                "name": "Portrait Study",
-                "description": "",
-                "link": "/art/drawing/pencil-portrait.jpg",
-                "descriptionLink": ""
-            },
-            {
-                "name": "Portrait Study",
-                "description": "",
-                "link": "/art/drawing/pencil-portrait-2.jpg",
-                "descriptionLink": ""
-            },
-            {
-                "name": "Male Marble Torso",
-                "description": "",
-                "link": "/art/drawing/marble-torso.jpg",
-                "descriptionLink": ""
-            },
-            {
-                "name": "Female Marble Torso",
-                "description": "",
-                "link": "/art/drawing/female-marble-torso.jpg",
-                "descriptionLink": ""
-            },
-            {
-                "name": "Tranquility Portrait",
-                "description": "",
-                "link": "/art/drawing/tranquility.jpg",
-                "descriptionLink": ""
-            },
-            {
-                "name": "Portrait Study",
-                "description": "",
-                "link": "/art/drawing/bummed.jpg",
-                "descriptionLink": ""
-            },
-            {
-                "name": "David Status Portrait Study",
-                "description": "",
-                "link": "/art/drawing/david.jpg",
-                "descriptionLink": ""
-            },
-            {
-                "name": "Figure Study",
-                "description": "",
-                "link": "/art/drawing/figure-2.jpg",
-                "descriptionLink": ""
-            },
-            {
-                "name": "Figure Study",
-                "description": "",
-                "link": "/art/drawing/figure.jpg",
-                "descriptionLink": ""
-            },
-            {
-                "name": "Portrait Study",
-                "description": "",
-                "link": "/art/drawing/pen-portrait.jpg",
-                "descriptionLink": ""
-            }
-        ]
-    },
-    {
-        "generative": [
-            {
-                "name": "Lucid Paths Unrevealed",
-                "description": "",
-                "link": "/art/generative/lucid-paths-unrevealed.MP4",
-                "cover": "/art/generative/lucid-paths-unrevealed.png",
-                "descriptionLink": "",
-                "isVideo": true
-            },
-            {
-                "name": "Lucid Paths Manual Generation 1",
-                "description": "",
-                "link": "/art/generative/lucid-paths-1.MP4",
-                "cover": "/art/generative/lucid-paths-1.png",
-                "descriptionLink": "",
-                "isVideo": true
-            },
-            {
-                "name": "Lucid Paths Manual Generation 2",
-                "description": "",
-                "link": "/art/generative/lucid-paths-2.MP4",
-                "cover": "/art/generative/lucid-paths-2.png",
-                "descriptionLink": "",
-                "isVideo": true
-            },
-            {
-                "name": "Lucid Paths 39",
-                "description": "",
-                "link": "/art/generative/lucid-paths-39.MP4",
-                "cover": "/art/generative/lucid-paths-39.png",
-                "descriptionLink": "",
-                "isVideo": true
-            },
-            {
-                "name": "Lucid Paths 437",
-                "description": "",
-                "link": "/art/generative/lucid-paths-437.MP4",
-                "cover": "/art/generative/lucid-paths-437.png",
-                "descriptionLink": "",
-                "isVideo": true
-            }
-        ]
-    }
+  {
+    "digital": [
+      {
+        "name": "The Ethereal - Rainbow People",
+        "description": "",
+        "link": "/art/digital/rainbow-people-3.MP4",
+        "descriptionLink": "",
+        "cover": "/art/digital/rainbow-people-3.jpg",
+        "isVideo": true
+      },
+      {
+        "name": "The Being - Rainbow People Video",
+        "description": "",
+        "link": "/art/digital/rainbow-people-2.MP4",
+        "descriptionLink": "",
+        "cover": "/art/digital/rainbow-people-2.jpg",
+        "isVideo": true
+      },
+      {
+        "name": "The Fairy - Rainbow People",
+        "description": "",
+        "link": "/art/digital/rainbow-people-4.MP4",
+        "descriptionLink": "",
+        "cover": "/art/digital/rainbow-people-4.jpg",
+        "isVideo": true
+      },
+      {
+        "name": "Genesis - Rainbow People",
+        "description": "",
+        "link": "/art/digital/rainbow-people-1.jpg",
+        "descriptionLink": ""
+      },
+      {
+        "name": "Rainbow People Buttheads Fan Art",
+        "description": "",
+        "link": "/art/digital/rainbow-people-butt.jpg",
+        "descriptionLink": ""
+      },
+      {
+        "name": "Untitled Portrait",
+        "description": "",
+        "link": "/art/digital/portrait-1.jpg",
+        "descriptionLink": ""
+      },
+      {
+        "name": "Untitled Portrait",
+        "description": "",
+        "link": "/art/digital/portrait-2.jpg",
+        "descriptionLink": ""
+      },
+      {
+        "name": "Anatomy Study",
+        "description": "",
+        "link": "/art/digital/anatomy-male.jpg",
+        "descriptionLink": ""
+      },
+      {
+        "name": "Divine Anarchy Fan Art",
+        "description": "",
+        "link": "/art/digital/divine-anarchy.jpg",
+        "descriptionLink": ""
+      },
+      {
+        "name": "Decentraland Character",
+        "description": "",
+        "link": "/art/digital/decentraland.jpg",
+        "descriptionLink": ""
+      },
+      {
+        "name": "Ethereum Character",
+        "description": "",
+        "link": "/art/digital/ethereum.jpg",
+        "descriptionLink": ""
+      },
+      {
+        "name": "Litecoin Character",
+        "description": "",
+        "link": "/art/digital/litecoin.jpg",
+        "descriptionLink": ""
+      }
+    ]
+  },
+  {
+    "painting": [
+      {
+        "name": "Réalité Virtuelle",
+        "description": "",
+        "link": "/art/painting/realite-virtuelle.jpg",
+        "descriptionLink": ""
+      },
+      {
+        "name": "Creation of Cyborg",
+        "description": "",
+        "link": "/art/painting/creation-of-cyborg.jpg",
+        "descriptionLink": ""
+      },
+      {
+        "name": "Laptop Eating His Som",
+        "description": "",
+        "link": "/art/painting/laptop-eating-his-son.jpg",
+        "descriptionLink": ""
+      },
+      {
+        "name": "Abstract Untitled",
+        "description": "",
+        "link": "/art/painting/abstract-untitled.jpg",
+        "descriptionLink": ""
+      }
+    ]
+  },
+  {
+    "pixel": [
+      {
+        "name": "Red Eye",
+        "description": "",
+        "link": "/art/pixel/red-eye.png",
+        "descriptionLink": ""
+      },
+      {
+        "name": "Purple Moonbird",
+        "description": "",
+        "link": "/art/pixel/purple-moonbird.png",
+        "descriptionLink": ""
+      },
+      {
+        "name": "GENE_SIS Fan Art",
+        "description": "",
+        "link": "/art/pixel/gene-sis-fan-art.png",
+        "descriptionLink": ""
+      },
+      {
+        "name": "Pixel Warrior",
+        "description": "",
+        "link": "/art/pixel/warrior-full-body.png",
+        "descriptionLink": ""
+      },
+      {
+        "name": "Gold Farmers Example 1",
+        "description": "",
+        "link": "/art/pixel/gold-farmers-1.jpg",
+        "descriptionLink": ""
+      },
+      {
+        "name": "Gold Farmers Example 2",
+        "description": "",
+        "link": "/art/pixel/gold-farmers-2.jpg",
+        "descriptionLink": ""
+      },
+      {
+        "name": "Gold Farmers Example 3",
+        "description": "",
+        "link": "/art/pixel/gold-farmers-3.jpg",
+        "descriptionLink": ""
+      },
+      {
+        "name": "Gold Farmers Flower",
+        "description": "",
+        "link": "/art/pixel/gold-farmers-flower.PNG",
+        "descriptionLink": ""
+      },
+      {
+        "name": "Wizard Avatar",
+        "description": "",
+        "link": "/art/pixel/wizzard-avatar.png",
+        "descriptionLink": ""
+      },
+      {
+        "name": "Warrior Avatar",
+        "description": "",
+        "link": "/art/pixel/warrior-avatar.png",
+        "descriptionLink": ""
+      },
+      {
+        "name": "Hunter Avatar",
+        "description": "",
+        "link": "/art/pixel/hunter-avatar.png",
+        "descriptionLink": ""
+      },
+      {
+        "name": "Portrait Pixel Study",
+        "description": "",
+        "link": "/art/pixel/portrait-practice.png",
+        "descriptionLink": ""
+      },
+      {
+        "name": "6 32x32 Icons",
+        "description": "",
+        "link": "/art/pixel/6-icons.png",
+        "descriptionLink": ""
+      },
+      {
+        "name": "Fantasy Characters Sheet",
+        "description": "",
+        "link": "/art/pixel/fantasy-characters.png",
+        "descriptionLink": ""
+      },
+      {
+        "name": "1-Bit Animals Sheet",
+        "description": "",
+        "link": "/art/pixel/1-bit-animals.png",
+        "descriptionLink": ""
+      }
+    ]
+  },
+  {
+    "drawing": [
+      {
+        "name": "Cartoon colored portrait",
+        "description": "",
+        "link": "/art/drawing/cartoon-anime-head.jpg",
+        "descriptionLink": ""
+      },
+      {
+        "name": "Anime Girl Portrait",
+        "description": "",
+        "link": "/art/drawing/anime-girl-portrait.jpg",
+        "descriptionLink": ""
+      },
+      {
+        "name": "Floral Study",
+        "description": "",
+        "link": "/art/drawing/flower-drawing-2.jpg",
+        "descriptionLink": ""
+      },
+      {
+        "name": "Rose Study",
+        "description": "",
+        "link": "/art/drawing/rose-study.jpg",
+        "descriptionLink": ""
+      },
+      {
+        "name": "Camellia Study",
+        "description": "",
+        "link": "/art/drawing/camellia-study.jpg",
+        "descriptionLink": ""
+      },
+      {
+        "name": "Live Flower Study",
+        "description": "",
+        "link": "/art/drawing/live-flower-study.jpg",
+        "descriptionLink": ""
+      },
+      {
+        "name": "Peonies Floral Study",
+        "description": "",
+        "link": "/art/drawing/flower-drawing.jpg",
+        "descriptionLink": ""
+      },
+      {
+        "name": "Stylized portrait colored",
+        "description": "",
+        "link": "/art/drawing/stylized-portrait.jpg",
+        "descriptionLink": ""
+      },
+      {
+        "name": "Anime portrait Study",
+        "description": "",
+        "link": "/art/drawing/anime-portrait-study.jpg",
+        "descriptionLink": ""
+      },
+      {
+        "name": "Solo Leveling fan art",
+        "description": "",
+        "link": "/art/drawing/solo-leveling-anime.jpg",
+        "descriptionLink": ""
+      },
+      {
+        "name": "Floral Study Portrait",
+        "description": "",
+        "link": "/art/drawing/floral-portrait.jpg",
+        "descriptionLink": ""
+      },
+      {
+        "name": "Zeus",
+        "description": "",
+        "link": "/art/drawing/zeus.jpg",
+        "descriptionLink": ""
+      },
+      {
+        "name": "Pen marble torso study",
+        "description": "",
+        "link": "/art/drawing/pen-marble-torso.jpg",
+        "descriptionLink": ""
+      },
+      {
+        "name": "Full body figure studies",
+        "description": "",
+        "link": "/art/drawing/full-body-study.jpg",
+        "descriptionLink": ""
+      },
+      {
+        "name": "Full body figure studies",
+        "description": "",
+        "link": "/art/drawing/full-body-studies.jpg",
+        "descriptionLink": ""
+      },
+      {
+        "name": "Figure Study",
+        "description": "",
+        "link": "/art/drawing/figure-study.jpg",
+        "descriptionLink": ""
+      },
+      {
+        "name": "Figure from live Figure Drawing Class",
+        "description": "",
+        "link": "/art/drawing/figure-drawing-class.jpg",
+        "descriptionLink": ""
+      },
+      {
+        "name": "Pen portrait and figure studies",
+        "description": "",
+        "link": "/art/drawing/pen-portrait-n-figure.jpg",
+        "descriptionLink": ""
+      },
+      {
+        "name": "Red Coloring Pencil Portrait Study",
+        "description": "",
+        "link": "/art/drawing/red-pencil-portrait.jpg",
+        "descriptionLink": ""
+      },
+      {
+        "name": "Portrait Study",
+        "description": "",
+        "link": "/art/drawing/pen-portrait-3.jpg",
+        "descriptionLink": ""
+      },
+      {
+        "name": "Fallen Angel Stylized",
+        "description": "",
+        "link": "/art/drawing/fallen-angel.jpg",
+        "descriptionLink": ""
+      },
+      {
+        "name": "Dramatic Figure holding Flower",
+        "description": "",
+        "link": "/art/drawing/dramatic-flower-figure.jpg",
+        "descriptionLink": ""
+      },
+      {
+        "name": "Portrait Study",
+        "description": "",
+        "link": "/art/drawing/pen-portrait-2.jpg",
+        "descriptionLink": ""
+      },
+      {
+        "name": "Portrait Study",
+        "description": "",
+        "link": "/art/drawing/pencil-portrait.jpg",
+        "descriptionLink": ""
+      },
+      {
+        "name": "Portrait Study",
+        "description": "",
+        "link": "/art/drawing/pencil-portrait-2.jpg",
+        "descriptionLink": ""
+      },
+      {
+        "name": "Male Marble Torso",
+        "description": "",
+        "link": "/art/drawing/marble-torso.jpg",
+        "descriptionLink": ""
+      },
+      {
+        "name": "Female Marble Torso",
+        "description": "",
+        "link": "/art/drawing/female-marble-torso.jpg",
+        "descriptionLink": ""
+      },
+      {
+        "name": "Tranquility Portrait",
+        "description": "",
+        "link": "/art/drawing/tranquility.jpg",
+        "descriptionLink": ""
+      },
+      {
+        "name": "Portrait Study",
+        "description": "",
+        "link": "/art/drawing/bummed.jpg",
+        "descriptionLink": ""
+      },
+      {
+        "name": "David Status Portrait Study",
+        "description": "",
+        "link": "/art/drawing/david.jpg",
+        "descriptionLink": ""
+      },
+      {
+        "name": "Figure Study",
+        "description": "",
+        "link": "/art/drawing/figure-2.jpg",
+        "descriptionLink": ""
+      },
+      {
+        "name": "Figure Study",
+        "description": "",
+        "link": "/art/drawing/figure.jpg",
+        "descriptionLink": ""
+      },
+      {
+        "name": "Portrait Study",
+        "description": "",
+        "link": "/art/drawing/pen-portrait.jpg",
+        "descriptionLink": ""
+      }
+    ]
+  },
+  {
+    "generative": [
+      {
+        "name": "Lucid Paths Unrevealed",
+        "description": "",
+        "link": "/art/generative/lucid-paths-unrevealed.MP4",
+        "cover": "/art/generative/lucid-paths-unrevealed.png",
+        "descriptionLink": "",
+        "isVideo": true
+      },
+      {
+        "name": "Lucid Paths Manual Generation 1",
+        "description": "",
+        "link": "/art/generative/lucid-paths-1.MP4",
+        "cover": "/art/generative/lucid-paths-1.png",
+        "descriptionLink": "",
+        "isVideo": true
+      },
+      {
+        "name": "Lucid Paths Manual Generation 2",
+        "description": "",
+        "link": "/art/generative/lucid-paths-2.MP4",
+        "cover": "/art/generative/lucid-paths-2.png",
+        "descriptionLink": "",
+        "isVideo": true
+      },
+      {
+        "name": "Lucid Paths 39",
+        "description": "",
+        "link": "/art/generative/lucid-paths-39.MP4",
+        "cover": "/art/generative/lucid-paths-39.png",
+        "descriptionLink": "",
+        "isVideo": true
+      },
+      {
+        "name": "Lucid Paths 437",
+        "description": "",
+        "link": "/art/generative/lucid-paths-437.MP4",
+        "cover": "/art/generative/lucid-paths-437.png",
+        "descriptionLink": "",
+        "isVideo": true
+      }
+    ]
+  }
 ]
