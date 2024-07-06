@@ -33,7 +33,7 @@
     "tailwindcss": "^3.3.5"
   },
   "engines": {
-    "node": ">=18"
+    "node": ">=20"
   },
   "devDependencies": {
     "@types/node": "20.9.0",
