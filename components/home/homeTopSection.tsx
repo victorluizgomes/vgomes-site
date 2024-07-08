@@ -42,7 +42,7 @@ export function TopSection(props: TopSectionProps) {
             Front-end Engineer.
           </h1>
           <p className=" mt-6 text-sm sm:text-base lg:text-base leading-loose lg:leading-loose">
-            <span className="inline-block">
+            <span className="hidden md:inline-block">
               I&apos;m a general creative, with a love for technology & art.&nbsp;
             </span>
             <span className="hidden md:inline-block">
@@ -57,11 +57,8 @@ export function TopSection(props: TopSectionProps) {
               </a>
               .&nbsp;
             </span>
-            <span className="inline-block md:hidden">
-              Currently working as a Front-end&nbsp;
-            </span>
-            <span className="inline-block md:hidden">
-              Software Engineer at{' '}
+            <span className="inline-block leading-[1.55rem] md:hidden">
+              I&apos;m a general creative, with a love for technology & art. Currently working as a Front-end Software Engineer at{' '}
               <a
                 className={`border-b border-b-gold-yellow cursor-pointer hover:border-b-2 ${styles['header-link']}`}
                 href="https://www.coinbase.com/about"
@@ -70,9 +67,18 @@ export function TopSection(props: TopSectionProps) {
               >
                 Coinbase
               </a>
-              .&nbsp;
+              . Previously worked at{' '}
+              <a
+                className={`border-b border-b-gold-yellow cursor-pointer hover:border-b-2 ${styles['header-link']}`}
+                href="https://www.blackrock.com/us/individual/about-us/about-blackrock"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Blackrock
+              </a>
+              . Based in Atlanta, United States.
             </span>
-            <span className="inline-block">
+            <span className="hidden md:inline-block">
               Previously worked at{' '}
               <a
                 className={`border-b border-b-gold-yellow cursor-pointer hover:border-b-2 ${styles['header-link']}`}
@@ -84,7 +90,7 @@ export function TopSection(props: TopSectionProps) {
               </a>
               .&nbsp;
             </span>
-            <span className="inline-block">
+            <span className="hidden md:inline-block">
               Based in Atlanta, United States.
             </span>
           </p>

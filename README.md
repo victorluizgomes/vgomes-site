@@ -25,6 +25,8 @@ vgomes.co personal site built with Next.js React
 
 - Made so nav bar becomes sticky at the top on scroll, but more importantly the different art categories in the art tab also become sticky on scroll. They become sticky to the bottom on mobile 😎 and top on desktop.
 
+- Made a script that automates my artwork uploading, by converting image from HEIC to Jpeg, resizing it, adding the metadata to a JSON and moving it to the correct category.
+
 ## Notes on SEO
 
 - scripts/generate-sitemap.js generates the sitemap dynamically for my blog posts on `npm run build`
@@ -72,7 +74,7 @@ Make sure to not commit the files in temp/ folder and delete them after.
 
 Note: Videos still need to be added manually together with its cover image
 
-### Old method:
+### Old method _(Deprecated)_:
 
 1. Use terminal alias that I setup for converting from HEIC to jpeg and image resizing:
 
