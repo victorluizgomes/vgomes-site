@@ -8,7 +8,7 @@ export function ArtInfo(props: ArtInfoProps) {
         <h1 className="text-3xl sm:text-4xl lg:text-5xl leading-tight">
           Artistic & Creative projects.
         </h1>
-        <p className="text-sm sm:text-base mt-6 px-2 leading-loose text-center">
+        <p className="text-sm sm:text-base text-neutral-700 mt-6 px-2 leading-loose text-center">
           &quot;Every child is an artist. The problem is how to remain an artist once we grow up.&quot; - Pablo Picasso
         </p>
       </div>

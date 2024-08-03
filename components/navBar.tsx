@@ -50,6 +50,19 @@ export function NavBar(props: NavBarProps) {
             Blog
           </Link>
         </li>
+        <li
+          className={`${
+            router.pathname.startsWith("/projects")
+              ? "border-b-2 !border-b-gold-yellow pb-0"
+              : "hover:pb-0"
+          } ${
+            styles["nav-animation"]
+          } hover:border-b-gold-yellow hover:border-b-2 pb-1`}
+        >
+          <Link href="/projects" className="cursor-pointer text-regular sm:text-lg font-bold">
+            Projects
+          </Link>
+        </li>
       </ul>
     </nav>
   );
