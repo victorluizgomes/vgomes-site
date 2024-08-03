@@ -2,6 +2,12 @@
   {
     "digital": [
       {
+        "name": "Tentacle Portrait",
+        "description": "",
+        "link": "/art/digital/tentacle-portrait.heic.jpg",
+        "descriptionLink": ""
+      },
+      {
         "name": "The Ethereal - Rainbow People",
         "description": "",
         "link": "/art/digital/rainbow-people-3.MP4",
@@ -205,6 +211,30 @@
   },
   {
     "drawing": [
+      {
+        "name": "Blue Pen Portrait",
+        "description": "",
+        "link": "/art/drawing/blue-pen-portrait.heic.jpg",
+        "descriptionLink": ""
+      },
+      {
+        "name": "Bodybuilder Figure",
+        "description": "",
+        "link": "/art/drawing/bodybuilder-figure.heic.jpg",
+        "descriptionLink": ""
+      },
+      {
+        "name": "Marble Figure with Pen",
+        "description": "",
+        "link": "/art/drawing/marble-figure-pen.heic.jpg",
+        "descriptionLink": ""
+      },
+      {
+        "name": "Moustache Portrait",
+        "description": "",
+        "link": "/art/drawing/moustache-portrait-study.jpg",
+        "descriptionLink": ""
+      },
       {
         "name": "Cartoon colored portrait",
         "description": "",
