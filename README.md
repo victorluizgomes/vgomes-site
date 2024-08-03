@@ -43,7 +43,7 @@ This is mostly for myself to know what I can work on whenever I pick this up. ðŸ
 - Add Highlights/Featured default tab of artworks which will display all my favorite curated works of art (from all categories)
 - Carrousel with latest blog posts in about page
 - Update the way I am displaying the artworks to be left to right first instead of each column (only relevant for desktop with multiple columns)
-- Add images to Blog posts
+- Add images to Blog and Projects posts
 - Make so we can upload an image through mobile. Options:
   - Use a cloud storage service like Google Drive or Dropbox that has mobile apps with automatic upload features.
   - Set up a webhook or GitHub Action that triggers when files are added to your cloud storage, automatically pulling them into your repo.
@@ -52,7 +52,6 @@ This is mostly for myself to know what I can work on whenever I pick this up. ðŸ
 
 ### Long Term
 
-- Projects tab
 - UI Improvements
 - Dark mode
 - Lots more blog posts
@@ -61,6 +60,7 @@ This is mostly for myself to know what I can work on whenever I pick this up. ðŸ
 
 ### Done Items
 
+- Projects tab
 - Automate uploading artworks to art tab
 
 ## Notes to self on adding artworks:
