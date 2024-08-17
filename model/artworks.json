@@ -212,6 +212,12 @@
   {
     "drawing": [
       {
+        "name": "Medieval Portrait Colored",
+        "description": "",
+        "link": "/art/drawing/medieval-portrait-colored.JPEG",
+        "descriptionLink": ""
+      },
+      {
         "name": "Blue Pen Portrait",
         "description": "",
         "link": "/art/drawing/blue-pen-portrait.heic.jpg",
@@ -254,9 +260,9 @@
         "descriptionLink": ""
       },
       {
-        "name": "Floral Study",
+        "name": "Lemons Study",
         "description": "",
-        "link": "/art/drawing/flower-drawing-2.jpg",
+        "link": "/art/drawing/lemons-study.jpg",
         "descriptionLink": ""
       },
       {
@@ -275,12 +281,6 @@
         "name": "Live Flower Study",
         "description": "",
         "link": "/art/drawing/live-flower-study.jpg",
-        "descriptionLink": ""
-      },
-      {
-        "name": "Peonies Floral Study",
-        "description": "",
-        "link": "/art/drawing/flower-drawing.jpg",
         "descriptionLink": ""
       },
       {
