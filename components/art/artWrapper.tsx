@@ -18,7 +18,7 @@ export function ArtWrapper(props: ArtWrapperProps) {
   return (
     <div
       onClick={() => props.onExpandArt(props.art)}
-      className={`mb-2 ${styles["container"]}`}
+      className={`${styles["container"]}`}
     >
       {props.type === ArtType.IMAGE && (
         <div className={`bg-off-grey ${styles["art-img-wrapper"]}`}>
@@ -36,7 +36,7 @@ export function ArtWrapper(props: ArtWrapperProps) {
         <div className={`bg-off-grey ${styles["art-video-wrapper"]}`}>
           <video
             width="100%"
-            height="auto"
+            height="100%"
             controls
             loop
             poster={props.cover || ''}

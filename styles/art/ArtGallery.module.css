@@ -6,8 +6,11 @@
 }
 
 .art-grid-container {
-  padding-top: 2rem;
-  width: 90%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 14px;
+  padding: 0 10px;
 }
 
 .hidden {
@@ -44,11 +47,13 @@
 @media (min-width: 1024px) {
   .art-grid-container {
     width: 1000px;
+    justify-content: start;
   }
 }
 
 @media (min-width: 1400px) {
   .art-grid-container {
     width: 1250px;
+    justify-content: start;
   }
 }

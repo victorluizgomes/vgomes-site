@@ -4,7 +4,7 @@ import ArtWrapper from "./artWrapper";
 import styles from "../../styles/art/ArtGallery.module.css";
 import { ArtPropertiesInterface } from "../../model/art.interface";
 import ExpandedArt from "./expandedArt";
-import artworksData from '../../model/artworks.json';
+import artworksData from "../../model/artworks.json";
 
 /* eslint-disable-next-line */
 export interface ArtGalleryProps {}
@@ -16,11 +16,21 @@ export function ArtGallery(props: ArtGalleryProps) {
   const [digitalActive, setDigitalActive] = useState<boolean>(false);
   const [pixelActive, setPixelActive] = useState<boolean>(false);
 
-  const [digitalArt] = useState(artworksData.find(category => category.digital)?.digital || []);
-  const [paintingArt] = useState(artworksData.find(category => category.painting)?.painting || []);
-  const [generativeArt] = useState(artworksData.find(category => category.generative)?.generative || [])
-  const [pixelArt] = useState(artworksData.find(category => category.pixel)?.pixel || []);
-  const [drawingArt] = useState(artworksData.find(category => category.drawing)?.drawing || []);
+  const [digitalArt] = useState(
+    artworksData.find((category) => category.digital)?.digital || []
+  );
+  const [paintingArt] = useState(
+    artworksData.find((category) => category.painting)?.painting || []
+  );
+  const [generativeArt] = useState(
+    artworksData.find((category) => category.generative)?.generative || []
+  );
+  const [pixelArt] = useState(
+    artworksData.find((category) => category.pixel)?.pixel || []
+  );
+  const [drawingArt] = useState(
+    artworksData.find((category) => category.drawing)?.drawing || []
+  );
 
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
   const [isLoading, setIsLoading] = useState(true);
@@ -39,32 +49,66 @@ export function ArtGallery(props: ArtGalleryProps) {
 
     const handleDesktopScroll = () => {
       if (window.scrollY > spacer.offsetTop - 150 && window.innerWidth >= 640) {
-        desktopButtonBar.classList.add('fixed', 'bg-[#FCFCF8]', 'top-[4.5rem]', 'py-2', 'left-0', 'right-0', 'z-50');
-        spacer.classList.add('h-[56px]');
+        desktopButtonBar.classList.add(
+          "fixed",
+          "bg-[#FCFCF8]",
+          "top-[4.5rem]",
+          "py-2",
+          "left-0",
+          "right-0",
+          "z-50"
+        );
+        spacer.classList.add("h-[56px]");
       } else {
-        desktopButtonBar.classList.remove('fixed', 'bg-[#FCFCF8]', 'top-[4.5rem]', 'py-2', 'left-0', 'right-0', 'z-50');
-        spacer.classList.remove('h-[56px]');
+        desktopButtonBar.classList.remove(
+          "fixed",
+          "bg-[#FCFCF8]",
+          "top-[4.5rem]",
+          "py-2",
+          "left-0",
+          "right-0",
+          "z-50"
+        );
+        spacer.classList.remove("h-[56px]");
       }
     };
 
     const handleMobileScroll = () => {
       if (window.scrollY > spacer.offsetTop - 150 && window.innerWidth < 640) {
-        mobileButtonBar.classList.remove('mb-3');
-        mobileButtonBar.classList.add('fixed', 'bg-[#FCFCF8]', 'bottom-0', 'pt-1', 'pb-[1.1rem]', 'left-0', 'right-0', 'z-50');
-        spacer.classList.add('h-[88px]');
+        mobileButtonBar.classList.remove("mb-3");
+        mobileButtonBar.classList.add(
+          "fixed",
+          "bg-[#FCFCF8]",
+          "bottom-0",
+          "pt-1",
+          "pb-[1.1rem]",
+          "left-0",
+          "right-0",
+          "z-50"
+        );
+        spacer.classList.add("h-[88px]");
       } else {
-        mobileButtonBar.classList.add('mb-3');
-        mobileButtonBar.classList.remove('fixed', 'bg-[#FCFCF8]', 'bottom-0', 'pt-1', 'pb-[1.1rem]', 'left-0', 'right-0', 'z-50');
-        spacer.classList.remove('h-[88px]');
+        mobileButtonBar.classList.add("mb-3");
+        mobileButtonBar.classList.remove(
+          "fixed",
+          "bg-[#FCFCF8]",
+          "bottom-0",
+          "pt-1",
+          "pb-[1.1rem]",
+          "left-0",
+          "right-0",
+          "z-50"
+        );
+        spacer.classList.remove("h-[88px]");
       }
     };
 
-    window.addEventListener('scroll', handleDesktopScroll);
-    window.addEventListener('scroll', handleMobileScroll);
+    window.addEventListener("scroll", handleDesktopScroll);
+    window.addEventListener("scroll", handleMobileScroll);
 
     return () => {
-      window.removeEventListener('scroll', handleDesktopScroll);
-      window.removeEventListener('scroll', handleMobileScroll);
+      window.removeEventListener("scroll", handleDesktopScroll);
+      window.removeEventListener("scroll", handleMobileScroll);
     };
   }, []);
 
@@ -73,7 +117,7 @@ export function ArtGallery(props: ArtGalleryProps) {
     if (spacer && window.scrollY > 600) {
       spacer.scrollIntoView();
     }
-  }
+  };
 
   const setPainting = () => {
     resetBtns();
@@ -89,7 +133,7 @@ export function ArtGallery(props: ArtGalleryProps) {
     resetBtns();
     scrollToTop();
     setGenerativeActive(true);
-  }
+  };
   const setDigital = () => {
     resetBtns();
     scrollToTop();
@@ -121,7 +165,7 @@ export function ArtGallery(props: ArtGalleryProps) {
 
       if (updatedState >= numImages) {
         setTimeout(() => {
-            setIsLoading(false);
+          setIsLoading(false);
         }, 300);
       }
 
@@ -145,7 +189,7 @@ export function ArtGallery(props: ArtGalleryProps) {
 
       if (updatedState >= numVideos) {
         setTimeout(() => {
-            setIsLoading(false);
+          setIsLoading(false);
         }, 300);
       }
 
@@ -157,7 +201,7 @@ export function ArtGallery(props: ArtGalleryProps) {
     timeoutRef.current = setTimeout(() => {
       setIsLoading(false);
     }, maxLoadTime);
-  }
+  };
 
   const handleExpandArt = (
     art: ArtPropertiesInterface,
@@ -185,7 +229,10 @@ export function ArtGallery(props: ArtGalleryProps) {
         />
       )}
       {/* Desktop view */}
-      <nav id="desktopButtonBar" className={`hidden sm:flex items-center justify-center mb-3 `}>
+      <nav
+        id="desktopButtonBar"
+        className={`hidden sm:flex items-center justify-center mb-3 `}
+      >
         <Button label="Digital" active={digitalActive} onClick={setDigital} />
         <Button
           label="Painting"
@@ -193,11 +240,18 @@ export function ArtGallery(props: ArtGalleryProps) {
           onClick={setPainting}
         />
         <Button label="Drawing" active={drawingActive} onClick={setDrawing} />
-        <Button label='Generative' active={generativeActive} onClick={setGenerative} />
+        <Button
+          label="Generative"
+          active={generativeActive}
+          onClick={setGenerative}
+        />
         <Button label="Pixel" active={pixelActive} onClick={setPixel} />
       </nav>
       {/* mobile view */}
-      <nav id="mobileButtonBar" className={`flex flex-col sm:hidden items-center justify-center mb-3 `}>
+      <nav
+        id="mobileButtonBar"
+        className={`flex flex-col sm:hidden items-center justify-center mb-3 `}
+      >
         <div className="flex pb-1 gap-1 items-center justify-center">
           <Button label="Digital" active={digitalActive} onClick={setDigital} />
           <Button
@@ -208,7 +262,11 @@ export function ArtGallery(props: ArtGalleryProps) {
           <Button label="Drawing" active={drawingActive} onClick={setDrawing} />
         </div>
         <div className="flex gap-1 items-center justify-center">
-          <Button label='Generative' active={generativeActive} onClick={setGenerative} />
+          <Button
+            label="Generative"
+            active={generativeActive}
+            onClick={setGenerative}
+          />
           <Button label="Pixel" active={pixelActive} onClick={setPixel} />
         </div>
       </nav>
@@ -221,76 +279,66 @@ export function ArtGallery(props: ArtGalleryProps) {
       )}
       {digitalActive && (
         <div
-          className={`columns-1 sm:columns-2 md:columns-3 ${
-            styles["art-grid-container"]
-          } ${isLoading ? styles["hidden"] : ""}`}
+          className={`${styles["art-grid-container"]} ${
+            isLoading ? styles["hidden"] : ""
+          }`}
         >
-          {digitalArt.map(
-            (art: ArtPropertiesInterface, index: number) => (
-              <div key={art.link}>
-                {art.isVideo ?
-                  (
-                    <ArtWrapper
-                      type="video"
-                      art={art}
-                      imgName={art.name}
-                      videoSrc={art.link}
-                      cover={art.cover}
-                      onLoad={() => handleVideoLoad(digitalArt.length)}
-                      onError={() => handleVideoLoad(digitalArt.length)}
-                      onExpandArt={() =>
-                        console.log('use video controls for fullscreen')
-                      }
-                    />
-                  ) : (
-                    <ArtWrapper
-                      type="image"
-                      art={art}
-                      imgName={art.name}
-                      thumbnailSrc={art.link}
-                      onLoad={() => handleImageLoad(digitalArt.length)}
-                      onError={() => handleImageLoad(digitalArt.length)}
-                      onExpandArt={() =>
-                        handleExpandArt(art, digitalArt, index)
-                      }
-                    />
-                  )
-                }
-              </div>
-            )
-          )}
-        </div>
-      )}
-      {paintingActive && (
-        <div
-          className={`columns-1 sm:columns-2 md:columns-3 ${
-            styles["art-grid-container"]
-          } ${isLoading ? styles["hidden"] : ""}`}
-        >
-          {paintingArt.map(
-            (art: ArtPropertiesInterface, index: number) => (
-              <div key={art.link}>
+          {digitalArt.map((art: ArtPropertiesInterface, index: number) => (
+            <div key={art.link}>
+              {art.isVideo ? (
+                <ArtWrapper
+                  type="video"
+                  art={art}
+                  imgName={art.name}
+                  videoSrc={art.link}
+                  cover={art.cover}
+                  onLoad={() => handleVideoLoad(digitalArt.length)}
+                  onError={() => handleVideoLoad(digitalArt.length)}
+                  onExpandArt={() =>
+                    console.log("use video controls for fullscreen")
+                  }
+                />
+              ) : (
                 <ArtWrapper
                   type="image"
                   art={art}
                   imgName={art.name}
                   thumbnailSrc={art.link}
-                  onLoad={() => handleImageLoad(paintingArt.length)}
-                  onError={() => handleImageLoad(paintingArt.length)}
-                  onExpandArt={() =>
-                    handleExpandArt(art, paintingArt, index)
-                  }
+                  onLoad={() => handleImageLoad(digitalArt.length)}
+                  onError={() => handleImageLoad(digitalArt.length)}
+                  onExpandArt={() => handleExpandArt(art, digitalArt, index)}
                 />
-              </div>
-            )
-          )}
+              )}
+            </div>
+          ))}
+        </div>
+      )}
+      {paintingActive && (
+        <div
+          className={`${styles["art-grid-container"]} ${
+            isLoading ? styles["hidden"] : ""
+          }`}
+        >
+          {paintingArt.map((art: ArtPropertiesInterface, index: number) => (
+            <div key={art.link}>
+              <ArtWrapper
+                type="image"
+                art={art}
+                imgName={art.name}
+                thumbnailSrc={art.link}
+                onLoad={() => handleImageLoad(paintingArt.length)}
+                onError={() => handleImageLoad(paintingArt.length)}
+                onExpandArt={() => handleExpandArt(art, paintingArt, index)}
+              />
+            </div>
+          ))}
         </div>
       )}
       {pixelActive && (
         <div
-          className={`columns-1 sm:columns-2 md:columns-3 ${
-            styles["art-grid-container"]
-          } ${isLoading ? styles["hidden"] : ""}`}
+          className={`${styles["art-grid-container"]} ${
+            isLoading ? styles["hidden"] : ""
+          }`}
         >
           {pixelArt.map((art: ArtPropertiesInterface, index: number) => (
             <div key={art.link}>
@@ -309,69 +357,59 @@ export function ArtGallery(props: ArtGalleryProps) {
       )}
       {drawingActive && (
         <div
-          className={`columns-1 sm:columns-2 md:columns-3 ${
-            styles["art-grid-container"]
-          } ${isLoading ? styles["hidden"] : ""}`}
+          className={`${styles["art-grid-container"]} ${
+            isLoading ? styles["hidden"] : ""
+          }`}
         >
-          {drawingArt.map(
-            (art: ArtPropertiesInterface, index: number) => (
-              <div key={art.link}>
+          {drawingArt.map((art: ArtPropertiesInterface, index: number) => (
+            <div key={art.link}>
+              <ArtWrapper
+                type="image"
+                art={art}
+                imgName={art.name}
+                thumbnailSrc={art.link}
+                onLoad={() => handleImageLoad(drawingArt.length)}
+                onError={() => handleImageLoad(drawingArt.length)}
+                onExpandArt={() => handleExpandArt(art, drawingArt, index)}
+              />
+            </div>
+          ))}
+        </div>
+      )}
+      {generativeActive && (
+        <div
+          className={`${styles["art-grid-container"]} ${
+            isLoading ? styles["hidden"] : ""
+          }`}
+        >
+          {generativeArt.map((art: ArtPropertiesInterface, index: number) => (
+            <div key={art.link}>
+              {art.isVideo ? (
+                <ArtWrapper
+                  type="video"
+                  art={art}
+                  imgName={art.name}
+                  videoSrc={art.link}
+                  cover={art.cover}
+                  onLoad={() => handleVideoLoad(generativeArt.length)}
+                  onError={() => handleVideoLoad(generativeArt.length)}
+                  onExpandArt={() =>
+                    console.log("use video controls for fullscreen")
+                  }
+                />
+              ) : (
                 <ArtWrapper
                   type="image"
                   art={art}
                   imgName={art.name}
                   thumbnailSrc={art.link}
-                  onLoad={() => handleImageLoad(drawingArt.length)}
-                  onError={() => handleImageLoad(drawingArt.length)}
-                  onExpandArt={() =>
-                    handleExpandArt(art, drawingArt, index)
-                  }
+                  onLoad={() => handleImageLoad(generativeArt.length)}
+                  onError={() => handleImageLoad(generativeArt.length)}
+                  onExpandArt={() => handleExpandArt(art, digitalArt, index)}
                 />
-              </div>
-            )
-          )}
-        </div>
-      )}
-      {generativeActive && (
-        <div
-          className={`columns-1 sm:columns-2 md:columns-3 ${
-            styles["art-grid-container"]
-          } ${isLoading ? styles["hidden"] : ""}`}
-        >
-          {generativeArt.map(
-            (art: ArtPropertiesInterface, index: number) => (
-              <div key={art.link}>
-                {art.isVideo ?
-                  (
-                    <ArtWrapper
-                      type="video"
-                      art={art}
-                      imgName={art.name}
-                      videoSrc={art.link}
-                      cover={art.cover}
-                      onLoad={() => handleVideoLoad(generativeArt.length)}
-                      onError={() => handleVideoLoad(generativeArt.length)}
-                      onExpandArt={() =>
-                        console.log('use video controls for fullscreen')
-                      }
-                    />
-                  ) : (
-                    <ArtWrapper
-                      type="image"
-                      art={art}
-                      imgName={art.name}
-                      thumbnailSrc={art.link}
-                      onLoad={() => handleImageLoad(generativeArt.length)}
-                      onError={() => handleImageLoad(generativeArt.length)}
-                      onExpandArt={() =>
-                        handleExpandArt(art, digitalArt, index)
-                      }
-                    />
-                  )
-                }
-              </div>
-            )
-          )}
+              )}
+            </div>
+          ))}
         </div>
       )}
     </section>
