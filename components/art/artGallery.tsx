@@ -5,6 +5,7 @@ import styles from "../../styles/art/ArtGallery.module.css";
 import { ArtPropertiesInterface } from "../../model/art.interface";
 import ExpandedArt from "./expandedArt";
 import artworksData from "../../model/artworks.json";
+import { Skeleton } from "../skeleton";
 
 /* eslint-disable-next-line */
 export interface ArtGalleryProps {}
@@ -202,6 +203,7 @@ export function ArtGallery(props: ArtGalleryProps) {
           onClose={closeExpandedArt}
         />
       )}
+      {/* TODO: refactor button nav to another component */}
       {/* Desktop view */}
       <nav
         id="desktopButtonBar"
@@ -270,9 +272,16 @@ export function ArtGallery(props: ArtGalleryProps) {
       </nav>
       <div id="buttonBarSpacer"></div>
       {isLoading && (
-        <div className="flex flex-col w-full pt-[150px]">
-          <div className={styles["loader"]}></div>
-          <p className="text-center pt-4">Loading artworks</p>
+        <div className="flex flex-wrap justify-center gap-5 w-full px-4 md:justify-start md:w-[700px] lg:w-[1000px] xl:w-[1250px]">
+          <Skeleton className="w-full md:w-[500px] h-[400px]" />
+          <Skeleton className="w-full md:w-[270px] h-[400px]" />
+          <Skeleton className="w-full md:w-[340px] h-[400px]" />
+          <Skeleton className="w-full md:w-[250px] h-[400px]" />
+          <Skeleton className="w-full md:w-[380px] h-[400px]" />
+          <Skeleton className="w-full md:w-[360px] h-[400px]" />
+          <Skeleton className="w-full md:w-[600px] h-[400px]" />
+          <Skeleton className="w-full md:w-[200px] h-[400px]" />
+          <Skeleton className="w-full md:w-[400px] h-[400px]" />
         </div>
       )}
       <div

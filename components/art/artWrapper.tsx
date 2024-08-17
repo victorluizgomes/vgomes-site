@@ -29,6 +29,7 @@ export function ArtWrapper(props: ArtWrapperProps) {
             alt={props.imgName}
             onLoad={props.onLoad}
             onError={props.onError}
+            priority
           />
         </div>
       )}
