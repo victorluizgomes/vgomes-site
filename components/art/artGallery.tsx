@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { TabButton as Button } from "../../components/tabButton";
 import ArtWrapper from "./artWrapper";
 import styles from "../../styles/art/ArtGallery.module.css";
@@ -9,28 +9,31 @@ import artworksData from "../../model/artworks.json";
 /* eslint-disable-next-line */
 export interface ArtGalleryProps {}
 
-export function ArtGallery(props: ArtGalleryProps) {
-  const [paintingActive, setPaintingActive] = useState<boolean>(false);
-  const [drawingActive, setDrawingActive] = useState<boolean>(true);
-  const [generativeActive, setGenerativeActive] = useState<boolean>(false);
-  const [digitalActive, setDigitalActive] = useState<boolean>(false);
-  const [pixelActive, setPixelActive] = useState<boolean>(false);
+type ArtCategory = "drawing" | "painting" | "digital" | "pixel" | "generative";
 
-  const [digitalArt] = useState(
-    artworksData.find((category) => category.digital)?.digital || []
-  );
-  const [paintingArt] = useState(
-    artworksData.find((category) => category.painting)?.painting || []
-  );
-  const [generativeArt] = useState(
-    artworksData.find((category) => category.generative)?.generative || []
-  );
-  const [pixelArt] = useState(
-    artworksData.find((category) => category.pixel)?.pixel || []
-  );
-  const [drawingArt] = useState(
-    artworksData.find((category) => category.drawing)?.drawing || []
-  );
+export function ArtGallery(props: ArtGalleryProps) {
+  const [activeCategory, setActiveCategory] = useState<ArtCategory>("drawing");
+
+  const currentArt = useMemo(() => {
+    switch (activeCategory) {
+      case "drawing":
+        return artworksData.find((category) => category.drawing)?.drawing || [];
+      case "painting":
+        return (
+          artworksData.find((category) => category.painting)?.painting || []
+        );
+      case "digital":
+        return artworksData.find((category) => category.digital)?.digital || [];
+      case "pixel":
+        return artworksData.find((category) => category.pixel)?.pixel || [];
+      case "generative":
+        return (
+          artworksData.find((category) => category.generative)?.generative || []
+        );
+      default:
+        return [];
+    }
+  }, [activeCategory]);
 
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
   const [isLoading, setIsLoading] = useState(true);
@@ -113,46 +116,17 @@ export function ArtGallery(props: ArtGalleryProps) {
   }, []);
 
   const scrollToTop = () => {
-    const spacer = document.getElementById("buttonBarSpacer");
-    if (spacer && window.scrollY > 600) {
-      spacer.scrollIntoView();
+    const scrollSpot = document.getElementById("artInfoTitle");
+    if (scrollSpot && window.scrollY > 600) {
+      scrollSpot.scrollIntoView();
     }
   };
 
-  const setPainting = () => {
-    resetBtns();
+  const setNewActiveCategory = (category: ArtCategory) => {
     scrollToTop();
-    setPaintingActive(true);
-  };
-  const setDrawing = () => {
-    resetBtns();
-    scrollToTop();
-    setDrawingActive(true);
-  };
-  const setGenerative = () => {
-    resetBtns();
-    scrollToTop();
-    setGenerativeActive(true);
-  };
-  const setDigital = () => {
-    resetBtns();
-    scrollToTop();
-    setDigitalActive(true);
-  };
-  const setPixel = () => {
-    resetBtns();
-    scrollToTop();
-    setPixelActive(true);
-  };
-
-  const resetBtns = () => {
     setIsLoading(true);
     setImagesLoaded(0);
-    setPaintingActive(false);
-    setDrawingActive(false);
-    setGenerativeActive(false);
-    setDigitalActive(false);
-    setPixelActive(false);
+    setActiveCategory(category);
   };
 
   const handleImageLoad = (numImages: number) => {
@@ -233,19 +207,31 @@ export function ArtGallery(props: ArtGalleryProps) {
         id="desktopButtonBar"
         className={`hidden sm:flex items-center justify-center mb-3 `}
       >
-        <Button label="Digital" active={digitalActive} onClick={setDigital} />
+        <Button
+          label="Digital"
+          active={activeCategory === "digital"}
+          onClick={() => setNewActiveCategory("digital")}
+        />
         <Button
           label="Painting"
-          active={paintingActive}
-          onClick={setPainting}
+          active={activeCategory === "painting"}
+          onClick={() => setNewActiveCategory("painting")}
         />
-        <Button label="Drawing" active={drawingActive} onClick={setDrawing} />
+        <Button
+          label="Drawing"
+          active={activeCategory === "drawing"}
+          onClick={() => setNewActiveCategory("drawing")}
+        />
         <Button
           label="Generative"
-          active={generativeActive}
-          onClick={setGenerative}
+          active={activeCategory === "generative"}
+          onClick={() => setNewActiveCategory("generative")}
         />
-        <Button label="Pixel" active={pixelActive} onClick={setPixel} />
+        <Button
+          label="Pixel"
+          active={activeCategory === "pixel"}
+          onClick={() => setNewActiveCategory("pixel")}
+        />
       </nav>
       {/* mobile view */}
       <nav
@@ -253,21 +239,33 @@ export function ArtGallery(props: ArtGalleryProps) {
         className={`flex flex-col sm:hidden items-center justify-center mb-3 `}
       >
         <div className="flex pb-1 gap-1 items-center justify-center">
-          <Button label="Digital" active={digitalActive} onClick={setDigital} />
+          <Button
+            label="Digital"
+            active={activeCategory === "digital"}
+            onClick={() => setNewActiveCategory("digital")}
+          />
           <Button
             label="Painting"
-            active={paintingActive}
-            onClick={setPainting}
+            active={activeCategory === "painting"}
+            onClick={() => setNewActiveCategory("painting")}
           />
-          <Button label="Drawing" active={drawingActive} onClick={setDrawing} />
+          <Button
+            label="Drawing"
+            active={activeCategory === "drawing"}
+            onClick={() => setNewActiveCategory("drawing")}
+          />
         </div>
         <div className="flex gap-1 items-center justify-center">
           <Button
             label="Generative"
-            active={generativeActive}
-            onClick={setGenerative}
+            active={activeCategory === "generative"}
+            onClick={() => setNewActiveCategory("generative")}
           />
-          <Button label="Pixel" active={pixelActive} onClick={setPixel} />
+          <Button
+            label="Pixel"
+            active={activeCategory === "pixel"}
+            onClick={() => setNewActiveCategory("pixel")}
+          />
         </div>
       </nav>
       <div id="buttonBarSpacer"></div>
@@ -277,141 +275,40 @@ export function ArtGallery(props: ArtGalleryProps) {
           <p className="text-center pt-4">Loading artworks</p>
         </div>
       )}
-      {digitalActive && (
-        <div
-          className={`${styles["art-grid-container"]} ${
-            isLoading ? styles["hidden"] : ""
-          }`}
-        >
-          {digitalArt.map((art: ArtPropertiesInterface, index: number) => (
-            <div key={art.link}>
-              {art.isVideo ? (
-                <ArtWrapper
-                  type="video"
-                  art={art}
-                  imgName={art.name}
-                  videoSrc={art.link}
-                  cover={art.cover}
-                  onLoad={() => handleVideoLoad(digitalArt.length)}
-                  onError={() => handleVideoLoad(digitalArt.length)}
-                  onExpandArt={() =>
-                    console.log("use video controls for fullscreen")
-                  }
-                />
-              ) : (
-                <ArtWrapper
-                  type="image"
-                  art={art}
-                  imgName={art.name}
-                  thumbnailSrc={art.link}
-                  onLoad={() => handleImageLoad(digitalArt.length)}
-                  onError={() => handleImageLoad(digitalArt.length)}
-                  onExpandArt={() => handleExpandArt(art, digitalArt, index)}
-                />
-              )}
-            </div>
-          ))}
-        </div>
-      )}
-      {paintingActive && (
-        <div
-          className={`${styles["art-grid-container"]} ${
-            isLoading ? styles["hidden"] : ""
-          }`}
-        >
-          {paintingArt.map((art: ArtPropertiesInterface, index: number) => (
-            <div key={art.link}>
+      <div
+        className={`${styles["art-grid-container"]} ${
+          isLoading ? styles["hidden"] : ""
+        }`}
+      >
+        {currentArt.map((art: ArtPropertiesInterface, index: number) => (
+          <div key={art.link}>
+            {art.isVideo ? (
+              <ArtWrapper
+                type="video"
+                art={art}
+                imgName={art.name}
+                videoSrc={art.link}
+                cover={art.cover}
+                onLoad={() => handleVideoLoad(currentArt.length)}
+                onError={() => handleVideoLoad(currentArt.length)}
+                onExpandArt={() =>
+                  console.log("use video controls for fullscreen")
+                }
+              />
+            ) : (
               <ArtWrapper
                 type="image"
                 art={art}
                 imgName={art.name}
                 thumbnailSrc={art.link}
-                onLoad={() => handleImageLoad(paintingArt.length)}
-                onError={() => handleImageLoad(paintingArt.length)}
-                onExpandArt={() => handleExpandArt(art, paintingArt, index)}
+                onLoad={() => handleImageLoad(currentArt.length)}
+                onError={() => handleImageLoad(currentArt.length)}
+                onExpandArt={() => handleExpandArt(art, currentArt, index)}
               />
-            </div>
-          ))}
-        </div>
-      )}
-      {pixelActive && (
-        <div
-          className={`${styles["art-grid-container"]} ${
-            isLoading ? styles["hidden"] : ""
-          }`}
-        >
-          {pixelArt.map((art: ArtPropertiesInterface, index: number) => (
-            <div key={art.link}>
-              <ArtWrapper
-                type="image"
-                art={art}
-                imgName={art.name}
-                thumbnailSrc={art.link}
-                onLoad={() => handleImageLoad(pixelArt.length)}
-                onError={() => handleImageLoad(pixelArt.length)}
-                onExpandArt={() => handleExpandArt(art, pixelArt, index)}
-              />
-            </div>
-          ))}
-        </div>
-      )}
-      {drawingActive && (
-        <div
-          className={`${styles["art-grid-container"]} ${
-            isLoading ? styles["hidden"] : ""
-          }`}
-        >
-          {drawingArt.map((art: ArtPropertiesInterface, index: number) => (
-            <div key={art.link}>
-              <ArtWrapper
-                type="image"
-                art={art}
-                imgName={art.name}
-                thumbnailSrc={art.link}
-                onLoad={() => handleImageLoad(drawingArt.length)}
-                onError={() => handleImageLoad(drawingArt.length)}
-                onExpandArt={() => handleExpandArt(art, drawingArt, index)}
-              />
-            </div>
-          ))}
-        </div>
-      )}
-      {generativeActive && (
-        <div
-          className={`${styles["art-grid-container"]} ${
-            isLoading ? styles["hidden"] : ""
-          }`}
-        >
-          {generativeArt.map((art: ArtPropertiesInterface, index: number) => (
-            <div key={art.link}>
-              {art.isVideo ? (
-                <ArtWrapper
-                  type="video"
-                  art={art}
-                  imgName={art.name}
-                  videoSrc={art.link}
-                  cover={art.cover}
-                  onLoad={() => handleVideoLoad(generativeArt.length)}
-                  onError={() => handleVideoLoad(generativeArt.length)}
-                  onExpandArt={() =>
-                    console.log("use video controls for fullscreen")
-                  }
-                />
-              ) : (
-                <ArtWrapper
-                  type="image"
-                  art={art}
-                  imgName={art.name}
-                  thumbnailSrc={art.link}
-                  onLoad={() => handleImageLoad(generativeArt.length)}
-                  onError={() => handleImageLoad(generativeArt.length)}
-                  onExpandArt={() => handleExpandArt(art, digitalArt, index)}
-                />
-              )}
-            </div>
-          ))}
-        </div>
-      )}
+            )}
+          </div>
+        ))}
+      </div>
     </section>
   );
 }
