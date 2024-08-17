@@ -1,9 +1,24 @@
-.art-img-wrapper {
-    /* position: relative; */
-    display: inline-block;
-    line-height: 0;
+.container {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.art-img-wrapper,
+.art-video-wrapper {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 100%;
+}
+
+.art-img-wrapper img,
+.art-video-wrapper video {
+    height: 100%;
     width: 100%;
-    object-fit: contain;
+    max-width: 100%;
 }
 
 .art-img-wrapper:hover {
@@ -14,4 +29,27 @@
 .art-img-wrapper > img:hover{
     transition: opacity .2s ease-in-out;
     opacity: .8;
+}
+
+@media (max-width: 700px) {
+    .art-img-wrapper img,
+    .art-video-wrapper video {
+        max-width: 400px;
+    }
+}
+
+@media (min-width: 700px) {
+    .art-img-wrapper,
+    .art-video-wrapper {
+        flex: 0 0 auto;
+        height: 400px;
+        display: flex;
+        align-items: center;
+    }
+
+    .art-img-wrapper img,
+    .art-video-wrapper video {
+        height: 100%;
+        width: auto;
+    }
 }
