@@ -6,4 +6,6 @@ description: 'A generative art and sound exploration NFT. It accumulated over 20
 
 Checkout [Lucid Paths](https://lucidpaths.com)
 
+![Lucid Paths Landing page screenshot](/projects/lucid-paths/lucid-paths-landing.png "Lucid Paths landing page screenshot")
+
 Description under construction...
