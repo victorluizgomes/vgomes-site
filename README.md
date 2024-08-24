@@ -42,6 +42,8 @@ This is mostly for myself to know what I can work on whenever I pick this up. ðŸ
 - Add Highlights/Featured default tab of artworks which will display all my favorite curated works of art (from all categories)
 - Carrousel with latest blog posts in about page
 - Add images to Blog and Projects posts
+- Use Letterboxd API to display my reviews and favorite movies [letterboxd APIs](https://api-docs.letterboxd.com/#operation-GET-member_id_log-entry-tags)
+  - letterboxd embed example: [embed example](https://letterboxd-embed.timcieplowski.com/)
 - Make so we can upload an image through mobile. Options:
   - Use a cloud storage service like Google Drive or Dropbox that has mobile apps with automatic upload features.
   - Set up a webhook or GitHub Action that triggers when files are added to your cloud storage, automatically pulling them into your repo.
