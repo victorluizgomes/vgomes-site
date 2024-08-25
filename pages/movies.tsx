@@ -34,7 +34,10 @@ const MoviesPage = () => {
       </Head>
       <div className="flex flex-col items-center justify-center">
         <div className="max-w-3xl px-4">
-            <h1 className="text-3xl text-center pb-10">Latest movies I have watched</h1>
+            <h1 className="text-3xl sm:text-4xl text-center leading-tight">Latest movies I have watched</h1>
+            <p className="text-sm sm:text-base text-neutral-700 mt-3 sm:mt-6 px-2 text-center pb-10">
+                I&apos;ve always loved movies, so I&apos;ve been using the app Letterboxd to review all the movies I watch. You can see the latest movies I reviewed in Letterboxd bellow.
+            </p>
             <div id="letterboxd-embed-wrapper-tc">Loading...</div>
         </div>
       </div>
