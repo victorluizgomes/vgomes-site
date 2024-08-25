@@ -1,4 +1,4 @@
-import { Menu } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import styles from "../styles/NavBar.module.css";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -77,8 +77,16 @@ export function NavBar(props: NavBarProps) {
       <nav
         className={`flex sm:hidden fixed p-1 bg-[#FCFCF8] w-full z-20 border-b border-[#ebebe6]`}
       >
-        <button onClick={toggleMenu} className="p-[.4rem] rounded-md">
-          <Menu />
+        <button
+          onClick={toggleMenu}
+          className="p-[.4rem] rounded-md transition-transform duration-300"
+        >
+          <div className="relative">
+            <X
+              className={`absolute ${menuOpen ? "opacity-100" : "opacity-0"}`}
+            />
+            <Menu className={` ${menuOpen ? "opacity-0" : "opacity-100"}`} />
+          </div>
         </button>
         {/* Mobile menu */}
         {menuOpen && (
@@ -112,8 +120,8 @@ export function NavBar(props: NavBarProps) {
               label={item.label}
               isActive={
                 item.label === "About"
-                ? router.pathname === item.href
-                : router.pathname.startsWith(item.href)
+                  ? router.pathname === item.href
+                  : router.pathname.startsWith(item.href)
               }
             />
           ))}
