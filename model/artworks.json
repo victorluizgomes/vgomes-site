@@ -212,6 +212,18 @@
   {
     "drawing": [
       {
+        "name": "portrait of an old man",
+        "description": "",
+        "link": "/art/drawing/IMG_8861.jpg",
+        "descriptionLink": ""
+      },
+      {
+        "name": "long hair scruffy man",
+        "description": "",
+        "link": "/art/drawing/IMG_8972.jpg",
+        "descriptionLink": ""
+      },
+      {
         "name": "Medieval Portrait Colored",
         "description": "",
         "link": "/art/drawing/medieval-portrait-colored.JPEG",
@@ -251,12 +263,6 @@
         "name": "minimalistic portrait of a women",
         "description": "",
         "link": "/art/drawing/IMG_8794.jpg",
-        "descriptionLink": ""
-      },
-      {
-        "name": "portrait of an old man",
-        "description": "",
-        "link": "/art/drawing/IMG_8861.jpg",
         "descriptionLink": ""
       },
       {
