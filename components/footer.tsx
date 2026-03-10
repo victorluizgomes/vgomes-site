@@ -4,57 +4,103 @@ import {
   GITHUB_URL,
   LINKEDIN_URL,
 } from "../model/constants";
-import styles from "../styles/Footer.module.css";
+import { useState } from "react";
+import { Check, Copy } from "lucide-react";
 
-/* eslint-disable-next-line */
 export interface FooterProps {}
 
 export function Footer(props: FooterProps) {
+  const [copied, setCopied] = useState(false);
+  const email = "vgomescontact@gmail.com";
+
+  const handleCopyEmail = async () => {
+    try {
+      await navigator.clipboard.writeText(email);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch (err) {
+      console.error("Failed to copy email");
+    }
+  };
+
   return (
-    <footer className={`${styles["container"]} pb-[7.5rem] pt-10 sm:py-20`}>
-      <div className="px-6 sm:px-16">
-        <p className="text-center sm:text-left">
-          Say Hello &#8212;{" "}
-          <a
-            className={`hover:border-b-gold-yellow hover:border-b-2 ${styles["email-link"]}`}
-            href="mailto:vgomescontact@gmail.com"
-          >
-            vgomescontact@gmail.com
-          </a>
-        </p>
-        <hr className={`my-6 border-gold-yellow border-t-4`} />
-        <div className="flex flex-col-reverse sm:flex-row justify-between text-center sm:text-left gap-4 sm:gap-0">
-          <p>&#169; Victor Gomes {new Date().getFullYear()}</p>
-          <ul className="flex justify-center sm:justify-start gap-5">
-            <li
-              className={`hover:border-b-gold-yellow hover:border-b-2 ${styles["social-link"]}`}
+    <footer className="py-16 md:py-24 border-t border-[hsl(var(--border))]">
+      <div className="max-w-6xl mx-auto px-6">
+        {/* Top Section */}
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-8 mb-12">
+          {/* Email */}
+          <div>
+            <p className="text-sm text-[hsl(var(--text-secondary))] mb-2">
+              Say Hello
+            </p>
+            <button
+              onClick={handleCopyEmail}
+              className="group flex items-center gap-3 text-xl md:text-2xl font-display text-[hsl(var(--foreground))] hover:text-[hsl(var(--accent))] transition-colors"
             >
-              <a target="_blank" rel="noreferrer" href={X_TWITTER_URL}>
-                X
-              </a>
-            </li>
-            <li
-              className={`hover:border-b-gold-yellow hover:border-b-2 ${styles["social-link"]}`}
+              {email}
+              <span className="p-2 rounded-lg bg-[hsl(var(--surface))] border border-[hsl(var(--border))] group-hover:border-[hsl(var(--accent)/0.3)] transition-colors">
+                {copied ? (
+                  <Check className="w-4 h-4 text-[hsl(var(--accent))]" />
+                ) : (
+                  <Copy className="w-4 h-4" />
+                )}
+              </span>
+            </button>
+            {copied && (
+              <p className="text-sm text-[hsl(var(--accent))] mt-2 font-mono">
+                Copied to clipboard!
+              </p>
+            )}
+          </div>
+
+          {/* Social Links */}
+          <div className="flex gap-6">
+            <a
+              href={X_TWITTER_URL}
+              target="_blank"
+              rel="noreferrer"
+              className="group flex items-center gap-2 text-[hsl(var(--text-secondary))] hover:text-[hsl(var(--accent))] transition-colors"
             >
-              <a target="_blank" rel="noreferrer" href={INSTAGRAM_URL}>
-                IG
-              </a>
-            </li>
-            <li
-              className={`hover:border-b-gold-yellow hover:border-b-2 ${styles["social-link"]}`}
+              <span className="font-medium">X</span>
+            </a>
+            <a
+              href={INSTAGRAM_URL}
+              target="_blank"
+              rel="noreferrer"
+              className="group flex items-center gap-2 text-[hsl(var(--text-secondary))] hover:text-[hsl(var(--accent))] transition-colors"
             >
-              <a target="_blank" rel="noreferrer" href={GITHUB_URL}>
-                GH
-              </a>
-            </li>
-            <li
-              className={`hover:border-b-gold-yellow hover:border-b-2 ${styles["social-link"]}`}
+              <span className="font-medium">IG</span>
+            </a>
+            <a
+              href={GITHUB_URL}
+              target="_blank"
+              rel="noreferrer"
+              className="group flex items-center gap-2 text-[hsl(var(--text-secondary))] hover:text-[hsl(var(--accent))] transition-colors"
             >
-              <a target="_blank" rel="noreferrer" href={LINKEDIN_URL}>
-                LN
-              </a>
-            </li>
-          </ul>
+              <span className="font-medium">GH</span>
+            </a>
+            <a
+              href={LINKEDIN_URL}
+              target="_blank"
+              rel="noreferrer"
+              className="group flex items-center gap-2 text-[hsl(var(--text-secondary))] hover:text-[hsl(var(--accent))] transition-colors"
+            >
+              <span className="font-medium">LN</span>
+            </a>
+          </div>
+        </div>
+
+        {/* Divider */}
+        <div className="h-px bg-[hsl(var(--border))] mb-8" />
+
+        {/* Bottom Section */}
+        <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+          <p className="text-sm font-mono text-[hsl(var(--text-secondary))]">
+            &copy; Victor Gomes {new Date().getFullYear()}
+          </p>
+          <p className="text-sm text-[hsl(var(--text-muted))]">
+            Built with Next.js & Tailwind CSS
+          </p>
         </div>
       </div>
     </footer>

@@ -3,77 +3,152 @@ import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
 import Link from "next/link";
-import { formatDate } from "./[slug]";
+import { ArrowRight } from "lucide-react";
+import { useEffect, useState } from "react";
 
 export interface ProjectsProps {
-  projectPosts: any[];
+  projectPosts: {
+    slug: string;
+    frontmatter: {
+      title: string;
+      description: string;
+      date: string;
+      tags?: string[];
+    };
+  }[];
+}
+
+function formatDate(dateString: string): string {
+  if (dateString.split("-").length === 1) return dateString;
+  const [year, month, day] = dateString.split("-").map((num) => parseInt(num, 10));
+  const date = new Date(year, month - 1, day || 1);
+  const options: Intl.DateTimeFormatOptions = {
+    year: "numeric",
+    month: "short",
+    timeZone: "America/New_York",
+  };
+  return new Intl.DateTimeFormat("en-US", options).format(date);
+}
+
+function getYear(dateString: string): string {
+  return dateString.split("-")[0];
 }
 
 export default function Projects(props: ProjectsProps) {
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
   return (
-    <main className="flex flex-col items-center justify-between">
+    <main className="min-h-screen pt-24 pb-16">
       <Head>
-        <title>Victor Gomes | Projects</title>
+        <title>Projects | Victor Gomes</title>
         <meta
           name="description"
-          content="Victor Gomes software engineering web development project highlights."
+          content="Victor Gomes software engineering web development project highlights. From design systems to creative coding experiments."
         />
       </Head>
-      <div className="max-w-3xl">
-        <section>
-          <div className="text-center mx-2 my-12 sm:my-20">
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl leading-tight">
-              Victor Gomes - Projects
-            </h1>
-            <p className="text-sm sm:text-base text-neutral-700 mt-6 px-2 leading-loose text-center">
-              Highlights of the personal projects I have built in software engineering.
+
+      <div className="max-w-4xl mx-auto px-6">
+        {/* Page Header */}
+        <header className={`mb-16 ${mounted ? 'fade-in-up' : 'opacity-0'}`}>
+          <h1 className="font-display text-5xl md:text-6xl lg:text-7xl text-[hsl(var(--foreground))] mb-4">
+            Projects
+            <span className="text-[hsl(var(--accent))]">.</span>
+          </h1>
+          <div className="h-1 w-16 bg-[hsl(var(--accent))] mb-6" />
+          <p className="text-[hsl(var(--text-secondary))] text-lg max-w-2xl">
+            A collection of personal projects, experiments, and professional work 
+            that showcase my passion for building at the intersection of code and creativity.
+          </p>
+        </header>
+
+        {/* Projects List */}
+        <div className="divide-y divide-[hsl(var(--border))]">
+          {props.projectPosts.map((post, index) => (
+            <Link
+              key={post.slug}
+              href={`/projects/${post.slug}`}
+              className={`
+                group flex flex-col md:flex-row md:items-start gap-4 py-8 row-hover px-4 -mx-4
+                ${mounted ? 'fade-in-up' : 'opacity-0'}
+              `}
+              style={{ animationDelay: `${(index + 1) * 50}ms` }}
+            >
+              {/* Year */}
+              <span className="font-mono text-sm text-[hsl(var(--text-secondary))] md:w-20 shrink-0">
+                {getYear(post.frontmatter.date)}
+              </span>
+
+              {/* Content */}
+              <div className="flex-1">
+                <h2 className="font-display text-xl md:text-2xl text-[hsl(var(--foreground))] mb-2 group-hover:text-[hsl(var(--accent))] transition-colors">
+                  {post.frontmatter.title}
+                </h2>
+                <p className="text-[hsl(var(--text-secondary))] text-sm md:text-base mb-3">
+                  {post.frontmatter.description}
+                </p>
+                
+                {/* Tags */}
+                {post.frontmatter.tags && (
+                  <div className="flex flex-wrap gap-2">
+                    {post.frontmatter.tags.slice(0, 4).map((tag: string) => (
+                      <span key={tag} className="accent-pill">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                )}
+              </div>
+
+              {/* Arrow */}
+              <ArrowRight className="w-5 h-5 text-[hsl(var(--text-secondary))] opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all shrink-0 hidden md:block mt-1" />
+            </Link>
+          ))}
+        </div>
+
+        {props.projectPosts.length === 0 && (
+          <div className="text-center py-16">
+            <p className="text-[hsl(var(--text-secondary))]">
+              No projects found. Check back soon!
             </p>
           </div>
-        </section>
-        <ul className="px-6 md:px-24 pb-6">
-            {props.projectPosts.map((post) => (
-            <li key={post.slug} className="my-3">
-                <Link href={`/projects/${post.slug}`}>
-                    <div className="flex flex-col p-4 md:p-6 text-left border border-gold-yellow/70 hover:bg-gold-yellow/10 rounded-md">
-                        <span className="text-neutral-600 text-sm md:text-base pb-1">{formatDate(post.frontmatter.date)}</span>
-                        <h2 className="font-bold text-xl md:text-2xl text-neutral-800 pb-4">{post.frontmatter.title}</h2>
-                        <p className="text-sm md:text-base text-neutral-700">{post.frontmatter.description}</p>
-                        <span className="mt-2 flex w-full justify-end text-sm md:text-base text-[#ab6945]">Read more</span>
-                    </div>
-                </Link>
-            </li>
-            ))}
-        </ul>
+        )}
       </div>
     </main>
   );
 }
 
 export async function getStaticProps() {
-  // Get files from the projects posts directory
-  const files = fs.readdirSync(path.join("project-posts"));
+  const projectsDir = path.join(process.cwd(), "project-posts");
+  let projects: { slug: string; frontmatter: any }[] = [];
 
-  // Get slug and frontmatter from posts
-  const projects = files.map((filename) => {
-    const slug = filename.replace(".md", "");
-    const markdownWithMeta = fs.readFileSync(
-      path.join("project-posts", filename),
-      "utf-8"
+  try {
+    const files = fs.readdirSync(projectsDir);
+    projects = files.map((filename) => {
+      const slug = filename.replace(".md", "");
+      const markdownWithMeta = fs.readFileSync(
+        path.join(projectsDir, filename),
+        "utf-8"
+      );
+      const { data: frontmatter } = matter(markdownWithMeta);
+
+      return {
+        slug,
+        frontmatter,
+      };
+    });
+
+    projects.sort(
+      (a, b) =>
+        new Date(b.frontmatter.date).getTime() -
+        new Date(a.frontmatter.date).getTime()
     );
-    const { data: frontmatter } = matter(markdownWithMeta);
-
-    return {
-      slug,
-      frontmatter,
-    };
-  });
-
-  // Sort posts by date
-  projects.sort(
-    (a, b) =>
-      new Date(b.frontmatter.date).getTime() -
-      new Date(a.frontmatter.date).getTime()
-  );
+  } catch (error) {
+    console.log("Project posts directory not found");
+  }
 
   return {
     props: {

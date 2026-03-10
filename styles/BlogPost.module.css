@@ -1,4 +1,4 @@
-/* Styling for the markdown Blog Posts */
+/* Styling for the markdown Blog Posts - Dark Theme */
 /* use of the .markdown prefix is required to keep the classes in scope of the blog posts */
 
 .markdown p,
@@ -11,7 +11,19 @@
 .markdown ol,
 .markdown li,
 .markdown ul {
-  color: #222;
+  color: hsl(var(--text-secondary));
+}
+
+.markdown h1,
+.markdown h2,
+.markdown h3,
+.markdown h4,
+.markdown h5,
+.markdown h6 {
+  font-family: 'Clash Display', sans-serif;
+  color: hsl(var(--foreground));
+  font-weight: 600;
+  letter-spacing: -0.02em;
 }
 
 .markdown h1 {
@@ -46,67 +58,87 @@
 
 .markdown p {
   font-size: 1em;
-  line-height: 1.6;
-  margin: .5rem 0;
+  line-height: 1.8;
+  margin: 1.25rem 0;
 }
 
 .markdown hr {
-    border-color: #ddd;
-    margin: 1.75rem 0;
+  border-color: hsl(var(--border));
+  margin: 2.5rem 0;
 }
 
 .markdown ul {
-    list-style-type: disc;
-    padding-left: 1.5em;
+  list-style-type: disc;
+  padding-left: 1.5em;
 }
 
 .markdown ol {
-    list-style-type: decimal;
-    padding-left: 1.5em;
+  list-style-type: decimal;
+  padding-left: 1.5em;
 }
 
 .markdown li {
-    margin-bottom: 0.5em;
+  margin-bottom: 0.5em;
 }
 
 .markdown blockquote {
-  border-left: 4px solid #ccc;
+  border-left: 4px solid hsl(var(--accent));
   margin-left: 0;
-  padding-left: 1em;
-  color: #444;
+  padding-left: 1.5em;
+  font-style: italic;
+  color: hsl(var(--text-secondary));
 }
 
 .markdown a {
-    color: #8b4b37;
-    text-decoration: underline;
+  color: hsl(var(--accent));
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s;
+}
+
+.markdown a:hover {
+  border-bottom-color: hsl(var(--accent));
+}
+
+.markdown strong {
+  color: hsl(var(--foreground));
 }
 
 .markdown code {
-  padding: 0 1px;
+  font-family: 'JetBrains Mono', monospace;
+  padding: 0.2em 0.4em;
   white-space: pre;
+  background: hsl(var(--surface));
+  border-radius: 0.25rem;
+  font-size: 0.9em;
 }
 
 .markdown pre {
-  padding: .4rem .4rem .4rem .6rem;
-  border-radius: 5px;
-  background-color: #0d1117;
+  padding: 1.25rem;
+  border-radius: 0.75rem;
+  background-color: hsl(var(--surface)) !important;
+  border: 1px solid hsl(var(--border));
   overflow-x: auto;
   word-wrap: normal;
   white-space: pre;
   max-width: 100%;
+  margin: 1.5rem 0;
 }
 
 .markdown pre > code {
   white-space: pre;
   display: block;
-  background-color: unset;
+  background-color: transparent;
+  padding: 0;
+  font-size: 0.875rem;
 }
 
 .markdown img {
   max-width: 100%;
   height: auto;
   display: block;
-  margin: 0 auto;
+  margin: 2rem auto;
+  border-radius: 0.75rem;
 }
 
 @media (max-width: 768px) {

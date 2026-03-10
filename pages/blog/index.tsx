@@ -3,74 +3,144 @@ import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
 import Link from "next/link";
-import { formatDate } from "./[slug]";
+import { ArrowRight } from "lucide-react";
+import { useEffect, useState } from "react";
 
 export interface BlogProps {
-  posts: any[];
+  posts: {
+    slug: string;
+    frontmatter: {
+      title: string;
+      description: string;
+      date: string;
+      category?: string;
+    };
+  }[];
+}
+
+function formatDate(dateString: string): string {
+  const [year, month, day] = dateString.split("-").map((num) => parseInt(num, 10));
+  const date = new Date(year, month - 1, day || 1);
+  const options: Intl.DateTimeFormatOptions = {
+    year: "numeric",
+    month: "short",
+    day: day ? "2-digit" : undefined,
+    timeZone: "America/New_York",
+  };
+  return new Intl.DateTimeFormat("en-US", options).format(date);
 }
 
 export default function Blog(props: BlogProps) {
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
   return (
-    <main className="flex flex-col items-center justify-between">
+    <main className="min-h-screen pt-24 pb-16">
       <Head>
-        <title>Victor Gomes | Blog</title>
-        <meta name="description" content="Victor Gomes dev blog, Where I write about my developer journey and sometimes a few technical tutorials." />
+        <title>Blog | Victor Gomes</title>
+        <meta
+          name="description"
+          content="Victor Gomes dev blog. Writing about my developer journey, front-end engineering, creative coding, and technical tutorials."
+        />
       </Head>
-      <div className="max-w-3xl">
-        <section>
-            <div className="text-center mx-2 my-12 sm:my-20">
-                <h1 className="text-3xl sm:text-4xl lg:text-5xl leading-tight">
-                    Victor Gomes - Blog
-                </h1>
-                <p className="text-sm sm:text-base text-neutral-700 mt-6 px-2 leading-loose text-center">
-                  Where I write about my developer journey and sometimes a few technical tutorials.
+
+      <div className="max-w-4xl mx-auto px-6">
+        {/* Page Header */}
+        <header className={`mb-16 ${mounted ? 'fade-in-up' : 'opacity-0'}`}>
+          <h1 className="font-display text-5xl md:text-6xl lg:text-7xl text-[hsl(var(--foreground))] mb-4">
+            Blog
+            <span className="text-[hsl(var(--accent))]">.</span>
+          </h1>
+          <div className="h-1 w-16 bg-[hsl(var(--accent))] mb-6" />
+          <p className="text-[hsl(var(--text-secondary))] text-lg max-w-2xl">
+            Thoughts on front-end development, creative coding, design systems, 
+            and the intersection of technology and art.
+          </p>
+        </header>
+
+        {/* Blog Posts List */}
+        <div className="divide-y divide-[hsl(var(--border))]">
+          {props.posts.map((post, index) => (
+            <Link
+              key={post.slug}
+              href={`/blog/${post.slug}`}
+              className={`
+                group flex flex-col md:flex-row md:items-start gap-4 py-8 row-hover px-4 -mx-4
+                ${mounted ? 'fade-in-up' : 'opacity-0'}
+              `}
+              style={{ animationDelay: `${(index + 1) * 50}ms` }}
+            >
+              {/* Date */}
+              <span className="font-mono text-sm text-[hsl(var(--text-secondary))] md:w-28 shrink-0">
+                {formatDate(post.frontmatter.date)}
+              </span>
+
+              {/* Content */}
+              <div className="flex-1">
+                <h2 className="font-display text-xl md:text-2xl text-[hsl(var(--foreground))] mb-2 group-hover:text-[hsl(var(--accent))] transition-colors">
+                  {post.frontmatter.title}
+                </h2>
+                <p className="text-[hsl(var(--text-secondary))] text-sm md:text-base">
+                  {post.frontmatter.description}
                 </p>
-            </div>
-        </section>
-        <ul className="px-6 md:px-24 pb-6">
-            {props.posts.map((post) => (
-            <li key={post.slug} className="my-3">
-                <Link href={`/blog/${post.slug}`}>
-                    <div className="flex flex-col p-4 md:p-6 text-left border border-gold-yellow/70 hover:bg-gold-yellow/10 rounded-md">
-                        <span className="text-neutral-600 text-sm md:text-base pb-1">{formatDate(post.frontmatter.date)}</span>
-                        <h2 className="font-bold text-xl md:text-2xl text-neutral-800 pb-4">{post.frontmatter.title}</h2>
-                        <p className="text-sm md:text-base text-neutral-700">{post.frontmatter.description}</p>
-                        <span className="mt-2 flex w-full justify-end text-sm md:text-base text-[#ab6945]">Read more</span>
-                    </div>
-                </Link>
-            </li>
-            ))}
-        </ul>
+                
+                {/* Category */}
+                {post.frontmatter.category && (
+                  <span className="inline-block mt-3 accent-pill">
+                    {post.frontmatter.category}
+                  </span>
+                )}
+              </div>
+
+              {/* Arrow */}
+              <ArrowRight className="w-5 h-5 text-[hsl(var(--text-secondary))] opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all shrink-0 hidden md:block mt-1" />
+            </Link>
+          ))}
+        </div>
+
+        {props.posts.length === 0 && (
+          <div className="text-center py-16">
+            <p className="text-[hsl(var(--text-secondary))]">
+              No blog posts found. Check back soon!
+            </p>
+          </div>
+        )}
       </div>
     </main>
   );
 }
 
 export async function getStaticProps() {
-  // Get files from the posts directory
-  const files = fs.readdirSync(path.join("posts"));
+  const postsDir = path.join(process.cwd(), "posts");
+  let posts: { slug: string; frontmatter: any }[] = [];
 
-  // Get slug and frontmatter from posts
-  const posts = files.map((filename) => {
-    const slug = filename.replace(".md", "");
-    const markdownWithMeta = fs.readFileSync(
-      path.join("posts", filename),
-      "utf-8"
+  try {
+    const files = fs.readdirSync(postsDir);
+    posts = files.map((filename) => {
+      const slug = filename.replace(".md", "");
+      const markdownWithMeta = fs.readFileSync(
+        path.join(postsDir, filename),
+        "utf-8"
+      );
+      const { data: frontmatter } = matter(markdownWithMeta);
+
+      return {
+        slug,
+        frontmatter,
+      };
+    });
+
+    posts.sort(
+      (a, b) =>
+        new Date(b.frontmatter.date).getTime() -
+        new Date(a.frontmatter.date).getTime()
     );
-    const { data: frontmatter } = matter(markdownWithMeta);
-
-    return {
-      slug,
-      frontmatter,
-    };
-  });
-
-  // Sort posts by date
-  posts.sort(
-    (a, b) =>
-      new Date(b.frontmatter.date).getTime() -
-      new Date(a.frontmatter.date).getTime()
-  );
+  } catch (error) {
+    console.log("Posts directory not found");
+  }
 
   return {
     props: {

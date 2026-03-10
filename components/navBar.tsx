@@ -1,28 +1,27 @@
 import { Menu, X } from "lucide-react";
-import styles from "../styles/NavBar.module.css";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 export interface NavBarProps {}
 
-// Child component for desktop navigation items
+// Desktop nav item with pill highlight
 const NavItem: React.FC<{ href: string; label: string; isActive: boolean }> = ({
   href,
   label,
   isActive,
 }) => {
   return (
-    <li
-      className={`${
-        isActive ? "border-b-2 !border-b-gold-yellow pb-0" : "hover:pb-0"
-      } ${
-        styles["nav-animation"]
-      } hover:border-b-gold-yellow hover:border-b-2 pb-1`}
-    >
+    <li>
       <Link
         href={href}
-        className="cursor-pointer text-regular sm:text-lg font-bold"
+        className={`
+          relative px-4 py-2 text-sm font-medium transition-all duration-200 rounded-full
+          ${isActive 
+            ? "text-[hsl(var(--background))] bg-[hsl(var(--accent))]" 
+            : "text-[hsl(var(--text-secondary))] hover:text-[hsl(var(--foreground))]"
+          }
+        `}
       >
         {label}
       </Link>
@@ -30,22 +29,28 @@ const NavItem: React.FC<{ href: string; label: string; isActive: boolean }> = ({
   );
 };
 
-// Child component for mobile navigation items
+// Mobile nav item
 const MobileNavItem: React.FC<{
   href: string;
   label: string;
   isActive: boolean;
   onClick: () => void;
-}> = ({ href, label, isActive, onClick }) => {
+  index: number;
+}> = ({ href, label, isActive, onClick, index }) => {
   return (
-    <li
-      className={`${
-        isActive ? "bg-[#e8ba7439]" : ""
-      } border-b border-[#ebebe6]`}
+    <li 
+      className="fade-in-up"
+      style={{ animationDelay: `${index * 50}ms` }}
     >
       <Link
         href={href}
-        className="block p-3 text-regular font-bold text-center"
+        className={`
+          block py-4 text-3xl font-display font-semibold text-center transition-colors duration-200
+          ${isActive 
+            ? "text-[hsl(var(--accent))]" 
+            : "text-[hsl(var(--foreground))] hover:text-[hsl(var(--accent))]"
+          }
+        `}
         onClick={onClick}
       >
         {label}
@@ -57,62 +62,55 @@ const MobileNavItem: React.FC<{
 export function NavBar(props: NavBarProps) {
   const router = useRouter();
   const [menuOpen, setMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  useEffect(() => {
+    if (menuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, [menuOpen]);
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   };
 
-  // Define the navigation items
   const navItems = [
     { href: "/", label: "About" },
-    { href: "/art", label: "Art" },
-    { href: "/blog", label: "Blog" },
     { href: "/projects", label: "Projects" },
+    { href: "/blog", label: "Blog" },
+    { href: "/art", label: "Art" },
     { href: "/movies", label: "Movies" },
   ];
 
   return (
     <>
-      {/* MOBILE */}
+      {/* DESKTOP - Floating Pill Nav */}
       <nav
-        className={`flex sm:hidden fixed p-1 bg-[#FCFCF8] w-full z-20 border-b border-[#ebebe6]`}
+        className={`
+          hidden sm:flex fixed top-4 left-1/2 -translate-x-1/2 z-50
+          rounded-full px-2 py-2 items-center gap-1
+          transition-all duration-300
+          ${scrolled 
+            ? "bg-[hsl(var(--surface)/0.95)] backdrop-blur-xl border border-[hsl(var(--accent)/0.1)] shadow-lg shadow-black/20" 
+            : "bg-[hsl(var(--surface)/0.8)] backdrop-blur-xl border border-[hsl(var(--border)/0.5)]"
+          }
+        `}
       >
-        <button
-          onClick={toggleMenu}
-          className="p-[.4rem] rounded-md transition-transform duration-300"
-        >
-          <div className="relative">
-            <X
-              className={`absolute ${menuOpen ? "opacity-100" : "opacity-0"}`}
-            />
-            <Menu className={` ${menuOpen ? "opacity-0" : "opacity-100"}`} />
-          </div>
-        </button>
-        {/* Mobile menu */}
-        {menuOpen && (
-          <div className="absolute top-full left-0 w-[200px] bg-[#FCFCF8] shadow-lg border rounded-md border-[#ebebe6]">
-            <ul className="flex flex-col">
-              {navItems.map((item) => (
-                <MobileNavItem
-                  key={item.href}
-                  href={item.href}
-                  label={item.label}
-                  isActive={
-                    item.label === "About"
-                      ? router.pathname === item.href
-                      : router.pathname.startsWith(item.href)
-                  }
-                  onClick={toggleMenu}
-                />
-              ))}
-            </ul>
-          </div>
-        )}
-      </nav>
-
-      {/* DESKTOP */}
-      <nav className={`hidden sm:flex ${styles["container"]}`}>
-        <ul className="flex flex-row py-3 sm:py-6 gap-6 sm:gap-12">
+        <ul className="flex items-center gap-1">
           {navItems.map((item) => (
             <NavItem
               key={item.href}
@@ -127,6 +125,104 @@ export function NavBar(props: NavBarProps) {
           ))}
         </ul>
       </nav>
+
+      {/* MOBILE - Hamburger Button */}
+      <nav className="flex sm:hidden fixed top-4 right-4 z-50">
+        <button
+          onClick={toggleMenu}
+          className={`
+            p-3 rounded-full transition-all duration-300
+            ${menuOpen 
+              ? "bg-[hsl(var(--accent))] text-[hsl(var(--background))]" 
+              : "bg-[hsl(var(--surface)/0.9)] backdrop-blur-xl border border-[hsl(var(--border))] text-[hsl(var(--foreground))]"
+            }
+          `}
+          aria-label={menuOpen ? "Close menu" : "Open menu"}
+        >
+          <div className="relative w-6 h-6">
+            <X
+              className={`absolute inset-0 transition-all duration-300 ${
+                menuOpen ? "opacity-100 rotate-0" : "opacity-0 rotate-90"
+              }`}
+              size={24}
+            />
+            <Menu
+              className={`absolute inset-0 transition-all duration-300 ${
+                menuOpen ? "opacity-0 -rotate-90" : "opacity-100 rotate-0"
+              }`}
+              size={24}
+            />
+          </div>
+        </button>
+      </nav>
+
+      {/* MOBILE - Full Screen Menu Overlay */}
+      <div
+        className={`
+          sm:hidden fixed inset-0 z-40
+          bg-[hsl(var(--background)/0.98)] backdrop-blur-2xl
+          transition-all duration-300 ease-out
+          ${menuOpen 
+            ? "opacity-100 pointer-events-auto" 
+            : "opacity-0 pointer-events-none"
+          }
+        `}
+      >
+        <div className="flex flex-col items-center justify-center h-full">
+          <ul className="flex flex-col items-center gap-2">
+            {navItems.map((item, index) => (
+              <MobileNavItem
+                key={item.href}
+                href={item.href}
+                label={item.label}
+                isActive={
+                  item.label === "About"
+                    ? router.pathname === item.href
+                    : router.pathname.startsWith(item.href)
+                }
+                onClick={toggleMenu}
+                index={index}
+              />
+            ))}
+          </ul>
+          
+          {/* Social links in mobile menu */}
+          <div className="mt-12 flex gap-6 text-[hsl(var(--text-secondary))]">
+            <a 
+              href="https://x.com/vgomes_tech" 
+              target="_blank" 
+              rel="noreferrer"
+              className="hover:text-[hsl(var(--accent))] transition-colors"
+            >
+              X
+            </a>
+            <a 
+              href="https://instagram.com/coolcodeguy" 
+              target="_blank" 
+              rel="noreferrer"
+              className="hover:text-[hsl(var(--accent))] transition-colors"
+            >
+              IG
+            </a>
+            <a 
+              href="https://github.com/victorluizgomes" 
+              target="_blank" 
+              rel="noreferrer"
+              className="hover:text-[hsl(var(--accent))] transition-colors"
+            >
+              GH
+            </a>
+            <a 
+              href="https://www.linkedin.com/in/victorluizgomes/" 
+              target="_blank" 
+              rel="noreferrer"
+              className="hover:text-[hsl(var(--accent))] transition-colors"
+            >
+              LN
+            </a>
+          </div>
+        </div>
+      </div>
     </>
   );
 }
