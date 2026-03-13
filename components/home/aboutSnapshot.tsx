@@ -22,8 +22,9 @@ export function AboutSnapshot() {
   }, []);
 
   const skills = [
-    'React', 'TypeScript', 'Next.js', 'Design Systems', 'Web3', 
-    'Figma', 'Pixel Art', 'Generative Art', 'Three.js', 'Tailwind'
+    'React', 'TypeScript', 'Design Systems', 'Figma', 'Web3',
+    'Pixel Art', 'Generative Art', 'Next.js', 'Three.js', 'Tailwind',
+    'Node.js', 'Motion Design',
   ];
 
   return (

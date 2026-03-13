@@ -95,10 +95,17 @@
   .section-label {
     @apply text-sm font-mono tracking-widest uppercase;
     color: hsl(var(--accent));
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4em;
   }
-  
+
   .section-label::before {
-    content: '\u25C6 ';
+    content: '◆';
+    display: block;
+    line-height: 1;
+    flex-shrink: 0;
+    transform: translateY(-1px);
   }
   
   /* Dark Glass Card */
@@ -210,12 +217,18 @@
     backdrop-filter: blur(12px);
     border: 1px solid hsl(var(--border));
     color: hsl(var(--text-secondary));
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4em;
   }
-  
+
   .stat-chip::before {
-    content: '\u25C6 ';
+    content: '◆';
     color: hsl(var(--accent));
-    margin-right: 4px;
+    display: block;
+    line-height: 1;
+    flex-shrink: 0;
+    transform: translateY(-1px);
   }
 }
 
@@ -235,26 +248,84 @@
     z-index: 1;
   }
   
-  /* Gradient mesh animation for hero */
-  .gradient-mesh {
-    background: 
-      radial-gradient(ellipse at 20% 30%, hsl(220 50% 10% / 0.8) 0%, transparent 50%),
-      radial-gradient(ellipse at 80% 70%, hsl(250 40% 8% / 0.8) 0%, transparent 50%),
-      radial-gradient(ellipse at 50% 50%, hsl(210 45% 8% / 0.6) 0%, transparent 70%),
-      hsl(var(--background));
-    animation: gradient-shift 12s ease-in-out infinite;
+  /* Aurora blob background for hero */
+  .aurora-blob {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+    will-change: transform;
   }
-  
-  @keyframes gradient-shift {
-    0%, 100% {
-      background-position: 0% 0%, 100% 100%, 50% 50%;
-    }
-    33% {
-      background-position: 30% 20%, 70% 80%, 40% 60%;
-    }
-    66% {
-      background-position: 10% 40%, 90% 60%, 60% 40%;
-    }
+
+  .aurora-blob-1 {
+    width: 750px;
+    height: 750px;
+    top: -15%;
+    left: -10%;
+    /* Deep navy — noticeably lighter than the near-black background */
+    background: radial-gradient(circle at center, #0e2040 0%, transparent 65%);
+    filter: blur(90px);
+    opacity: 1;
+    animation: aurora-drift-1 20s ease-in-out infinite;
+  }
+
+  .aurora-blob-2 {
+    width: 650px;
+    height: 650px;
+    top: 15%;
+    right: -5%;
+    /* Dark violet */
+    background: radial-gradient(circle at center, #1a0f38 0%, transparent 65%);
+    filter: blur(90px);
+    opacity: 1;
+    animation: aurora-drift-2 26s ease-in-out infinite;
+  }
+
+  .aurora-blob-3 {
+    width: 550px;
+    height: 550px;
+    bottom: -10%;
+    left: 20%;
+    /* Mid-tone navy-blue */
+    background: radial-gradient(circle at center, #0b1f35 0%, transparent 65%);
+    filter: blur(70px);
+    opacity: 1;
+    animation: aurora-drift-3 18s ease-in-out infinite;
+  }
+
+  /* Mint accent hint — just enough to hint at the brand colour */
+  .aurora-blob-4 {
+    width: 500px;
+    height: 500px;
+    top: 5%;
+    right: 15%;
+    background: radial-gradient(circle at center, hsl(166 80% 50% / 0.12) 0%, transparent 65%);
+    filter: blur(110px);
+    opacity: 1;
+    animation: aurora-drift-2 32s ease-in-out infinite reverse;
+  }
+
+  @keyframes aurora-drift-1 {
+    0%, 100% { transform: translate(0px, 0px) scale(1); }
+    33%       { transform: translate(60px, 80px) scale(1.08); }
+    66%       { transform: translate(-40px, 50px) scale(0.95); }
+  }
+
+  @keyframes aurora-drift-2 {
+    0%, 100% { transform: translate(0px, 0px) scale(1); }
+    40%       { transform: translate(-70px, -60px) scale(1.1); }
+    70%       { transform: translate(50px, 40px) scale(0.92); }
+  }
+
+  @keyframes aurora-drift-3 {
+    0%, 100% { transform: translate(0px, 0px) scale(1); }
+    50%       { transform: translate(-60px, -50px) scale(1.12); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .aurora-blob { animation: none !important; }
+    .float-animation { animation: none !important; }
+    .scroll-indicator { animation: none !important; }
+    .fade-in-up { animation: none !important; opacity: 1 !important; }
   }
   
   /* Float animation */

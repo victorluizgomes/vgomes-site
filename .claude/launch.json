@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "vgomes-site",
+      "runtimeExecutable": "/bin/bash",
+      "runtimeArgs": ["-c", "cd /Users/vgomes/Gitrepos/vgomes-site && /Users/vgomes/.bun/bin/bun run dev"],
+      "port": 3000
+    }
+  ]
+}
