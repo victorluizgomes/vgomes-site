@@ -104,7 +104,7 @@ To override the color for a specific page (e.g. Movies uses coral red), write th
 ### artGallery.tsx — Masonry Grid
 - Uses CSS `columns-1 sm:columns-2 lg:columns-3` (pure CSS multi-column, no JS masonry library)
 - Each card uses `break-inside-avoid` to prevent column splits
-- **CLS prevention:** Image cards use `fill` + explicit `aspect-ratio: 3/4` container; video cards use `aspect-ratio: 16/9`. This reserves space before images load — eliminates layout shift entirely.
+- **Natural aspect ratios with CLS prevention:** Each artwork in `artworks.json` has `width`/`height` (images) or `coverWidth`/`coverHeight` (video covers). Cards use `<Image width={art.width} height={art.height} className="w-full h-auto" />` — Next.js reserves the correct space before load (no CLS) while displaying the full artwork uncropped.
 - Video cards show a poster image + play icon overlay; on hover the actual `<video>` fades in and autoplays (muted). Triggered by `onMouseEnter`/`onMouseLeave` on the video element.
 - Category filter: `all | digital | drawing | painting | pixel | generative` — data comes from `model/artworks.json`
 - `isLoading` state adds `opacity-50` during category switch with a 1.5s max timeout as fallback
@@ -204,7 +204,7 @@ list issues in project "Re-do design of vgomes.co"
 ```
 Remaining open issues include VIC-17 (copy updates), VIC-19 (scroll animations), VIC-22 (projects/blog editorial layout), VIC-23 (Framer Motion transitions).
 
-**Completed:** VIC-25 (art teaser real artwork), VIC-28 (lightbox stale media bug), VIC-29 (masonry CLS), VIC-21 (movies page redesign), VIC-24 (navbar refinement), VIC-33 (video click opens lightbox), VIC-36 (featured projects from real posts), VIC-37 (per-route accent colors).
+**Completed:** VIC-25 (art teaser real artwork), VIC-28 (lightbox stale media bug), VIC-29 (masonry CLS), VIC-21 (movies page redesign), VIC-24 (navbar refinement), VIC-33 (video click opens lightbox), VIC-36 (featured projects from real posts), VIC-37 (per-route accent colors), VIC-34 (art masonry natural aspect ratios).
 
 **Note:** Framer Motion is NOT yet installed. VIC-23 covers adding it. When doing animation work, use CSS transitions/keyframes or `IntersectionObserver` until Framer Motion is added.
 
@@ -225,6 +225,8 @@ Remaining open issues include VIC-17 (copy updates), VIC-19 (scroll animations),
 - **React `key` on media elements:** When a `<video>` or `<Image>` src changes (e.g. lightbox navigation), add `key={src}` to force React to unmount and remount the DOM element. Without it, the browser reuses the element and may show or play the previous media source.
 - **Image quality for artwork:** Next.js `<Image>` defaults to `quality={75}`, which produces visible compression artifacts on detailed artwork and photography. Use `quality={90}` for art showcase images.
 - **Worktree launch.json:** When working in a git worktree (`.claude/worktrees/<name>/`), the worktree's own `.claude/launch.json` must `cd` to the worktree path, not the main repo path. The preview tool resolves the launch config relative to the worktree but executes it fresh without inheriting the working directory.
+- **Art masonry image dimensions:** `artworks.json` stores `width`/`height` for every image and `coverWidth`/`coverHeight` for every video cover. To add a new artwork, run `sips -g pixelWidth -g pixelHeight <file>` (macOS) or use the project's `sharp` dependency to get dimensions, then add them to the JSON. Without dimensions, the component falls back to 1200×1600 (portrait).
+- **Natural aspect ratio vs `fill`:** Use `<Image width={w} height={h} className="w-full h-auto" />` when you want the image to render at its true aspect ratio. Use `fill` + fixed aspect-ratio container only when you want a uniform grid with cropping.
 - **Art masonry video click:** Video cards in the masonry grid have `onMouseEnter`/`onMouseLeave` for hover-preview, but these do NOT block click events. The parent div's `onClick` must allow all art types (not guard with `!art.isVideo`) to open the lightbox. The lightbox (`expandedArt.tsx`) supports both images and videos with `controls autoPlay muted`.
 - **`.accent-pill` is always mint:** The `.accent-pill` CSS class hard-codes `--accent` (mint). For pages using different accent colors (blog, projects, art, movies), render the pill manually with inline `style` to match the page accent. See `pages/projects/index.tsx` for the emerald pill pattern.
 - **Section labels with non-mint accent:** The `.section-label` CSS class is always mint. For non-mint sections, render manually: `<p className="text-sm font-mono tracking-widest uppercase inline-flex items-center gap-2" style={{ color: "hsl(var(--accent-X))" }}><span style={{ transform: "translateY(-1px)", display: "inline-block" }}>◆</span> Label</p>`. Used in `featuredProjects.tsx` (emerald) and `latestBlogPosts.tsx` (blue).

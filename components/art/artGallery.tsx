@@ -125,13 +125,14 @@ export function ArtGallery() {
           >
             <div className="relative overflow-hidden rounded-2xl bg-[hsl(var(--surface))] border border-[hsl(var(--border))] hover:border-[hsl(var(--accent-tertiary)/0.3)] transition-all duration-300">
               {art.isVideo ? (
-                // Video Card — fixed 16:9 container prevents layout shift on cover load
-                <div className="relative" style={{ aspectRatio: '16/9' }}>
+                // Video Card — uses cover image natural dimensions to preserve aspect ratio
+                <div className="relative">
                   <Image
                     src={art.cover || art.link}
                     alt={art.name}
-                    fill
-                    className="object-cover"
+                    width={art.coverWidth || 1350}
+                    height={art.coverHeight || 1800}
+                    className="w-full h-auto object-cover"
                     onLoad={handleImageLoad}
                     onError={handleImageLoad}
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
@@ -159,18 +160,17 @@ export function ArtGallery() {
                   />
                 </div>
               ) : (
-                // Image Card — fixed 3:4 container reserves space before image loads (eliminates CLS)
-                <div className="relative" style={{ aspectRatio: '3/4' }}>
-                  <Image
-                    src={art.link}
-                    alt={art.name}
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-500"
-                    onLoad={handleImageLoad}
-                    onError={handleImageLoad}
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                  />
-                </div>
+                // Image Card — uses natural dimensions to preserve aspect ratio without cropping
+                <Image
+                  src={art.link}
+                  alt={art.name}
+                  width={art.width || 1200}
+                  height={art.height || 1600}
+                  className="w-full h-auto group-hover:scale-105 transition-transform duration-500"
+                  onLoad={handleImageLoad}
+                  onError={handleImageLoad}
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                />
               )}
 
               {/* Hover Overlay */}

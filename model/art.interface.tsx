@@ -13,6 +13,10 @@ export interface ArtPropertiesInterface {
   thumbnails?: ArtThumbnailsMapInterface;
   isVideo?: boolean;
   cover?: string;
+  width?: number;
+  height?: number;
+  coverWidth?: number;
+  coverHeight?: number;
 }
 
 export interface ArtThumbnailsMapInterface {
