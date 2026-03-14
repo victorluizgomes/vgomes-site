@@ -34,13 +34,17 @@ Subtle noise grain overlay adds texture depth throughout.
 | `--border` | `#1E2535` | Borders, dividers |
 | `--foreground` | `#E8EDF5` | Primary text |
 | `--text-secondary` | `#6B7A99` | Muted/meta text |
-| `--accent` | `#64FFDA` | **Electric Mint** — primary accent, used on About/Projects/Blog |
+| `--accent` | `#64FFDA` | **Electric Mint** — primary accent, About/home only |
 | `--accent-secondary` | `#FF6B6B` | **Coral Red** — Movies page accent |
 | `--accent-tertiary` | `#C084FC` | **Soft Violet** — Art page accent |
+| `--accent-blog` | `#4DB8FF` | **Neon Blue** — Blog page accent |
+| `--accent-projects` | `#26C17E` | **Emerald Green** — Projects page accent |
 
 ### Per-Page Accent Colors
 Each page has a designated accent color that flows through section labels, icons, highlights, and the navbar active pill:
-- `/` `/projects` `/blog` → **mint** (`--accent`)
+- `/` (home/about) → **mint** (`--accent`)
+- `/projects` → **emerald green** (`--accent-projects`)
+- `/blog` → **neon blue** (`--accent-blog`)
 - `/art` → **violet** (`--accent-tertiary`)
 - `/movies` → **coral red** (`--accent-secondary`)
 
@@ -188,7 +192,7 @@ styles/
 - **Blog posts:** Markdown files (parsed via gray-matter + remark)
 - **Art:** Static JSON at `model/artworks.json` — array of category objects, each keyed by category name (e.g. `[{ "digital": [...] }, { "drawing": [...] }]`). Each artwork has `link`, `name`, `isVideo?`, and optionally `cover` (poster image for videos). See `model/art.interface.tsx` for the `ArtPropertiesInterface` type.
 - **Movies:** Letterboxd RSS feed — `https://letterboxd.com/vgomes/rss/`
-- **Projects:** Markdown files similar to blog
+- **Projects:** Markdown files in `project-posts/` directory. Frontmatter: `title`, `date`, `description`, `tags[]`, `featured`. The home page `getStaticProps` reads these to populate `FeaturedProjects` (top 3 by date). The `FeaturedProjects` component accepts `projects` as props — do NOT hardcode projects in the component.
 
 ---
 
@@ -200,7 +204,7 @@ list issues in project "Re-do design of vgomes.co"
 ```
 Remaining open issues include VIC-17 (copy updates), VIC-19 (scroll animations), VIC-22 (projects/blog editorial layout), VIC-23 (Framer Motion transitions).
 
-**Completed:** VIC-25 (art teaser real artwork), VIC-28 (lightbox stale media bug), VIC-29 (masonry CLS), VIC-21 (movies page redesign), VIC-24 (navbar refinement).
+**Completed:** VIC-25 (art teaser real artwork), VIC-28 (lightbox stale media bug), VIC-29 (masonry CLS), VIC-21 (movies page redesign), VIC-24 (navbar refinement), VIC-33 (video click opens lightbox), VIC-36 (featured projects from real posts), VIC-37 (per-route accent colors).
 
 **Note:** Framer Motion is NOT yet installed. VIC-23 covers adding it. When doing animation work, use CSS transitions/keyframes or `IntersectionObserver` until Framer Motion is added.
 
@@ -221,6 +225,9 @@ Remaining open issues include VIC-17 (copy updates), VIC-19 (scroll animations),
 - **React `key` on media elements:** When a `<video>` or `<Image>` src changes (e.g. lightbox navigation), add `key={src}` to force React to unmount and remount the DOM element. Without it, the browser reuses the element and may show or play the previous media source.
 - **Image quality for artwork:** Next.js `<Image>` defaults to `quality={75}`, which produces visible compression artifacts on detailed artwork and photography. Use `quality={90}` for art showcase images.
 - **Worktree launch.json:** When working in a git worktree (`.claude/worktrees/<name>/`), the worktree's own `.claude/launch.json` must `cd` to the worktree path, not the main repo path. The preview tool resolves the launch config relative to the worktree but executes it fresh without inheriting the working directory.
+- **Art masonry video click:** Video cards in the masonry grid have `onMouseEnter`/`onMouseLeave` for hover-preview, but these do NOT block click events. The parent div's `onClick` must allow all art types (not guard with `!art.isVideo`) to open the lightbox. The lightbox (`expandedArt.tsx`) supports both images and videos with `controls autoPlay muted`.
+- **`.accent-pill` is always mint:** The `.accent-pill` CSS class hard-codes `--accent` (mint). For pages using different accent colors (blog, projects, art, movies), render the pill manually with inline `style` to match the page accent. See `pages/projects/index.tsx` for the emerald pill pattern.
+- **Section labels with non-mint accent:** The `.section-label` CSS class is always mint. For non-mint sections, render manually: `<p className="text-sm font-mono tracking-widest uppercase inline-flex items-center gap-2" style={{ color: "hsl(var(--accent-X))" }}><span style={{ transform: "translateY(-1px)", display: "inline-block" }}>◆</span> Label</p>`. Used in `featuredProjects.tsx` (emerald) and `latestBlogPosts.tsx` (blue).
 
 ---
 
