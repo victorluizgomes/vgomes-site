@@ -88,6 +88,34 @@ To override the color for a specific page (e.g. Movies uses coral red), write th
 | `.text-gradient` | Mint → violet diagonal text gradient |
 | `.animated-underline` | Hover underline sweep effect |
 | `.row-hover` | List row hover background effect |
+| `.scrollbar-hide` | Hides scrollbar on overflow-x containers (cross-browser) |
+| `.media-fade-in` | 150ms opacity fade for lightbox media transitions |
+| `.scale-in` | Scale + fade entrance for masonry grid cards |
+| `.card-lift` | translateY(-4px) lift on hover for cards |
+
+---
+
+## Art Gallery (`pages/art.tsx`, `components/art/`)
+
+### artGallery.tsx — Masonry Grid
+- Uses CSS `columns-1 sm:columns-2 lg:columns-3` (pure CSS multi-column, no JS masonry library)
+- Each card uses `break-inside-avoid` to prevent column splits
+- **CLS prevention:** Image cards use `fill` + explicit `aspect-ratio: 3/4` container; video cards use `aspect-ratio: 16/9`. This reserves space before images load — eliminates layout shift entirely.
+- Video cards show a poster image + play icon overlay; on hover the actual `<video>` fades in and autoplays (muted). Triggered by `onMouseEnter`/`onMouseLeave` on the video element.
+- Category filter: `all | digital | drawing | painting | pixel | generative` — data comes from `model/artworks.json`
+- `isLoading` state adds `opacity-50` during category switch with a 1.5s max timeout as fallback
+
+### expandedArt.tsx — Lightbox
+- Full-screen modal with keyboard nav (← →) and close (Esc / click backdrop)
+- **Critical:** Both `<Image>` and `<video>` elements must have `key={currArt.link}`. Without `key`, React reuses the DOM element and the browser shows the previous media source when navigating quickly (stale media bug).
+- Lightbox images use `media-fade-in` CSS class for a smooth 150ms fade when navigating between pieces.
+
+### artTeaser.tsx — Home Page Strip
+- Horizontal scroll strip of 4 curated artworks: Tentacle Portrait (digital), Fallen Angel (drawing), Purple Moonbird (pixel), Lucid Paths Unrevealed (generative)
+- **Alignment pattern:** Strip div is placed inside `max-w-6xl mx-auto` (NO `px-6` on the wrapper, NO `overflow:hidden`), with `pl-6` on the inner flex row. This aligns the first card with page content while allowing natural right overflow for scrolling. A trailing `<div className="flex-shrink-0 w-6" />` spacer prevents the last card from touching the right edge.
+- Uses `IntersectionObserver` + `fade-in-up` / `stagger-*` CSS classes for scroll-triggered entrance animations.
+- All accents use `--accent-tertiary` (violet), matching the art page.
+- Image `quality={90}` — default 75 looks blurry for artwork.
 
 ---
 
@@ -158,7 +186,7 @@ styles/
 ## Data Sources
 
 - **Blog posts:** Markdown files (parsed via gray-matter + remark)
-- **Art:** Firebase or static data (see `model/art.interface.tsx`, `model/constants.tsx`)
+- **Art:** Static JSON at `model/artworks.json` — array of category objects, each keyed by category name (e.g. `[{ "digital": [...] }, { "drawing": [...] }]`). Each artwork has `link`, `name`, `isVideo?`, and optionally `cover` (poster image for videos). See `model/art.interface.tsx` for the `ArtPropertiesInterface` type.
 - **Movies:** Letterboxd RSS feed — `https://letterboxd.com/vgomes/rss/`
 - **Projects:** Markdown files similar to blog
 
@@ -170,7 +198,9 @@ Connected via Linear MCP. Check open tasks with:
 ```
 list issues in project "Re-do design of vgomes.co"
 ```
-Current open issues include VIC-17 (copy updates), VIC-19 (scroll animations), VIC-20 (art page masonry), VIC-22 (projects/blog editorial layout), VIC-23 (Framer Motion transitions).
+Remaining open issues include VIC-17 (copy updates), VIC-19 (scroll animations), VIC-22 (projects/blog editorial layout), VIC-23 (Framer Motion transitions).
+
+**Completed:** VIC-25 (art teaser real artwork), VIC-28 (lightbox stale media bug), VIC-29 (masonry CLS), VIC-21 (movies page redesign), VIC-24 (navbar refinement).
 
 **Note:** Framer Motion is NOT yet installed. VIC-23 covers adding it. When doing animation work, use CSS transitions/keyframes or `IntersectionObserver` until Framer Motion is added.
 
@@ -184,3 +214,19 @@ Current open issues include VIC-17 (copy updates), VIC-19 (scroll animations), V
 - **Image domains:** `a.ltrbxd.com` is configured in `next.config.js` for Letterboxd poster images
 - **`prefers-reduced-motion`:** Aurora blob animations are disabled when the user has reduced motion enabled (handled in `global.css`)
 - **Stat chips overflow:** All hero chips are positioned to the **left** of the photo (negative left offsets), not the right — right-side chips clipped the viewport at 1280px
+- **No styled-jsx in components:** Next.js 14 with the SWC compiler (used by Bun) does NOT support `<style jsx>` inline style blocks without the styled-jsx Babel plugin. Using `<style jsx>` will cause a cryptic "Unexpected token" parse error at the first JSX element below it. Always use `global.css`, Tailwind classes, or inline `style={{}}` props instead.
+- **Stale Next.js build cache:** If the dev server shows a compilation error that references old file content (different comments, old line numbers), the `.next/` cache has a stale compiled version. Fix: stop the server, `rm -rf .next`, restart. This happens when a file had a mid-edit syntax error during a hot reload.
+- **Horizontal scroll strip alignment:** To align a scrollable strip's first item with the page container without cutting off the right overflow — place the strip div inside `max-w-6xl mx-auto` (no `px-6`, no `overflow:hidden` on the wrapper), add `pl-6` directly on the inner `flex` row, and add a `<div className="flex-shrink-0 w-6" />` spacer as the last flex child for right-edge breathing room.
+- **Avoid `100vw` for container math:** `100vw` includes the scrollbar width (~15px on most desktop OSes), causing off-by-~7px alignment when computing `(100vw - max-width) / 2`. Use the container's natural positioning instead.
+- **React `key` on media elements:** When a `<video>` or `<Image>` src changes (e.g. lightbox navigation), add `key={src}` to force React to unmount and remount the DOM element. Without it, the browser reuses the element and may show or play the previous media source.
+- **Image quality for artwork:** Next.js `<Image>` defaults to `quality={75}`, which produces visible compression artifacts on detailed artwork and photography. Use `quality={90}` for art showcase images.
+- **Worktree launch.json:** When working in a git worktree (`.claude/worktrees/<name>/`), the worktree's own `.claude/launch.json` must `cd` to the worktree path, not the main repo path. The preview tool resolves the launch config relative to the worktree but executes it fresh without inheriting the working directory.
+
+---
+
+## Working with Worktrees
+
+The Claude Code worktree workflow creates isolated branches under `.claude/worktrees/`. Key notes:
+- Each worktree gets its own `.claude/launch.json` — update it to point at the worktree directory
+- The active design branch is `v0/victorluizgomes-dfde7ebc`. All feature work should branch from this, not from `main`. Push completed work back to `v0/victorluizgomes-dfde7ebc`.
+- `main` is the live production branch — never push experimental or in-progress work directly to it
