@@ -39,24 +39,17 @@ This is mostly for myself to know what I can work on whenever I pick this up. �
 
 ### Short Term
 
-- Add Highlights/Featured default tab of artworks which will display all my favorite curated works of art (from all categories)
-- Carrousel with latest blog posts in about page
-- Add images to Blog and Projects posts
-- Use Letterboxd API to display my reviews and favorite movies [letterboxd APIs](https://api-docs.letterboxd.com/#operation-GET-member_id_log-entry-tags)
-  - letterboxd embed example: [embed example](https://letterboxd-embed.timcieplowski.com/)
-- Make so we can upload an image through mobile. Options:
-  - Use a cloud storage service like Google Drive or Dropbox that has mobile apps with automatic upload features.
-  - Set up a webhook or GitHub Action that triggers when files are added to your cloud storage, automatically pulling them into your repo.
-  - Alternatively, use a Git client on your phone (like Working Copy for iOS) to commit and push directly from your device.
+- Add Highlights/Featured default tab of artworks which will display all my favorite curated works of art (from all categories) — **VIC-38**
+- Add featured/cover image to Blog and Projects posts (not in-content — frontmatter `featuredImage` field) — **VIC-39**
+- Mobile artwork upload workflow via cloud storage + GitHub Action — **VIC-40**
 
 ### Long Term
 
-- UI Improvements
-- Dark mode
+- Light/Dark mode toggle — **VIC-41**
 - Lots more blog posts
-- Enhancements to Blog posts (images, tags, featured)
-- Maybe a fun Web Game?
-- Maybe complete redesign? _(sometime in the future when I have lots of times in my hand for sure)_
+- Blog enhancements: tags, filtering, featured post highlight — **VIC-42**
+- Interactive web game or Easter egg — **VIC-43**
+- Maybe complete redesign? _(in progress as `neon-redesign` branch)_
 
 ### Done Items
 
@@ -65,6 +58,8 @@ This is mostly for myself to know what I can work on whenever I pick this up. �
 - Update the way I am displaying the artworks to be left to right first instead of each column (only relevant for desktop with multiple columns)
 - Optimize arts loading, right now we get a loading spinner, but still on scrolling all artworks will flash sometimes and looks buggy.
 - Make art works loading into a placeholder grey square instead of loading progress indicator
+- Display Letterboxd reviews and recently watched movies — implemented via public RSS feed (`https://letterboxd.com/<username>/rss/`), no API access needed. The official Letterboxd API requires application/approval and excludes personal projects.
+- Carousel with latest blog posts on home/about page — implemented as `latestBlogPosts` section in the neon-redesign
 
 ## Notes to self on adding artworks:
 
