@@ -367,6 +367,16 @@
     }
   }
   
+  /* Media fade-in — used in lightbox when navigating between pieces */
+  .media-fade-in {
+    animation: media-fade-in 0.15s ease-out forwards;
+  }
+
+  @keyframes media-fade-in {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+
   /* Scale in animation */
   .scale-in {
     animation: scale-in 0.3s ease-out forwards;

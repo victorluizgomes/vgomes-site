@@ -125,16 +125,16 @@ export function ArtGallery() {
           >
             <div className="relative overflow-hidden rounded-2xl bg-[hsl(var(--surface))] border border-[hsl(var(--border))] hover:border-[hsl(var(--accent-tertiary)/0.3)] transition-all duration-300">
               {art.isVideo ? (
-                // Video Card
-                <div className="relative">
+                // Video Card — fixed 16:9 container prevents layout shift on cover load
+                <div className="relative" style={{ aspectRatio: '16/9' }}>
                   <Image
                     src={art.cover || art.link}
                     alt={art.name}
-                    width={600}
-                    height={400}
-                    className="w-full h-auto object-cover"
+                    fill
+                    className="object-cover"
                     onLoad={handleImageLoad}
                     onError={handleImageLoad}
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   />
                   {/* Play Icon Overlay */}
                   <div className="absolute inset-0 flex items-center justify-center bg-[hsl(var(--background)/0.3)] group-hover:bg-[hsl(var(--background)/0.5)] transition-colors">
@@ -159,16 +159,18 @@ export function ArtGallery() {
                   />
                 </div>
               ) : (
-                // Image Card
-                <Image
-                  src={art.link}
-                  alt={art.name}
-                  width={600}
-                  height={400}
-                  className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500"
-                  onLoad={handleImageLoad}
-                  onError={handleImageLoad}
-                />
+                // Image Card — fixed 3:4 container reserves space before image loads (eliminates CLS)
+                <div className="relative" style={{ aspectRatio: '3/4' }}>
+                  <Image
+                    src={art.link}
+                    alt={art.name}
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    onLoad={handleImageLoad}
+                    onError={handleImageLoad}
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  />
+                </div>
               )}
 
               {/* Hover Overlay */}

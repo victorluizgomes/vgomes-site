@@ -91,7 +91,8 @@ export function ExpandedArt(props: ExpandedArtProps) {
         <div className={`flex items-center justify-center py-16 transition-opacity duration-200 ${isAnimating ? 'opacity-50' : 'opacity-100'}`}>
           {currArt.isVideo ? (
             <video
-              className="max-w-full max-h-[70vh] rounded-xl border border-[hsl(var(--border))]"
+              key={currArt.link}
+              className="max-w-full max-h-[70vh] rounded-xl border border-[hsl(var(--border))] media-fade-in"
               controls
               loop
               autoPlay
@@ -103,11 +104,12 @@ export function ExpandedArt(props: ExpandedArtProps) {
             </video>
           ) : (
             <Image
+              key={currArt.link}
               src={currArt.link}
               alt={currArt.name}
               width={1200}
               height={800}
-              className="max-w-full max-h-[70vh] w-auto h-auto object-contain rounded-xl"
+              className="max-w-full max-h-[70vh] w-auto h-auto object-contain rounded-xl media-fade-in"
               priority
             />
           )}
