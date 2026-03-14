@@ -39,17 +39,19 @@ This is mostly for myself to know what I can work on whenever I pick this up. �
 
 ### Short Term
 
-- Add Highlights/Featured default tab of artworks which will display all my favorite curated works of art (from all categories) — **VIC-38**
 - Add featured/cover image to Blog and Projects posts (not in-content — frontmatter `featuredImage` field) — **VIC-39**
-- Mobile artwork upload workflow via cloud storage + GitHub Action — **VIC-40**
+- Movies page enhancements: more Letterboxd data and stats via RSS + static CSV export — **VIC-44**
+  - Hopefully use the letterboxd api to get more cool info on my reviews and other statistics added to my /movies tab
+  - letterboxd embed example: [embed example](https://letterboxd-embed.timcieplowski.com/)
+- Make so we can upload an image through mobile or more easily manage the artworks in the site somehow — **VIC-40**
+  - Use a cloud storage service like Google Drive or Dropbox that has mobile apps with automatic upload features.
+  - Set up a webhook or GitHub Action that triggers when files are added to your cloud storage, automatically pulling them into your repo.
+  - Alternatively, use a Git client on your phone (like Working Copy for iOS) to commit and push directly from your device.
 
 ### Long Term
 
-- Light/Dark mode toggle — **VIC-41**
-- Lots more blog posts
-- Blog enhancements: tags, filtering, featured post highlight — **VIC-42**
-- Interactive web game or Easter egg — **VIC-43**
-- Maybe complete redesign? _(in progress as `neon-redesign` branch)_
+- Enhancements to Blog posts (images, tags, featured) — **VIC-42**
+- Maybe some simple fun web games — **VIC-43**
 
 ### Done Items
 
