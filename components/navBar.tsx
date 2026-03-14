@@ -9,6 +9,8 @@ export interface NavBarProps {}
 function getRouteAccent(pathname: string): string {
   if (pathname.startsWith("/art")) return "--accent-tertiary";
   if (pathname.startsWith("/movies")) return "--accent-secondary";
+  if (pathname.startsWith("/blog")) return "--accent-blog";
+  if (pathname.startsWith("/projects")) return "--accent-projects";
   return "--accent";
 }
 

@@ -56,9 +56,9 @@ export default function Projects(props: ProjectsProps) {
         <header className={`mb-16 ${mounted ? 'fade-in-up' : 'opacity-0'}`}>
           <h1 className="font-display text-5xl md:text-6xl lg:text-7xl text-[hsl(var(--foreground))] mb-4">
             Projects
-            <span className="text-[hsl(var(--accent))]">.</span>
+            <span className="text-[hsl(var(--accent-projects))]">.</span>
           </h1>
-          <div className="h-1 w-16 bg-[hsl(var(--accent))] mb-6" />
+          <div className="h-1 w-16 bg-[hsl(var(--accent-projects))] mb-6" />
           <p className="text-[hsl(var(--text-secondary))] text-lg max-w-2xl">
             A collection of personal projects, experiments, and professional work 
             that showcase my passion for building at the intersection of code and creativity.
@@ -84,18 +84,26 @@ export default function Projects(props: ProjectsProps) {
 
               {/* Content */}
               <div className="flex-1">
-                <h2 className="font-display text-xl md:text-2xl text-[hsl(var(--foreground))] mb-2 group-hover:text-[hsl(var(--accent))] transition-colors">
+                <h2 className="font-display text-xl md:text-2xl text-[hsl(var(--foreground))] mb-2 group-hover:text-[hsl(var(--accent-projects))] transition-colors">
                   {post.frontmatter.title}
                 </h2>
                 <p className="text-[hsl(var(--text-secondary))] text-sm md:text-base mb-3">
                   {post.frontmatter.description}
                 </p>
-                
+
                 {/* Tags */}
                 {post.frontmatter.tags && (
                   <div className="flex flex-wrap gap-2">
                     {post.frontmatter.tags.slice(0, 4).map((tag: string) => (
-                      <span key={tag} className="accent-pill">
+                      <span
+                        key={tag}
+                        className="font-mono text-xs tracking-widest uppercase px-3 py-1 rounded-full"
+                        style={{
+                          color: "hsl(var(--accent-projects))",
+                          background: "hsl(var(--accent-projects) / 0.1)",
+                          border: "1px solid hsl(var(--accent-projects) / 0.2)",
+                        }}
+                      >
                         {tag}
                       </span>
                     ))}

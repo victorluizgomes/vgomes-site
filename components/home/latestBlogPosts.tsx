@@ -69,7 +69,9 @@ export function LatestBlogPosts({ posts = defaultPosts }: LatestBlogPostsProps) 
       <div className="max-w-6xl mx-auto px-6">
         {/* Section Header */}
         <div className={`mb-12 md:mb-16 ${isVisible ? 'fade-in-up' : 'opacity-0'}`}>
-          <span className="section-label">From The Blog</span>
+          <p className="text-sm font-mono tracking-widest uppercase inline-flex items-center gap-2" style={{ color: "hsl(var(--accent-blog))" }}>
+            <span style={{ transform: "translateY(-1px)", display: "inline-block" }}>◆</span> From The Blog
+          </p>
           <h2 className="font-display text-3xl md:text-4xl lg:text-5xl mt-4 text-[hsl(var(--foreground))]">
             Latest Writing
           </h2>
@@ -90,7 +92,7 @@ export function LatestBlogPosts({ posts = defaultPosts }: LatestBlogPostsProps) 
               <span className="font-mono text-sm text-[hsl(var(--text-secondary))] w-28 shrink-0">
                 {formatDate(post.date)}
               </span>
-              <h3 className="font-display text-lg md:text-xl text-[hsl(var(--foreground))] flex-1 group-hover:text-[hsl(var(--accent))] transition-colors">
+              <h3 className="font-display text-lg md:text-xl text-[hsl(var(--foreground))] flex-1 group-hover:text-[hsl(var(--accent-blog))] transition-colors">
                 {post.title}
               </h3>
               <ArrowRight className="w-5 h-5 text-[hsl(var(--text-secondary))] opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all ml-4" />
@@ -102,7 +104,7 @@ export function LatestBlogPosts({ posts = defaultPosts }: LatestBlogPostsProps) 
         <div className={`mt-10 ${isVisible ? 'fade-in-up stagger-5' : 'opacity-0'}`}>
           <Link 
             href="/blog"
-            className="inline-flex items-center gap-2 text-[hsl(var(--accent))] font-medium hover:gap-3 transition-all"
+            className="inline-flex items-center gap-2 text-[hsl(var(--accent-blog))] font-medium hover:gap-3 transition-all"
           >
             Read all posts
             <ArrowRight className="w-4 h-4" />
