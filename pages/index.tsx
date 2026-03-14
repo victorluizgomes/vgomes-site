@@ -8,32 +8,41 @@ import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
 
+interface FeaturedProject {
+  title: string;
+  description: string;
+  tags?: string[];
+  date: string;
+  slug: string;
+}
+
 interface HomeProps {
   latestPosts: {
     title: string;
     date: string;
     slug: string;
   }[];
+  featuredProjects: FeaturedProject[];
 }
 
-export default function Home({ latestPosts }: HomeProps) {
+export default function Home({ latestPosts, featuredProjects }: HomeProps) {
   return (
     <>
       <Head>
         <title>Victor Gomes | Front-end Engineer & Creative Technologist</title>
-        <meta 
-          name="description" 
-          content="Victor Gomes - Senior Front-end Engineer at Coinbase, creative technologist, and digital artist. Building exceptional digital experiences at the intersection of code and creativity." 
+        <meta
+          name="description"
+          content="Victor Gomes - Senior Front-end Engineer at Coinbase, creative technologist, and digital artist. Building exceptional digital experiences at the intersection of code and creativity."
         />
         <meta property="og:title" content="Victor Gomes | Front-end Engineer & Creative Technologist" />
         <meta property="og:description" content="Senior Front-end Engineer at Coinbase, creative technologist, and digital artist based in Atlanta." />
         <meta property="og:type" content="website" />
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
-      
+
       <HeroSection />
       <AboutSnapshot />
-      <FeaturedProjects />
+      <FeaturedProjects projects={featuredProjects} />
       <LatestBlogPosts posts={latestPosts} />
       <ArtTeaser />
     </>
@@ -71,9 +80,41 @@ export async function getStaticProps() {
     console.log('Posts directory not found, using defaults');
   }
 
+  // Get featured projects from project-posts directory
+  const projectsDirectory = path.join(process.cwd(), 'project-posts');
+  let featuredProjects: { title: string; description: string; tags?: string[]; date: string; slug: string }[] = [];
+
+  try {
+    const files = fs.readdirSync(projectsDirectory);
+    const projects = files.map((filename) => {
+      const slug = filename.replace('.md', '');
+      const markdownWithMeta = fs.readFileSync(
+        path.join(projectsDirectory, filename),
+        'utf-8'
+      );
+      const { data: frontmatter } = matter(markdownWithMeta);
+
+      return {
+        slug,
+        title: frontmatter.title || slug,
+        description: frontmatter.description || '',
+        tags: frontmatter.tags || [],
+        date: frontmatter.date || '',
+      };
+    });
+
+    // Sort by date (most recent first) and take top 3
+    featuredProjects = projects
+      .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+      .slice(0, 3);
+  } catch (error) {
+    console.log('Project posts directory not found');
+  }
+
   return {
     props: {
       latestPosts,
+      featuredProjects,
     },
   };
 }

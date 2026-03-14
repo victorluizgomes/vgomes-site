@@ -2,6 +2,8 @@
 title: 'Gold Farmers'
 date: '2024'
 description: 'On-chain gamified NFT on Blast EVM Layer 2, achieving over 65,000 on-chain transactions.'
+tags: ['Web3', 'Solidity', 'React', 'NFT']
+featured: true
 ---
 On-chain gamified NFT on Blast EVM Layer 2, achieving over 65,000 on-chain transactions.
 
