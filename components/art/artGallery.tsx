@@ -121,7 +121,7 @@ export function ArtGallery() {
             key={`${art.link}-${index}`}
             className="break-inside-avoid group cursor-pointer scale-in"
             style={{ animationDelay: `${Math.min(index * 30, 300)}ms` }}
-            onClick={() => !art.isVideo && handleExpandArt(art, currentArt, index)}
+            onClick={() => handleExpandArt(art, currentArt, index)}
           >
             <div className="relative overflow-hidden rounded-2xl bg-[hsl(var(--surface))] border border-[hsl(var(--border))] hover:border-[hsl(var(--accent-tertiary)/0.3)] transition-all duration-300">
               {art.isVideo ? (
