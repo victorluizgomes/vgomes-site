@@ -70,15 +70,16 @@ export function ArtTeaser() {
         </div>
       </div>
 
-      {/* Art Strip — pulled outside padded container so it can scroll edge-to-edge on mobile.
-          pl-6 aligns first card with the content above; trailing spacer keeps last card clear. */}
+      {/* Art Strip — inside max-w-6xl so left alignment is automatic (container has no overflow:hidden).
+          pl-6 aligns first card with content above; trailing spacer gives right breathing room. */}
+      <div className="max-w-6xl mx-auto">
       <div
         className={`
           overflow-x-auto scrollbar-hide
           ${isVisible ? 'fade-in-up stagger-2' : 'opacity-0'}
         `}
       >
-        <div className="flex gap-4 md:gap-6 pl-6 pr-6">
+        <div className="flex gap-4 md:gap-6 pl-6">
           {featuredArt.map((piece, index) => (
             <Link
               key={index}
@@ -120,10 +121,13 @@ export function ArtTeaser() {
               </div>
             </Link>
           ))}
+          {/* Trailing spacer — ensures last card has breathing room when scrolled */}
+          <div className="flex-shrink-0 w-6" aria-hidden="true" />
         </div>
       </div>
+      </div>
 
-      {/* View All Link — back inside padded container */}
+      {/* View All Link */}
       <div className="max-w-6xl mx-auto px-6">
         <div className={`mt-8 ${isVisible ? 'fade-in-up stagger-4' : 'opacity-0'}`}>
           <Link
