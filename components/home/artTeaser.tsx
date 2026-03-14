@@ -50,8 +50,8 @@ export function ArtTeaser() {
 
   return (
     <section ref={sectionRef} className="py-24 md:py-32">
+      {/* Section Header — stays within the padded container */}
       <div className="max-w-6xl mx-auto px-6">
-        {/* Section Header */}
         <div className={`mb-12 md:mb-16 ${isVisible ? 'fade-in-up' : 'opacity-0'}`}>
           <span
             className="text-sm font-mono tracking-widest uppercase inline-flex items-center gap-2"
@@ -68,20 +68,22 @@ export function ArtTeaser() {
             art has always been at the heart of what I do.
           </p>
         </div>
+      </div>
 
-        {/* Art Strip */}
-        <div
-          className={`
-            flex gap-4 md:gap-6 overflow-x-auto pb-4 -mx-6 px-6 snap-x snap-mandatory
-            scrollbar-hide
-            ${isVisible ? 'fade-in-up stagger-2' : 'opacity-0'}
-          `}
-        >
+      {/* Art Strip — pulled outside padded container so it can scroll edge-to-edge on mobile.
+          pl-6 aligns first card with the content above; trailing spacer keeps last card clear. */}
+      <div
+        className={`
+          overflow-x-auto scrollbar-hide
+          ${isVisible ? 'fade-in-up stagger-2' : 'opacity-0'}
+        `}
+      >
+        <div className="flex gap-4 md:gap-6 pl-6 pr-6">
           {featuredArt.map((piece, index) => (
             <Link
               key={index}
               href="/art"
-              className="group relative flex-shrink-0 snap-start"
+              className="group relative flex-shrink-0"
             >
               <div
                 className="relative w-56 h-72 md:w-64 md:h-80 overflow-hidden rounded-2xl"
@@ -95,7 +97,8 @@ export function ArtTeaser() {
                   src={piece.src}
                   alt={piece.name}
                   fill
-                  className="object-cover"
+                  quality={90}
+                  className="object-cover transition-transform duration-500 group-hover:scale-[1.04]"
                   sizes="(max-width: 768px) 224px, 256px"
                 />
 
@@ -114,15 +117,14 @@ export function ArtTeaser() {
                     {piece.medium}
                   </p>
                 </div>
-
-                {/* Scale wrapper */}
-                <div className="absolute inset-0 transition-transform duration-200 group-hover:scale-[1.02]" />
               </div>
             </Link>
           ))}
         </div>
+      </div>
 
-        {/* View All Link */}
+      {/* View All Link — back inside padded container */}
+      <div className="max-w-6xl mx-auto px-6">
         <div className={`mt-8 ${isVisible ? 'fade-in-up stagger-4' : 'opacity-0'}`}>
           <Link
             href="/art"
