@@ -5,6 +5,13 @@ import React, { useState, useEffect, useRef } from "react";
 
 export interface NavBarProps {}
 
+/** Returns the CSS variable name for the accent color matching the current route */
+function getRouteAccent(pathname: string): string {
+  if (pathname.startsWith("/art")) return "--accent-tertiary";
+  if (pathname.startsWith("/movies")) return "--accent-secondary";
+  return "--accent";
+}
+
 const navItems = [
   { href: "/", label: "About" },
   { href: "/projects", label: "Projects" },
@@ -18,9 +25,10 @@ const MobileNavItem: React.FC<{
   href: string;
   label: string;
   isActive: boolean;
+  accentColor: string;
   onClick: () => void;
   index: number;
-}> = ({ href, label, isActive, onClick, index }) => {
+}> = ({ href, label, isActive, accentColor, onClick, index }) => {
   return (
     <li
       className="fade-in-up"
@@ -28,13 +36,8 @@ const MobileNavItem: React.FC<{
     >
       <Link
         href={href}
-        className={`
-          block py-4 text-3xl font-display font-semibold text-center transition-colors duration-200
-          ${isActive
-            ? "text-[hsl(var(--accent))]"
-            : "text-[hsl(var(--foreground))] hover:text-[hsl(var(--accent))]"
-          }
-        `}
+        className="block py-4 text-3xl font-display font-semibold text-center transition-colors duration-200"
+        style={{ color: isActive ? accentColor : undefined }}
         onClick={onClick}
       >
         {label}
@@ -103,6 +106,9 @@ export function NavBar(props: NavBarProps) {
       ? router.pathname === item.href
       : router.pathname.startsWith(item.href);
 
+  const accentVar = getRouteAccent(router.pathname);
+  const accentColor = `hsl(var(${accentVar}))`;
+
   const toggleMenu = () => setMenuOpen(!menuOpen);
 
   return (
@@ -122,11 +128,13 @@ export function NavBar(props: NavBarProps) {
           {/* Sliding active indicator */}
           {indicatorReady && (
             <span
-              className="absolute top-1 bottom-1 rounded-full bg-[hsl(var(--accent))] pointer-events-none"
+              className="absolute top-1 bottom-1 rounded-full pointer-events-none"
               style={{
+                background: accentColor,
                 left: indicatorStyle.left,
                 width: indicatorStyle.width,
-                transition: "left 220ms cubic-bezier(0.4, 0, 0.2, 1), width 160ms cubic-bezier(0.4, 0, 0.2, 1)",
+                transition:
+                  "left 220ms cubic-bezier(0.4, 0, 0.2, 1), width 160ms cubic-bezier(0.4, 0, 0.2, 1), background 300ms ease",
               }}
             />
           )}
@@ -157,22 +165,17 @@ export function NavBar(props: NavBarProps) {
       <nav className="flex sm:hidden fixed top-4 right-4 z-50">
         <button
           onClick={toggleMenu}
-          className={`
-            p-3 rounded-full transition-all duration-300
-            ${menuOpen
-              ? "bg-[hsl(var(--accent))] text-[hsl(var(--background))]"
-              : "text-[hsl(var(--foreground))]"
-            }
-          `}
+          className="p-3 rounded-full transition-all duration-300"
           style={
-            !menuOpen
-              ? {
+            menuOpen
+              ? { background: accentColor, color: "hsl(var(--background))" }
+              : {
                   background: "rgba(15, 17, 23, 0.75)",
                   backdropFilter: "blur(20px) saturate(160%)",
                   WebkitBackdropFilter: "blur(20px) saturate(160%)",
                   border: "1px solid rgba(255, 255, 255, 0.06)",
+                  color: "hsl(var(--foreground))",
                 }
-              : undefined
           }
           aria-label={menuOpen ? "Close menu" : "Open menu"}
         >
@@ -213,6 +216,7 @@ export function NavBar(props: NavBarProps) {
                 href={item.href}
                 label={item.label}
                 isActive={isActive(item)}
+                accentColor={accentColor}
                 onClick={toggleMenu}
                 index={index}
               />
