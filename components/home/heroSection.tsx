@@ -28,7 +28,7 @@ export function HeroSection() {
 
             {/* Role Tag — mx-auto centers on mobile, lg:mx-0 left-aligns on desktop */}
             <p className="section-label mb-5 mx-auto lg:mx-0 fade-in-up stagger-1">
-              Front-end Engineer. Artist.
+              Front-end Software Engineer.
             </p>
 
             {/* Name — Massive Display */}
@@ -44,7 +44,7 @@ export function HeroSection() {
 
             {/* Bio — explicit centering on mobile so it's never left-aligned */}
             <p className="text-center lg:text-left text-[hsl(var(--text-secondary))] text-base md:text-lg leading-relaxed mb-8 max-w-xl mx-auto lg:mx-0 fade-in-up stagger-3">
-              Building exceptional digital experiences at{' '}
+              Crafting web and mobile experiences at{' '}
               <a
                 href="https://www.coinbase.com/about"
                 target="_blank"
@@ -62,7 +62,7 @@ export function HeroSection() {
               >
                 BlackRock
               </a>
-              . Based in Atlanta, crafting interfaces that blend code with creativity.
+              . Atlanta-based — obsessed with the details that make great products feel great.
             </p>
 
             {/* CTAs */}
@@ -111,10 +111,10 @@ export function HeroSection() {
               <div className="stat-chip">Coinbase</div>
             </div>
             <div className="hidden lg:block absolute -top-4 -left-20 fade-in-up stagger-6">
-              <div className="stat-chip">Atlanta, GA</div>
+              <div className="stat-chip">University of Arizona Grad</div>
             </div>
             <div className="hidden lg:block absolute top-1/2 -translate-y-1/2 -left-24 fade-in-up stagger-6">
-              <div className="stat-chip">5+ yrs experience</div>
+              <div className="stat-chip">6+ yrs experience</div>
             </div>
           </div>
 

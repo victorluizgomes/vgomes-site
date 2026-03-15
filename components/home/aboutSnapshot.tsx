@@ -22,9 +22,8 @@ export function AboutSnapshot() {
   }, []);
 
   const skills = [
-    'React', 'TypeScript', 'Design Systems', 'Figma', 'Web3',
-    'Pixel Art', 'Generative Art', 'Next.js', 'Three.js', 'Tailwind',
-    'Node.js', 'Motion Design',
+    'React', 'React Native', 'TypeScript', 'Next.js', 'HTML', 'CSS', 'Tailwind',
+    'UX Design', 'Web Development', 'Mobile Development', 'Product Management',
   ];
 
   return (
@@ -37,9 +36,9 @@ export function AboutSnapshot() {
           {/* Left - Pull Quote */}
           <div className={`${isVisible ? 'fade-in-up' : 'opacity-0'}`}>
             <blockquote className="text-2xl md:text-3xl lg:text-4xl font-display leading-snug text-[hsl(var(--foreground))]">
-              &ldquo;I build things just for the{' '}
-              <span className="text-[hsl(var(--accent))]">love</span>{' '}
-              of building them.&rdquo;
+              &ldquo;I love building things — especially digital experiences that feel{' '}
+              <span className="text-[hsl(var(--accent))]">beautiful</span>{' '}
+              and delightful.&rdquo;
             </blockquote>
             <div className="mt-6 h-1 w-16 bg-[hsl(var(--accent))]" />
           </div>
@@ -47,13 +46,14 @@ export function AboutSnapshot() {
           {/* Right - Description */}
           <div className={`${isVisible ? 'fade-in-up stagger-2' : 'opacity-0'}`}>
             <p className="text-[hsl(var(--text-secondary))] text-base md:text-lg leading-relaxed mb-6">
-              A senior front-end engineer with a creative soul. By day, I craft polished interfaces 
-              and design systems at scale. By night, I explore the intersection of code and art through 
-              generative experiments, pixel art, and digital illustrations.
+              A senior front-end engineer with a sharp eye for design and product. The best digital
+              products are technically solid <em>and</em> visually refined — and my passion for making
+              and appreciating art is a big part of why.
             </p>
             <p className="text-[hsl(var(--text-secondary))] text-base md:text-lg leading-relaxed">
-              Originally from Brazil, grew up drawing anime and playing games. That same curiosity 
-              and passion for visual expression now fuels everything I build.
+              Originally from Brazil — grew up gaming, drawing, and staying active. Outside of
+              engineering, you&apos;ll find me on the soccer pitch, at the ping pong table, or lifting
+              something heavy. That same restless energy is what makes me obsess over every pixel.
             </p>
           </div>
         </div>

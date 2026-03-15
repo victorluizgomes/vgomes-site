@@ -15,7 +15,7 @@ export default function Art() {
         <title>Art | Victor Gomes</title>
         <meta
           name="description"
-          content="Discover Victor Gomes' art portfolio - digital illustrations, pixel art, generative code art, paintings, and drawings. A fusion of creativity and imagination."
+          content="Victor Gomes' art portfolio — pixel art, digital illustrations, drawings, and generative experiments. Art for art's sake."
         />
       </Head>
 
@@ -27,9 +27,17 @@ export default function Art() {
             <span className="text-[hsl(var(--accent-tertiary))]">.</span>
           </h1>
           <div className="h-1 w-16 bg-[hsl(var(--accent-tertiary))] mb-6" />
-          <p className="text-[hsl(var(--text-secondary))] text-lg max-w-2xl">
-            Drawing since childhood. Creating with code. From pixel art and digital illustrations 
-            to generative experiments, art has always been at the heart of what I do.
+          <blockquote className="text-[hsl(var(--text-secondary))] text-lg max-w-2xl italic leading-relaxed">
+            &ldquo;Every child is an artist. The problem is how to remain an artist once we grow up.&rdquo;
+            <cite className="block mt-2 text-sm font-mono not-italic" style={{ color: 'hsl(var(--accent-tertiary))' }}>
+              — Pablo Picasso
+            </cite>
+          </blockquote>
+          <p
+            className="mt-4 text-xs font-mono tracking-[0.35em] uppercase"
+            style={{ color: 'hsl(var(--accent-tertiary) / 0.5)' }}
+          >
+            ars gratia artis
           </p>
         </header>
 

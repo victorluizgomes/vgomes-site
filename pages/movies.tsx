@@ -269,7 +269,7 @@ export default function MoviesPage({ movies }: Props) {
         <title>Movies | Victor Gomes</title>
         <meta
           name="description"
-          content="Victor Gomes' latest movie reviews from Letterboxd. Discover what I've been watching and my thoughts on cinema."
+          content="Victor Gomes' latest movie reviews from Letterboxd. Every film logged, every film reviewed."
         />
       </Head>
 
@@ -294,7 +294,7 @@ export default function MoviesPage({ movies }: Props) {
             <span style={{ color: "hsl(var(--accent-secondary))" }}>.</span>
           </h1>
           <p className="text-[hsl(var(--text-secondary))] text-base sm:text-lg max-w-lg leading-relaxed">
-            I have always loved movies. I use{" "}
+            Movies have always had a hold on me. I log and review everything I watch on{" "}
             <a
               href="https://letterboxd.com/vgomes"
               target="_blank"
@@ -304,7 +304,7 @@ export default function MoviesPage({ movies }: Props) {
             >
               Letterboxd
             </a>{" "}
-            to track and review everything I watch.
+            — no exceptions. Here&apos;s what I&apos;ve been watching lately and what I thought.
           </p>
         </header>
 

@@ -181,9 +181,9 @@ styles/
 
 - Aurora animated background: 4 absolute-positioned blur blobs (`.aurora-blob-1/2/3/4`) with `transform: translate()` keyframe animations
 - Profile photo: `padding: 2px` wrapper with `conic-gradient` border + inner `overflow: hidden` div
-- Stat chips (Coinbase, Atlanta GA, 5+ yrs) positioned to the **left** of the photo, hidden on mobile (`hidden lg:block`)
+- Stat chips (Coinbase, University of Arizona Grad, 6+ yrs experience) positioned to the **left** of the photo, hidden on mobile (`hidden lg:block`)
 - Scroll indicator hidden on mobile (`hidden lg:flex`)
-- Role tag uses `section-label` class + `mx-auto lg:mx-0` for centering
+- Role tag uses `section-label` class + `mx-auto lg:mx-0` for centering; current text: `"Front-end Software Engineer."` (no "Artist" — creative side is shown via content, not role tag)
 
 ---
 
@@ -202,9 +202,9 @@ Connected via Linear MCP. Check open tasks with:
 ```
 list issues in project "Re-do design of vgomes.co"
 ```
-Remaining open issues include VIC-17 (copy updates), VIC-19 (scroll animations), VIC-22 (projects/blog editorial layout), VIC-23 (Framer Motion transitions).
+Remaining open issues include VIC-19 (scroll animations), VIC-22 (projects/blog editorial layout), VIC-23 (Framer Motion transitions).
 
-**Completed:** VIC-25 (art teaser real artwork), VIC-28 (lightbox stale media bug), VIC-29 (masonry CLS), VIC-21 (movies page redesign), VIC-24 (navbar refinement), VIC-33 (video click opens lightbox), VIC-36 (featured projects from real posts), VIC-37 (per-route accent colors), VIC-34 (art masonry natural aspect ratios).
+**Completed:** VIC-17 (copy updates), VIC-25 (art teaser real artwork), VIC-28 (lightbox stale media bug), VIC-29 (masonry CLS), VIC-21 (movies page redesign), VIC-24 (navbar refinement), VIC-33 (video click opens lightbox), VIC-36 (featured projects from real posts), VIC-37 (per-route accent colors), VIC-34 (art masonry natural aspect ratios).
 
 **Note:** Framer Motion is NOT yet installed. VIC-23 covers adding it. When doing animation work, use CSS transitions/keyframes or `IntersectionObserver` until Framer Motion is added.
 
@@ -212,6 +212,7 @@ Remaining open issues include VIC-17 (copy updates), VIC-19 (scroll animations),
 
 ## Key Decisions & Gotchas
 
+- **Art page header:** Uses a Picasso blockquote ("Every child is an artist...") instead of a plain description, with `ars gratia artis` (art for art's sake) as a small mono label underneath. Both are styled with `--accent-tertiary`. Do not replace with a plain prose description.
 - **CSS unicode escapes in content:** Use the literal character `'◆'` not `'\u25C6'` — the latter is JS syntax and will render as text in CSS
 - **Bun full path required** in launch.json and any spawn contexts — the preview tool doesn't load `.zshrc`
 - **`◆` vertical alignment:** JetBrains Mono has a baseline offset; all `::before` diamond pseudo-elements need `transform: translateY(-1px)` to visually center with adjacent text
