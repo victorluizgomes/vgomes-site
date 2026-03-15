@@ -47,7 +47,7 @@ export default function Projects(props: ProjectsProps) {
         <title>Projects | Victor Gomes</title>
         <meta
           name="description"
-          content="Victor Gomes software engineering web development project highlights. From design systems to creative coding experiments."
+          content="Victor Gomes' projects — personal experiments, professional work, and creative builds at the intersection of code and craft."
         />
       </Head>
 
@@ -60,8 +60,8 @@ export default function Projects(props: ProjectsProps) {
           </h1>
           <div className="h-1 w-16 bg-[hsl(var(--accent-projects))] mb-6" />
           <p className="text-[hsl(var(--text-secondary))] text-lg max-w-2xl">
-            A collection of personal projects, experiments, and professional work 
-            that showcase my passion for building at the intersection of code and creativity.
+            Personal projects, experiments, and professional work — all built with the same
+            obsession over craft, code, and creativity.
           </p>
         </header>
 

@@ -41,8 +41,8 @@ export function ArtTeaser() {
             Visual Explorations
           </h2>
           <p className="text-[hsl(var(--text-secondary))] text-base md:text-lg mt-4 max-w-2xl">
-            Drawing since childhood. Creating with code. From pixel art to generative experiments,
-            art has always been at the heart of what I do.
+            Art for art&apos;s sake. Pixel art, digital illustrations, drawings, and generative
+            experiments — a lifelong practice that shapes how I build.
           </p>
         </div>
       </div>

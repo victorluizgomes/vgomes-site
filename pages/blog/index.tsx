@@ -43,7 +43,7 @@ export default function Blog(props: BlogProps) {
         <title>Blog | Victor Gomes</title>
         <meta
           name="description"
-          content="Victor Gomes dev blog. Writing about my developer journey, front-end engineering, creative coding, and technical tutorials."
+          content="Victor Gomes' blog — technical deep-dives, front-end engineering insights, tutorials, and the occasional personal thought."
         />
       </Head>
 
@@ -56,8 +56,8 @@ export default function Blog(props: BlogProps) {
           </h1>
           <div className="h-1 w-16 bg-[hsl(var(--accent-blog))] mb-6" />
           <p className="text-[hsl(var(--text-secondary))] text-lg max-w-2xl">
-            Thoughts on front-end development, creative coding, design systems, 
-            and the intersection of technology and art.
+            Technical deep-dives, honest thoughts on the front-end engineering journey, and
+            tutorials from things I&apos;m building. The occasional personal rant may also appear.
           </p>
         </header>
 
