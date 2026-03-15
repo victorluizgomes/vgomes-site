@@ -204,7 +204,7 @@ list issues in project "Re-do design of vgomes.co"
 ```
 Remaining open issues include VIC-19 (scroll animations), VIC-22 (projects/blog editorial layout), VIC-23 (Framer Motion transitions).
 
-**Completed:** VIC-17 (copy updates), VIC-25 (art teaser real artwork), VIC-28 (lightbox stale media bug), VIC-29 (masonry CLS), VIC-21 (movies page redesign), VIC-24 (navbar refinement), VIC-33 (video click opens lightbox), VIC-36 (featured projects from real posts), VIC-37 (per-route accent colors), VIC-34 (art masonry natural aspect ratios).
+**Completed:** VIC-17 (copy updates), VIC-25 (art teaser real artwork), VIC-28 (lightbox stale media bug), VIC-29 (masonry CLS), VIC-21 (movies page redesign), VIC-24 (navbar refinement), VIC-33 (video click opens lightbox), VIC-36 (featured projects from real posts), VIC-37 (per-route accent colors), VIC-34 (art masonry natural aspect ratios), VIC-30 (SEO audit).
 
 **Note:** Framer Motion is NOT yet installed. VIC-23 covers adding it. When doing animation work, use CSS transitions/keyframes or `IntersectionObserver` until Framer Motion is added.
 
@@ -231,6 +231,33 @@ Remaining open issues include VIC-19 (scroll animations), VIC-22 (projects/blog 
 - **Art masonry video click:** Video cards in the masonry grid have `onMouseEnter`/`onMouseLeave` for hover-preview, but these do NOT block click events. The parent div's `onClick` must allow all art types (not guard with `!art.isVideo`) to open the lightbox. The lightbox (`expandedArt.tsx`) supports both images and videos with `controls autoPlay muted`.
 - **`.accent-pill` is always mint:** The `.accent-pill` CSS class hard-codes `--accent` (mint). For pages using different accent colors (blog, projects, art, movies), render the pill manually with inline `style` to match the page accent. See `pages/projects/index.tsx` for the emerald pill pattern.
 - **Section labels with non-mint accent:** The `.section-label` CSS class is always mint. For non-mint sections, render manually: `<p className="text-sm font-mono tracking-widest uppercase inline-flex items-center gap-2" style={{ color: "hsl(var(--accent-X))" }}><span style={{ transform: "translateY(-1px)", display: "inline-block" }}>◆</span> Label</p>`. Used in `featuredProjects.tsx` (emerald) and `latestBlogPosts.tsx` (blue).
+- **Bun `ERR_ENCODING_INVALID_ENCODED_DATA` in dev:** Bun's stricter `TextDecoder` throws `Invalid byte sequence` / `ERR_ENCODING_INVALID_ENCODED_DATA` inside `pages.runtime.dev.js` on every request in some environments. This is a Bun + Next.js 14 incompatibility — it does NOT affect production (Vercel uses Node). Workaround for local preview: use Node directly in `launch.json` → `node /Users/vgomes/Gitrepos/vgomes-site/node_modules/.bin/next dev`. node_modules live only in the main repo root, not in each worktree.
+
+---
+
+## SEO Architecture
+
+Primary keywords: **"Victor Gomes"** and **"front-end software engineer"**.
+
+### Per-page SEO pattern
+Every page should have: `<title>`, `<meta name="description">`, `<link rel="canonical">`, `<meta name="robots" content="index, follow">`, and overrides for `og:title`, `og:description`, `og:url` (using Next.js `key` prop to override `_document.tsx` defaults).
+
+### `_document.tsx` — site-wide defaults
+Provides fallback OG/Twitter tags for any page that doesn't override them. All defaults use `key` props so per-page `<Head>` blocks can override. Fontshare (`api.fontshare.com`) preconnect is declared here alongside Google Fonts preconnect.
+
+### Structured data (JSON-LD)
+- **Homepage** (`pages/index.tsx`): `Person` schema — name, jobTitle, worksFor (Coinbase), alumniOf (U of A), sameAs social links, image. Defined as a module-level const `personSchema`.
+- **Blog posts** (`pages/blog/[slug].tsx`): `BlogPosting` schema — headline, author, datePublished, mainEntityOfPage. Built inside the component from frontmatter.
+- Social URLs live in `model/constants.tsx` — use those as the source of truth for `sameAs` links.
+
+### `public/sitemap.xml`
+Static file (manually maintained). Includes all routes: `/`, `/projects`, `/blog`, `/art`, `/movies`, plus all blog post slugs and project post slugs. When adding a new blog post or project, add its URL to `sitemap.xml`. Uses `changefreq` and `priority` hints.
+
+### `public/robots.txt`
+`Allow: /` with `Sitemap:` pointer — no paths blocked.
+
+### OG image
+`public/og-image.jpg` is the default social share image. It is currently small — ideally replace with a proper 1200×630 image for rich link previews. The meta tags already declare `1200×630` dimensions.
 
 ---
 
