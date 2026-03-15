@@ -37,15 +37,27 @@ export function formatDate(dateString: string): string {
   return new Intl.DateTimeFormat("en-US", options).format(date);
 }
 
+const SITE_URL = "https://www.vgomes.co";
+
 export default function ProjectPost(props: ProjectPostProps) {
+  const canonicalUrl = `${SITE_URL}/projects/${props.slug}`;
+
   return (
     <div className="min-h-screen pt-24 pb-16">
       <Head>
         <title>{props.frontmatter.title} | Victor Gomes</title>
         <meta name="description" content={props.frontmatter.description} />
-        <meta property="og:title" content={props.frontmatter.title} />
-        <meta property="og:description" content={props.frontmatter.description} />
-        <meta property="og:type" content="article" />
+        <link rel="canonical" href={canonicalUrl} />
+        <meta name="robots" content="index, follow" />
+        <meta property="og:title" content={props.frontmatter.title} key="og:title" />
+        <meta property="og:description" content={props.frontmatter.description} key="og:description" />
+        <meta property="og:type" content="website" key="og:type" />
+        <meta property="og:url" content={canonicalUrl} key="og:url" />
+        <meta property="og:image" content={`${SITE_URL}/og-image.jpg`} key="og:image" />
+        <meta property="twitter:title" content={props.frontmatter.title} key="twitter:title" />
+        <meta property="twitter:description" content={props.frontmatter.description} key="twitter:description" />
+        <meta property="twitter:url" content={canonicalUrl} key="twitter:url" />
+        <meta property="twitter:image" content={`${SITE_URL}/og-image.jpg`} key="twitter:image" />
       </Head>
 
       <article className="max-w-3xl mx-auto px-6">

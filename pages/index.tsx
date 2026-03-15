@@ -25,19 +25,70 @@ interface HomeProps {
   featuredProjects: FeaturedProject[];
 }
 
+const SITE_URL = "https://www.vgomes.co";
+
+const personSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Victor Gomes",
+  url: SITE_URL,
+  jobTitle: "Front-end Software Engineer",
+  description:
+    "Senior Front-end Software Engineer at Coinbase with 6+ years of experience building web and mobile experiences.",
+  worksFor: {
+    "@type": "Organization",
+    name: "Coinbase",
+    url: "https://www.coinbase.com",
+  },
+  alumniOf: {
+    "@type": "CollegeOrUniversity",
+    name: "University of Arizona",
+  },
+  sameAs: [
+    "https://github.com/victorluizgomes",
+    "https://www.linkedin.com/in/victorluizgomes/",
+    "https://x.com/vgomes_tech",
+    "https://instagram.com/coolcodeguy",
+  ],
+  image: `${SITE_URL}/profile-picture-2024.jpeg`,
+  email: "vgomescontact@gmail.com",
+};
+
 export default function Home({ latestPosts, featuredProjects }: HomeProps) {
+  const title = "Victor Gomes | Front-end Software Engineer";
+  const description =
+    "Victor Gomes — Senior Front-end Software Engineer at Coinbase with 6+ years experience. Building fast, polished web & mobile products. Based in Atlanta.";
+
   return (
     <>
       <Head>
-        <title>Victor Gomes | Front-end Engineer & Creative Technologist</title>
+        <title>{title}</title>
+        <meta name="description" content={description} />
         <meta
-          name="description"
-          content="Victor Gomes - Senior Front-end Engineer at Coinbase, creative technologist, and digital artist. Building exceptional digital experiences at the intersection of code and creativity."
+          name="keywords"
+          content="Victor Gomes, front-end software engineer, frontend engineer, Coinbase, React, TypeScript, web development, Atlanta"
         />
-        <meta property="og:title" content="Victor Gomes | Front-end Engineer & Creative Technologist" />
-        <meta property="og:description" content="Senior Front-end Engineer at Coinbase, creative technologist, and digital artist based in Atlanta." />
-        <meta property="og:type" content="website" />
-        <meta name="twitter:card" content="summary_large_image" />
+        <link rel="canonical" href={SITE_URL} />
+        <meta name="robots" content="index, follow" />
+
+        {/* Open Graph */}
+        <meta property="og:title" content={title} key="og:title" />
+        <meta property="og:description" content={description} key="og:description" />
+        <meta property="og:url" content={SITE_URL} key="og:url" />
+        <meta property="og:type" content="website" key="og:type" />
+        <meta property="og:image" content={`${SITE_URL}/og-image.jpg`} key="og:image" />
+
+        {/* Twitter */}
+        <meta property="twitter:title" content={title} key="twitter:title" />
+        <meta property="twitter:description" content={description} key="twitter:description" />
+        <meta property="twitter:url" content={SITE_URL} key="twitter:url" />
+        <meta property="twitter:image" content={`${SITE_URL}/og-image.jpg`} key="twitter:image" />
+
+        {/* Person structured data */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
+        />
       </Head>
 
       <HeroSection />

@@ -41,15 +41,64 @@ function estimateReadTime(content: string): number {
   return Math.ceil(wordCount / wordsPerMinute);
 }
 
+const SITE_URL = "https://www.vgomes.co";
+
 export default function BlogPost(props: BlogPostProps) {
+  const pageTitle = `${props.frontmatter.title} | Victor Gomes`;
+  const canonicalUrl = `${SITE_URL}/blog/${props.slug}`;
+
+  const articleSchema = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: props.frontmatter.title,
+    description: props.frontmatter.description,
+    url: canonicalUrl,
+    datePublished: props.frontmatter.date,
+    dateModified: props.frontmatter.date,
+    author: {
+      "@type": "Person",
+      name: "Victor Gomes",
+      url: SITE_URL,
+    },
+    publisher: {
+      "@type": "Person",
+      name: "Victor Gomes",
+      url: SITE_URL,
+    },
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": canonicalUrl,
+    },
+  };
+
   return (
     <div className="min-h-screen pt-24 pb-16">
       <Head>
-        <title>{props.frontmatter.title} | Victor Gomes</title>
+        <title>{pageTitle}</title>
         <meta name="description" content={props.frontmatter.description} />
-        <meta property="og:title" content={props.frontmatter.title} />
-        <meta property="og:description" content={props.frontmatter.description} />
-        <meta property="og:type" content="article" />
+        <link rel="canonical" href={canonicalUrl} />
+        <meta name="robots" content="index, follow" />
+
+        {/* Open Graph */}
+        <meta property="og:title" content={props.frontmatter.title} key="og:title" />
+        <meta property="og:description" content={props.frontmatter.description} key="og:description" />
+        <meta property="og:type" content="article" key="og:type" />
+        <meta property="og:url" content={canonicalUrl} key="og:url" />
+        <meta property="og:image" content={`${SITE_URL}/og-image.jpg`} key="og:image" />
+        <meta property="article:author" content="Victor Gomes" />
+        <meta property="article:published_time" content={props.frontmatter.date} />
+
+        {/* Twitter */}
+        <meta property="twitter:title" content={props.frontmatter.title} key="twitter:title" />
+        <meta property="twitter:description" content={props.frontmatter.description} key="twitter:description" />
+        <meta property="twitter:url" content={canonicalUrl} key="twitter:url" />
+        <meta property="twitter:image" content={`${SITE_URL}/og-image.jpg`} key="twitter:image" />
+
+        {/* Article structured data */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+        />
       </Head>
 
       <article className="max-w-3xl mx-auto px-6">
