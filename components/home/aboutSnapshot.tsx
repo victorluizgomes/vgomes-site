@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from "react";
 
 export function AboutSnapshot() {
   const [isVisible, setIsVisible] = useState(false);
@@ -11,7 +11,7 @@ export function AboutSnapshot() {
           setIsVisible(true);
         }
       },
-      { threshold: 0.2 }
+      { threshold: 0.2 },
     );
 
     if (sectionRef.current) {
@@ -22,62 +22,83 @@ export function AboutSnapshot() {
   }, []);
 
   const skills = [
-    'React', 'React Native', 'TypeScript', 'Next.js', 'HTML', 'CSS', 'Tailwind',
-    'UX Design', 'Web Development', 'Mobile Development', 'Product Management',
+    "React",
+    "React Native",
+    "TypeScript",
+    "Next.js",
+    "HTML",
+    "CSS",
+    "Tailwind",
+    "UX Design",
+    "Web Development",
+    "Mobile Development",
+    "Product Management",
   ];
 
   return (
-    <section 
+    <section
       ref={sectionRef}
       className="py-24 md:py-32 bg-[hsl(var(--surface))]"
     >
       <div className="max-w-6xl mx-auto px-6">
         <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
           {/* Left - Pull Quote */}
-          <div className={`${isVisible ? 'fade-in-up' : 'opacity-0'}`}>
+          <div className={`${isVisible ? "fade-in-up" : "opacity-0"}`}>
             <blockquote className="text-2xl md:text-3xl lg:text-4xl font-display leading-snug text-[hsl(var(--foreground))]">
-              &ldquo;I love building things — especially digital experiences that feel{' '}
-              <span className="text-[hsl(var(--accent))]">beautiful</span>{' '}
+              &ldquo;I love building things, especially digital experiences that
+              feel <span className="text-[hsl(var(--accent))]">beautiful</span>{" "}
               and delightful.&rdquo;
             </blockquote>
             <div className="mt-6 h-1 w-16 bg-[hsl(var(--accent))]" />
           </div>
-          
+
           {/* Right - Description */}
-          <div className={`${isVisible ? 'fade-in-up stagger-2' : 'opacity-0'}`}>
+          <div
+            className={`${isVisible ? "fade-in-up stagger-2" : "opacity-0"}`}
+          >
             <p className="text-[hsl(var(--text-secondary))] text-base md:text-lg leading-relaxed mb-6">
-              A senior front-end engineer with a sharp eye for design and product. The best digital
-              products are technically solid <em>and</em> visually refined — and my passion for making
-              and appreciating art is a big part of why.
+              A senior front-end engineer with a sharp eye for design and
+              product. The best digital products are technically solid{" "}
+              <em>and</em> visually refined, and my passion for making and
+              appreciating art is a big part of why.
             </p>
             <p className="text-[hsl(var(--text-secondary))] text-base md:text-lg leading-relaxed">
-              Originally from Brazil — grew up gaming, drawing, and staying active. Outside of
-              engineering, you&apos;ll find me on the soccer pitch, at the ping pong table, or lifting
-              something heavy. That same restless energy is what makes me obsess over every pixel.
+              Originally from Brazil, grew up gaming, drawing, and staying
+              active. Outside of engineering, you&apos;ll find me on the soccer
+              field, at the ping pong table, or lifting some weights. That same
+              restless energy is what makes me obsess over every pixel.
             </p>
           </div>
         </div>
-        
+
         {/* Tech Marquee */}
-        <div className={`mt-16 md:mt-24 overflow-hidden ${isVisible ? 'fade-in-up stagger-3' : 'opacity-0'}`}>
+        <div
+          className={`mt-16 md:mt-24 overflow-hidden ${isVisible ? "fade-in-up stagger-3" : "opacity-0"}`}
+        >
           <div className="flex animate-marquee whitespace-nowrap">
             {[...skills, ...skills].map((skill, i) => (
-              <span 
-                key={i} 
+              <span
+                key={i}
                 className="mx-4 md:mx-6 text-sm md:text-base font-mono text-[hsl(var(--text-muted))] uppercase tracking-wider"
               >
                 {skill}
-                <span className="ml-4 md:ml-6 text-[hsl(var(--accent))]">•</span>
+                <span className="ml-4 md:ml-6 text-[hsl(var(--accent))]">
+                  •
+                </span>
               </span>
             ))}
           </div>
         </div>
       </div>
-      
+
       <style jsx>{`
         @keyframes marquee {
-          0% { transform: translateX(0); }
-          100% { transform: translateX(-50%); }
+          0% {
+            transform: translateX(0);
+          }
+          100% {
+            transform: translateX(-50%);
+          }
         }
         .animate-marquee {
           animation: marquee 30s linear infinite;

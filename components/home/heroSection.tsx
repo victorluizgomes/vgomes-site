@@ -1,6 +1,6 @@
-import Image from 'next/image';
-import Link from 'next/link';
-import { ArrowRight, ChevronDown } from 'lucide-react';
+import Image from "next/image";
+import Link from "next/link";
+import { ArrowRight, ChevronDown } from "lucide-react";
 
 export function HeroSection() {
   return (
@@ -17,15 +17,16 @@ export function HeroSection() {
       </div>
 
       {/* Noise grain overlay */}
-      <div className="noise-overlay absolute inset-0 pointer-events-none" aria-hidden="true" />
+      <div
+        className="noise-overlay absolute inset-0 pointer-events-none"
+        aria-hidden="true"
+      />
 
       {/* Content Container */}
       <div className="relative z-10 w-full max-w-6xl mx-auto px-6 py-24 lg:py-0">
         <div className="flex flex-col lg:flex-row items-center justify-center gap-0 lg:gap-20">
-
           {/* Left Side — Text Content */}
           <div className="w-full lg:max-w-xl text-center lg:text-left">
-
             {/* Role Tag — mx-auto centers on mobile, lg:mx-0 left-aligns on desktop */}
             <p className="section-label mb-5 mx-auto lg:mx-0 fade-in-up stagger-1">
               Front-end Software Engineer.
@@ -34,7 +35,10 @@ export function HeroSection() {
             {/* Name — Massive Display */}
             <h1
               className="font-display font-bold leading-[0.92] mb-8 fade-in-up stagger-2"
-              style={{ fontSize: 'clamp(3rem, 9vw, 7rem)', letterSpacing: '-0.03em' }}
+              style={{
+                fontSize: "clamp(3rem, 9vw, 7rem)",
+                letterSpacing: "-0.03em",
+              }}
             >
               <span className="text-[hsl(var(--foreground))]">Victor</span>
               <br />
@@ -44,7 +48,7 @@ export function HeroSection() {
 
             {/* Bio — explicit centering on mobile so it's never left-aligned */}
             <p className="text-center lg:text-left text-[hsl(var(--text-secondary))] text-base md:text-lg leading-relaxed mb-8 max-w-xl mx-auto lg:mx-0 fade-in-up stagger-3">
-              Crafting web and mobile experiences at{' '}
+              Crafting web and mobile experiences at{" "}
               <a
                 href="https://www.coinbase.com/about"
                 target="_blank"
@@ -53,7 +57,7 @@ export function HeroSection() {
               >
                 Coinbase
               </a>
-              . Previously at{' '}
+              . Previously at{" "}
               <a
                 href="https://www.blackrock.com/us/individual/about-us/about-blackrock"
                 target="_blank"
@@ -62,7 +66,8 @@ export function HeroSection() {
               >
                 BlackRock
               </a>
-              . Atlanta-based — obsessed with the details that make great products feel great.
+              . Atlanta-based, obsessed with the details that make great
+              products feel great.
             </p>
 
             {/* CTAs */}
@@ -85,16 +90,18 @@ export function HeroSection() {
 
           {/* Right Side — Profile Photo (chips hidden on mobile) */}
           <div className="flex-shrink-0 relative mt-12 lg:mt-0 fade-in-up stagger-3">
-
             {/* Gradient border wrapper */}
             <div
               style={{
-                padding: '2px',
-                background: 'conic-gradient(from 180deg, hsl(var(--accent)), hsl(var(--accent-tertiary)), hsl(var(--accent)))',
-                borderRadius: '2rem',
+                padding: "2px",
+                background:
+                  "conic-gradient(from 180deg, hsl(var(--accent)), hsl(var(--accent-tertiary)), hsl(var(--accent)))",
+                borderRadius: "2rem",
               }}
             >
-              <div style={{ borderRadius: 'calc(2rem - 2px)', overflow: 'hidden' }}>
+              <div
+                style={{ borderRadius: "calc(2rem - 2px)", overflow: "hidden" }}
+              >
                 <Image
                   src="/profile-picture-2024.jpeg"
                   alt="Victor Gomes — Front-end Engineer & Creative Technologist"
@@ -117,14 +124,13 @@ export function HeroSection() {
               <div className="stat-chip">6+ yrs experience</div>
             </div>
           </div>
-
         </div>
       </div>
 
       {/* Scroll Indicator — desktop only */}
       <div
         className="hidden lg:flex absolute bottom-8 left-1/2 -translate-x-1/2 flex-col items-center gap-2 fade-in-up"
-        style={{ animationDelay: '700ms' }}
+        style={{ animationDelay: "700ms" }}
       >
         <span className="text-xs font-mono text-[hsl(var(--text-secondary))] uppercase tracking-widest">
           Scroll
