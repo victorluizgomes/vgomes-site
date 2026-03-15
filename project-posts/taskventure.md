@@ -2,6 +2,8 @@
 title: 'Taskventure'
 date: '2023'
 description: 'To-do list, productivity app with a fun RPG game spin on it. See your character evolve as it motivates you to always improve and be the best version of yourself.'
+tags: ['React', 'TypeScript', 'Pixel Art', 'Game Design']
+featured: true
 ---
 
 To-do list, productivity app with a fun RPG game spin on it. See your character evolve as it motivates you to always improve and be the best version of yourself.

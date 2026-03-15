@@ -2,6 +2,8 @@
 title: 'Lucid Paths'
 date: '2021'
 description: 'A generative audiovisual exploration NFT. It accumulated over 200 Ethereum in trading Volume to date.'
+tags: ['Generative Art', 'Web3', 'p5.js', 'NFT']
+featured: true
 ---
 A generative audiovisual exploration NFT. It accumulated over 200 Ethereum in trading Volume to date.
 

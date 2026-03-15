@@ -39,19 +39,19 @@ This is mostly for myself to know what I can work on whenever I pick this up. �
 
 ### Short Term
 
-- Add images to Blog and Projects posts
-- Use Letterboxd API to display my reviews and favorite movies [letterboxd APIs](https://api-docs.letterboxd.com/#operation-GET-member_id_log-entry-tags)
-  - letterboxd embed example: [embed example](https://letterboxd-embed.timcieplowski.com/)
+- Add featured/cover image to Blog and Projects posts (not in-content — frontmatter `featuredImage` field) — **VIC-39**
+- Movies page enhancements: more Letterboxd data and stats via RSS + static CSV export — **VIC-44**
   - Hopefully use the letterboxd api to get more cool info on my reviews and other statistics added to my /movies tab
-- Make so we can upload an image through mobile or more easily manage the artworks in the site somehow. Options:
+  - letterboxd embed example: [embed example](https://letterboxd-embed.timcieplowski.com/)
+- Make so we can upload an image through mobile or more easily manage the artworks in the site somehow — **VIC-40**
   - Use a cloud storage service like Google Drive or Dropbox that has mobile apps with automatic upload features.
   - Set up a webhook or GitHub Action that triggers when files are added to your cloud storage, automatically pulling them into your repo.
   - Alternatively, use a Git client on your phone (like Working Copy for iOS) to commit and push directly from your device.
 
 ### Long Term
 
-- Enhancements to Blog posts (images, tags, featured)
-- Maybe some simple fun web games
+- Enhancements to Blog posts (images, tags, featured) — **VIC-42**
+- Maybe some simple fun web games — **VIC-43**
 
 ### Done Items
 
@@ -60,6 +60,8 @@ This is mostly for myself to know what I can work on whenever I pick this up. �
 - Update the way I am displaying the artworks to be left to right first instead of each column (only relevant for desktop with multiple columns)
 - Optimize arts loading, right now we get a loading spinner, but still on scrolling all artworks will flash sometimes and looks buggy.
 - Make art works loading into a placeholder grey square instead of loading progress indicator
+- Display Letterboxd reviews and recently watched movies — implemented via public RSS feed (`https://letterboxd.com/<username>/rss/`), no API access needed. The official Letterboxd API requires application/approval and excludes personal projects.
+- Carousel with latest blog posts on home/about page — implemented as `latestBlogPosts` section in the neon-redesign
 
 ## Notes to self on adding artworks:
 

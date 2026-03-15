@@ -1,181 +1,65 @@
 import { useEffect, useMemo, useRef, useState } from "react";
-import { TabButton as Button } from "../../components/tabButton";
-import ArtWrapper from "./artWrapper";
-import styles from "../../styles/art/ArtGallery.module.css";
+import Image from "next/image";
 import { ArtPropertiesInterface } from "../../model/art.interface";
 import ExpandedArt from "./expandedArt";
 import artworksData from "../../model/artworks.json";
-import { Skeleton } from "../skeleton";
+import { Play } from "lucide-react";
 
-/* eslint-disable-next-line */
-export interface ArtGalleryProps {}
+type ArtCategory = "all" | "drawing" | "painting" | "digital" | "pixel" | "generative";
 
-type ArtCategory = "drawing" | "painting" | "digital" | "pixel" | "generative";
+const categories: { key: ArtCategory; label: string }[] = [
+  { key: "all", label: "All" },
+  { key: "digital", label: "Digital" },
+  { key: "drawing", label: "Drawing" },
+  { key: "painting", label: "Painting" },
+  { key: "generative", label: "Generative" },
+  { key: "pixel", label: "Pixel" },
+];
 
-export function ArtGallery(props: ArtGalleryProps) {
-  const [activeCategory, setActiveCategory] = useState<ArtCategory>("drawing");
+export function ArtGallery() {
+  const [activeCategory, setActiveCategory] = useState<ArtCategory>("all");
+  const [isLoading, setIsLoading] = useState(true);
+  const [expandedArt, setExpandedArt] = useState<ArtPropertiesInterface | null>(null);
+  const [expandedArtIndex, setExpandedArtIndex] = useState(-1);
+  const [expandedCurrArray, setExpandedCurrArray] = useState<ArtPropertiesInterface[]>([]);
+  const loadedCount = useRef(0);
 
+  // Get all artworks or filtered by category
   const currentArt = useMemo(() => {
-    switch (activeCategory) {
-      case "drawing":
-        return artworksData.find((category) => category.drawing)?.drawing || [];
-      case "painting":
-        return (
-          artworksData.find((category) => category.painting)?.painting || []
-        );
-      case "digital":
-        return artworksData.find((category) => category.digital)?.digital || [];
-      case "pixel":
-        return artworksData.find((category) => category.pixel)?.pixel || [];
-      case "generative":
-        return (
-          artworksData.find((category) => category.generative)?.generative || []
-        );
-      default:
-        return [];
+    if (activeCategory === "all") {
+      // Combine all categories
+      const all: ArtPropertiesInterface[] = [];
+      artworksData.forEach((category: any) => {
+        const key = Object.keys(category)[0];
+        if (category[key]) {
+          all.push(...category[key]);
+        }
+      });
+      return all;
     }
+
+    const categoryData = artworksData.find((category: any) => category[activeCategory]);
+    return categoryData ? categoryData[activeCategory] || [] : [];
   }, [activeCategory]);
 
-  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
-  const [isLoading, setIsLoading] = useState(true);
-  const [imagesLoaded, setImagesLoaded] = useState(0);
-
-  const [expandedArt, setExpandedArt] = useState<any>(null);
-  const [expandedArtIndex, setExpandedArtIndex] = useState(-1);
-  const [expandedCurrArray, setExpandedCurrArray] = useState<
-    ArtPropertiesInterface[]
-  >([]);
-
+  // Reset loading state when category changes
   useEffect(() => {
-    const desktopButtonBar = document.getElementById("desktopButtonBar");
-    const mobileButtonBar = document.getElementById("mobileButtonBar");
-    const spacer = document.getElementById("buttonBarSpacer");
-
-    const handleDesktopScroll = () => {
-      if (window.scrollY > spacer.offsetTop - 150 && window.innerWidth >= 640) {
-        desktopButtonBar.classList.add(
-          "fixed",
-          "bg-[#FCFCF8]",
-          "top-[4.5rem]",
-          "py-2",
-          "left-0",
-          "right-0",
-          "z-50"
-        );
-        spacer.classList.add("h-[56px]");
-      } else {
-        desktopButtonBar.classList.remove(
-          "fixed",
-          "bg-[#FCFCF8]",
-          "top-[4.5rem]",
-          "py-2",
-          "left-0",
-          "right-0",
-          "z-50"
-        );
-        spacer.classList.remove("h-[56px]");
-      }
-    };
-
-    const handleMobileScroll = () => {
-      if (window.scrollY > spacer.offsetTop - 150 && window.innerWidth < 640) {
-        mobileButtonBar.classList.remove("mb-3");
-        mobileButtonBar.classList.add(
-          "fixed",
-          "bg-[#FCFCF8]",
-          "bottom-0",
-          "pt-1",
-          "pb-[1.1rem]",
-          "left-0",
-          "right-0",
-          "z-50"
-        );
-        spacer.classList.add("h-[88px]");
-      } else {
-        mobileButtonBar.classList.add("mb-3");
-        mobileButtonBar.classList.remove(
-          "fixed",
-          "bg-[#FCFCF8]",
-          "bottom-0",
-          "pt-1",
-          "pb-[1.1rem]",
-          "left-0",
-          "right-0",
-          "z-50"
-        );
-        spacer.classList.remove("h-[88px]");
-      }
-    };
-
-    window.addEventListener("scroll", handleDesktopScroll);
-    window.addEventListener("scroll", handleMobileScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleDesktopScroll);
-      window.removeEventListener("scroll", handleMobileScroll);
-    };
-  }, []);
-
-  const scrollToTop = () => {
-    const scrollSpot = document.getElementById("artInfoTitle");
-    if (scrollSpot && window.scrollY > 600) {
-      scrollSpot.scrollIntoView();
-    }
-  };
-
-  const setNewActiveCategory = (category: ArtCategory) => {
-    scrollToTop();
+    loadedCount.current = 0;
     setIsLoading(true);
-    setImagesLoaded(0);
-    setActiveCategory(category);
-  };
-
-  const handleImageLoad = (numImages: number) => {
-    if (timeoutRef.current) {
-      clearTimeout(timeoutRef.current);
-    }
-
-    setImagesLoaded((prevState) => {
-      const updatedState = prevState + 1;
-
-      if (updatedState >= numImages) {
-        setTimeout(() => {
-          setIsLoading(false);
-        }, 300);
-      }
-
-      return updatedState;
-    });
-
-    // set a maximum load time, ensuring it doesn't load forever
-    const maxLoadTime = 1250;
-    timeoutRef.current = setTimeout(() => {
+    
+    // Set a maximum load time
+    const timeout = setTimeout(() => {
       setIsLoading(false);
-    }, maxLoadTime);
-  };
+    }, 1500);
 
-  const handleVideoLoad = (numVideos: number) => {
-    if (timeoutRef.current) {
-      clearTimeout(timeoutRef.current);
-    }
+    return () => clearTimeout(timeout);
+  }, [activeCategory]);
 
-    setImagesLoaded((prevState) => {
-      const updatedState = prevState + 1;
-
-      if (updatedState >= numVideos) {
-        setTimeout(() => {
-          setIsLoading(false);
-        }, 300);
-      }
-
-      return updatedState;
-    });
-
-    // set a maximum load time, ensuring it doesn't load forever
-    const maxLoadTime = 1250;
-    timeoutRef.current = setTimeout(() => {
+  const handleImageLoad = () => {
+    loadedCount.current += 1;
+    if (loadedCount.current >= Math.min(currentArt.length, 6)) {
       setIsLoading(false);
-    }, maxLoadTime);
+    }
   };
 
   const handleExpandArt = (
@@ -194,7 +78,8 @@ export function ArtGallery(props: ArtGalleryProps) {
   };
 
   return (
-    <section className={styles["container"]}>
+    <div>
+      {/* Modal */}
       {expandedArt && (
         <ExpandedArt
           art={expandedArt}
@@ -203,122 +88,115 @@ export function ArtGallery(props: ArtGalleryProps) {
           onClose={closeExpandedArt}
         />
       )}
-      {/* TODO: refactor button nav to another component */}
-      {/* Desktop view */}
-      <nav
-        id="desktopButtonBar"
-        className={`hidden sm:flex items-center justify-center mb-3 `}
-      >
-        <Button
-          label="Digital"
-          active={activeCategory === "digital"}
-          onClick={() => setNewActiveCategory("digital")}
-        />
-        <Button
-          label="Painting"
-          active={activeCategory === "painting"}
-          onClick={() => setNewActiveCategory("painting")}
-        />
-        <Button
-          label="Drawing"
-          active={activeCategory === "drawing"}
-          onClick={() => setNewActiveCategory("drawing")}
-        />
-        <Button
-          label="Generative"
-          active={activeCategory === "generative"}
-          onClick={() => setNewActiveCategory("generative")}
-        />
-        <Button
-          label="Pixel"
-          active={activeCategory === "pixel"}
-          onClick={() => setNewActiveCategory("pixel")}
-        />
-      </nav>
-      {/* mobile view */}
-      <nav
-        id="mobileButtonBar"
-        className={`flex flex-col sm:hidden items-center justify-center mb-3 `}
-      >
-        <div className="flex pb-1 gap-1 items-center justify-center">
-          <Button
-            label="Digital"
-            active={activeCategory === "digital"}
-            onClick={() => setNewActiveCategory("digital")}
-          />
-          <Button
-            label="Painting"
-            active={activeCategory === "painting"}
-            onClick={() => setNewActiveCategory("painting")}
-          />
-          <Button
-            label="Drawing"
-            active={activeCategory === "drawing"}
-            onClick={() => setNewActiveCategory("drawing")}
-          />
-        </div>
-        <div className="flex gap-1 items-center justify-center">
-          <Button
-            label="Generative"
-            active={activeCategory === "generative"}
-            onClick={() => setNewActiveCategory("generative")}
-          />
-          <Button
-            label="Pixel"
-            active={activeCategory === "pixel"}
-            onClick={() => setNewActiveCategory("pixel")}
-          />
-        </div>
-      </nav>
-      <div id="buttonBarSpacer"></div>
-      {isLoading && (
-        <div className="flex flex-wrap justify-center gap-5 w-full px-4 md:justify-start md:w-[700px] lg:w-[1000px] xl:w-[1250px]">
-          <Skeleton className="w-full md:w-[500px] h-[400px]" />
-          <Skeleton className="w-full md:w-[270px] h-[400px]" />
-          <Skeleton className="w-full md:w-[340px] h-[400px]" />
-          <Skeleton className="w-full md:w-[250px] h-[400px]" />
-          <Skeleton className="w-full md:w-[380px] h-[400px]" />
-          <Skeleton className="w-full md:w-[360px] h-[400px]" />
-          <Skeleton className="w-full md:w-[600px] h-[400px]" />
-          <Skeleton className="w-full md:w-[200px] h-[400px]" />
-          <Skeleton className="w-full md:w-[400px] h-[400px]" />
-        </div>
-      )}
-      <div
-        className={`${styles["art-grid-container"]} ${
-          isLoading ? styles["hidden"] : ""
-        }`}
+
+      {/* Category Filter Pills */}
+      <div className="flex flex-wrap gap-2 mb-10 justify-center md:justify-start">
+        {categories.map((cat) => (
+          <button
+            key={cat.key}
+            onClick={() => setActiveCategory(cat.key)}
+            className={`
+              px-4 py-2 rounded-full text-sm font-medium transition-all duration-200
+              ${activeCategory === cat.key
+                ? "bg-[hsl(var(--accent-tertiary))] text-[hsl(var(--background))]"
+                : "bg-[hsl(var(--surface))] text-[hsl(var(--text-secondary))] border border-[hsl(var(--border))] hover:border-[hsl(var(--accent-tertiary)/0.5)] hover:text-[hsl(var(--foreground))]"
+              }
+            `}
+          >
+            {cat.label}
+          </button>
+        ))}
+      </div>
+
+      {/* Masonry Grid */}
+      <div 
+        className={`
+          columns-1 sm:columns-2 lg:columns-3 gap-4 space-y-4
+          transition-opacity duration-300
+          ${isLoading ? 'opacity-50' : 'opacity-100'}
+        `}
       >
         {currentArt.map((art: ArtPropertiesInterface, index: number) => (
-          <div key={art.link}>
-            {art.isVideo ? (
-              <ArtWrapper
-                type="video"
-                art={art}
-                imgName={art.name}
-                videoSrc={art.link}
-                cover={art.cover}
-                onLoad={() => handleVideoLoad(currentArt.length)}
-                onError={() => handleVideoLoad(currentArt.length)}
-                onExpandArt={() =>
-                  console.log("use video controls for fullscreen")
-                }
-              />
-            ) : (
-              <ArtWrapper
-                type="image"
-                art={art}
-                imgName={art.name}
-                thumbnailSrc={art.link}
-                onLoad={() => handleImageLoad(currentArt.length)}
-                onError={() => handleImageLoad(currentArt.length)}
-                onExpandArt={() => handleExpandArt(art, currentArt, index)}
-              />
-            )}
+          <div
+            key={`${art.link}-${index}`}
+            className="break-inside-avoid group cursor-pointer scale-in"
+            style={{ animationDelay: `${Math.min(index * 30, 300)}ms` }}
+            onClick={() => handleExpandArt(art, currentArt, index)}
+          >
+            <div className="relative overflow-hidden rounded-2xl bg-[hsl(var(--surface))] border border-[hsl(var(--border))] hover:border-[hsl(var(--accent-tertiary)/0.3)] transition-all duration-300">
+              {art.isVideo ? (
+                // Video Card — uses cover image natural dimensions to preserve aspect ratio
+                <div className="relative">
+                  <Image
+                    src={art.cover || art.link}
+                    alt={art.name}
+                    width={art.coverWidth || 1350}
+                    height={art.coverHeight || 1800}
+                    className="w-full h-auto object-cover"
+                    onLoad={handleImageLoad}
+                    onError={handleImageLoad}
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  />
+                  {/* Play Icon Overlay */}
+                  <div className="absolute inset-0 flex items-center justify-center bg-[hsl(var(--background)/0.3)] group-hover:bg-[hsl(var(--background)/0.5)] transition-colors">
+                    <div className="w-16 h-16 rounded-full bg-[hsl(var(--background)/0.8)] backdrop-blur-sm flex items-center justify-center border border-[hsl(var(--border))]">
+                      <Play className="w-6 h-6 text-[hsl(var(--accent-tertiary))] ml-1" />
+                    </div>
+                  </div>
+                  {/* Video element that plays on hover */}
+                  <video
+                    className="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                    src={art.link}
+                    muted
+                    loop
+                    playsInline
+                    onMouseEnter={(e) => (e.target as HTMLVideoElement).play()}
+                    onMouseLeave={(e) => {
+                      const video = e.target as HTMLVideoElement;
+                      video.pause();
+                      video.currentTime = 0;
+                    }}
+                    poster={art.cover}
+                  />
+                </div>
+              ) : (
+                // Image Card — uses natural dimensions to preserve aspect ratio without cropping
+                <Image
+                  src={art.link}
+                  alt={art.name}
+                  width={art.width || 1200}
+                  height={art.height || 1600}
+                  className="w-full h-auto group-hover:scale-105 transition-transform duration-500"
+                  onLoad={handleImageLoad}
+                  onError={handleImageLoad}
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                />
+              )}
+
+              {/* Hover Overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-[hsl(var(--background)/0.9)] via-[hsl(var(--background)/0.3)] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+                <div className="absolute bottom-0 left-0 right-0 p-4">
+                  <h3 className="font-display text-lg text-[hsl(var(--foreground))] mb-1">
+                    {art.name}
+                  </h3>
+                  <p className="font-mono text-xs text-[hsl(var(--accent-tertiary))]">
+                    {art.isVideo ? "Video" : "Image"}
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
         ))}
       </div>
-    </section>
+
+      {currentArt.length === 0 && (
+        <div className="text-center py-16">
+          <p className="text-[hsl(var(--text-secondary))]">
+            No artwork found in this category.
+          </p>
+        </div>
+      )}
+    </div>
   );
 }
 

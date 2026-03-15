@@ -1,5 +1,5 @@
 import type { AppProps } from "next/app";
-import "../styles/global.css"; // Importing global CSS
+import "../styles/global.css";
 import NavBar from "../components/navBar";
 import Footer from "../components/footer";
 import Head from "next/head";
@@ -10,8 +10,9 @@ function MyApp({ Component, pageProps }: AppProps) {
     <>
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="theme-color" content="#080A0F" />
       </Head>
-      <div className="flex flex-col min-h-screen justify-between">
+      <div className="flex flex-col min-h-screen">
         {/* Google tag (gtag.js) */}
         <Script src="https://www.googletagmanager.com/gtag/js?id=G-MG32JXNQ3P" />
         <Script id="google-analytics">
@@ -24,12 +25,10 @@ function MyApp({ Component, pageProps }: AppProps) {
           `}
         </Script>
 
-        <div>
-          <NavBar />
-          <div className="pt-20">
-            <Component {...pageProps} />
-          </div>
-        </div>
+        <NavBar />
+        <main className="flex-1">
+          <Component {...pageProps} />
+        </main>
         <Footer />
       </div>
     </>

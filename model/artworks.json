@@ -5,7 +5,9 @@
         "name": "Tentacle Portrait",
         "description": "",
         "link": "/art/digital/tentacle-portrait.heic.jpg",
-        "descriptionLink": ""
+        "descriptionLink": "",
+        "width": 1635,
+        "height": 1395
       },
       {
         "name": "The Ethereal - Rainbow People",
@@ -13,6 +15,8 @@
         "link": "/art/digital/rainbow-people-3.MP4",
         "descriptionLink": "",
         "cover": "/art/digital/rainbow-people-3.jpg",
+        "coverWidth": 1350,
+        "coverHeight": 1800,
         "isVideo": true
       },
       {
@@ -21,6 +25,8 @@
         "link": "/art/digital/rainbow-people-2.MP4",
         "descriptionLink": "",
         "cover": "/art/digital/rainbow-people-2.jpg",
+        "coverWidth": 1100,
+        "coverHeight": 1467,
         "isVideo": true
       },
       {
@@ -29,61 +35,81 @@
         "link": "/art/digital/rainbow-people-4.MP4",
         "descriptionLink": "",
         "cover": "/art/digital/rainbow-people-4.jpg",
+        "coverWidth": 1550,
+        "coverHeight": 2067,
         "isVideo": true
       },
       {
         "name": "Genesis - Rainbow People",
         "description": "",
         "link": "/art/digital/rainbow-people-1.jpg",
-        "descriptionLink": ""
+        "descriptionLink": "",
+        "width": 1350,
+        "height": 1800
       },
       {
         "name": "Rainbow People Buttheads Fan Art",
         "description": "",
         "link": "/art/digital/rainbow-people-butt.jpg",
-        "descriptionLink": ""
+        "descriptionLink": "",
+        "width": 540,
+        "height": 540
       },
       {
         "name": "Untitled Portrait",
         "description": "",
         "link": "/art/digital/portrait-1.jpg",
-        "descriptionLink": ""
+        "descriptionLink": "",
+        "width": 1664,
+        "height": 1570
       },
       {
         "name": "Untitled Portrait",
         "description": "",
         "link": "/art/digital/portrait-2.jpg",
-        "descriptionLink": ""
+        "descriptionLink": "",
+        "width": 2003,
+        "height": 2161
       },
       {
         "name": "Anatomy Study",
         "description": "",
         "link": "/art/digital/anatomy-male.jpg",
-        "descriptionLink": ""
+        "descriptionLink": "",
+        "width": 1492,
+        "height": 1492
       },
       {
         "name": "Divine Anarchy Fan Art",
         "description": "",
         "link": "/art/digital/divine-anarchy.jpg",
-        "descriptionLink": ""
+        "descriptionLink": "",
+        "width": 2250,
+        "height": 2250
       },
       {
         "name": "Decentraland Character",
         "description": "",
         "link": "/art/digital/decentraland.jpg",
-        "descriptionLink": ""
+        "descriptionLink": "",
+        "width": 2200,
+        "height": 2200
       },
       {
         "name": "Ethereum Character",
         "description": "",
         "link": "/art/digital/ethereum.jpg",
-        "descriptionLink": ""
+        "descriptionLink": "",
+        "width": 2200,
+        "height": 2200
       },
       {
         "name": "Litecoin Character",
         "description": "",
         "link": "/art/digital/litecoin.jpg",
-        "descriptionLink": ""
+        "descriptionLink": "",
+        "width": 2200,
+        "height": 2200
       }
     ]
   },
@@ -93,25 +119,33 @@
         "name": "Réalité Virtuelle",
         "description": "",
         "link": "/art/painting/realite-virtuelle.jpg",
-        "descriptionLink": ""
+        "descriptionLink": "",
+        "width": 1306,
+        "height": 1750
       },
       {
         "name": "Creation of Cyborg",
         "description": "",
         "link": "/art/painting/creation-of-cyborg.jpg",
-        "descriptionLink": ""
+        "descriptionLink": "",
+        "width": 2534,
+        "height": 1263
       },
       {
         "name": "Laptop Eating His Som",
         "description": "",
         "link": "/art/painting/laptop-eating-his-son.jpg",
-        "descriptionLink": ""
+        "descriptionLink": "",
+        "width": 1423,
+        "height": 1818
       },
       {
         "name": "Abstract Untitled",
         "description": "",
         "link": "/art/painting/abstract-untitled.jpg",
-        "descriptionLink": ""
+        "descriptionLink": "",
+        "width": 1890,
+        "height": 1421
       }
     ]
   },
@@ -121,91 +155,121 @@
         "name": "Red Eye",
         "description": "",
         "link": "/art/pixel/red-eye.png",
-        "descriptionLink": ""
+        "descriptionLink": "",
+        "width": 1024,
+        "height": 1408
       },
       {
         "name": "Purple Moonbird",
         "description": "",
         "link": "/art/pixel/purple-moonbird.png",
-        "descriptionLink": ""
+        "descriptionLink": "",
+        "width": 3000,
+        "height": 1800
       },
       {
         "name": "GENE_SIS Fan Art",
         "description": "",
         "link": "/art/pixel/gene-sis-fan-art.png",
-        "descriptionLink": ""
+        "descriptionLink": "",
+        "width": 1536,
+        "height": 1680
       },
       {
         "name": "Pixel Warrior",
         "description": "",
         "link": "/art/pixel/warrior-full-body.png",
-        "descriptionLink": ""
+        "descriptionLink": "",
+        "width": 1760,
+        "height": 2200
       },
       {
         "name": "Gold Farmers Example 1",
         "description": "",
         "link": "/art/pixel/gold-farmers-1.jpg",
-        "descriptionLink": ""
+        "descriptionLink": "",
+        "width": 1047,
+        "height": 1062
       },
       {
         "name": "Gold Farmers Example 2",
         "description": "",
         "link": "/art/pixel/gold-farmers-2.jpg",
-        "descriptionLink": ""
+        "descriptionLink": "",
+        "width": 1062,
+        "height": 1066
       },
       {
         "name": "Gold Farmers Example 3",
         "description": "",
         "link": "/art/pixel/gold-farmers-3.jpg",
-        "descriptionLink": ""
+        "descriptionLink": "",
+        "width": 1046,
+        "height": 1057
       },
       {
         "name": "Gold Farmers Flower",
         "description": "",
         "link": "/art/pixel/gold-farmers-flower.PNG",
-        "descriptionLink": ""
+        "descriptionLink": "",
+        "width": 480,
+        "height": 480
       },
       {
         "name": "Wizard Avatar",
         "description": "",
         "link": "/art/pixel/wizzard-avatar.png",
-        "descriptionLink": ""
+        "descriptionLink": "",
+        "width": 640,
+        "height": 640
       },
       {
         "name": "Warrior Avatar",
         "description": "",
         "link": "/art/pixel/warrior-avatar.png",
-        "descriptionLink": ""
+        "descriptionLink": "",
+        "width": 640,
+        "height": 640
       },
       {
         "name": "Hunter Avatar",
         "description": "",
         "link": "/art/pixel/hunter-avatar.png",
-        "descriptionLink": ""
+        "descriptionLink": "",
+        "width": 640,
+        "height": 640
       },
       {
         "name": "Portrait Pixel Study",
         "description": "",
         "link": "/art/pixel/portrait-practice.png",
-        "descriptionLink": ""
+        "descriptionLink": "",
+        "width": 1024,
+        "height": 1024
       },
       {
         "name": "6 32x32 Icons",
         "description": "",
         "link": "/art/pixel/6-icons.png",
-        "descriptionLink": ""
+        "descriptionLink": "",
+        "width": 636,
+        "height": 420
       },
       {
         "name": "Fantasy Characters Sheet",
         "description": "",
         "link": "/art/pixel/fantasy-characters.png",
-        "descriptionLink": ""
+        "descriptionLink": "",
+        "width": 792,
+        "height": 1120
       },
       {
         "name": "1-Bit Animals Sheet",
         "description": "",
         "link": "/art/pixel/1-bit-animals.png",
-        "descriptionLink": ""
+        "descriptionLink": "",
+        "width": 720,
+        "height": 672
       }
     ]
   },
@@ -215,307 +279,409 @@
         "name": "portrait of an old man",
         "description": "",
         "link": "/art/drawing/IMG_8861.jpg",
-        "descriptionLink": ""
+        "descriptionLink": "",
+        "width": 1380,
+        "height": 2000
       },
       {
         "name": "long hair scruffy man",
         "description": "",
         "link": "/art/drawing/IMG_8972.jpg",
-        "descriptionLink": ""
+        "descriptionLink": "",
+        "width": 1338,
+        "height": 2000
       },
       {
         "name": "Medieval Portrait Colored",
         "description": "",
         "link": "/art/drawing/medieval-portrait-colored.JPEG",
-        "descriptionLink": ""
+        "descriptionLink": "",
+        "width": 1272,
+        "height": 2000
       },
       {
         "name": "fantasy warrior at the hill",
         "description": "",
         "link": "/art/drawing/IMG_6488.jpg",
-        "descriptionLink": ""
+        "descriptionLink": "",
+        "width": 1339,
+        "height": 2000
       },
       {
         "name": "figure drawing class portrait",
         "description": "",
         "link": "/art/drawing/IMG_8450.jpg",
-        "descriptionLink": ""
+        "descriptionLink": "",
+        "width": 1335,
+        "height": 2000
       },
       {
         "name": "Cowboy Portrait",
         "description": "",
         "link": "/art/drawing/cowboy-portrait.JPG",
-        "descriptionLink": ""
+        "descriptionLink": "",
+        "width": 1533,
+        "height": 1916
       },
       {
         "name": "Urban Walking Figure",
         "description": "",
         "link": "/art/drawing/urban-walking-figure.jpg",
-        "descriptionLink": ""
+        "descriptionLink": "",
+        "width": 1292,
+        "height": 2000
       },
       {
         "name": "messy portrait study",
         "description": "",
         "link": "/art/drawing/IMG_8812.jpg",
-        "descriptionLink": ""
+        "descriptionLink": "",
+        "width": 1329,
+        "height": 2000
       },
       {
         "name": "minimalistic portrait of a women",
         "description": "",
         "link": "/art/drawing/IMG_8794.jpg",
-        "descriptionLink": ""
+        "descriptionLink": "",
+        "width": 1485,
+        "height": 2000
       },
       {
         "name": "Blue Pen Portrait",
         "description": "",
         "link": "/art/drawing/blue-pen-portrait.heic.jpg",
-        "descriptionLink": ""
+        "descriptionLink": "",
+        "width": 1578,
+        "height": 1972
       },
       {
         "name": "Bodybuilder Figure",
         "description": "",
         "link": "/art/drawing/bodybuilder-figure.heic.jpg",
-        "descriptionLink": ""
+        "descriptionLink": "",
+        "width": 1233,
+        "height": 2000
       },
       {
         "name": "Marble Figure with Pen",
         "description": "",
         "link": "/art/drawing/marble-figure-pen.heic.jpg",
-        "descriptionLink": ""
+        "descriptionLink": "",
+        "width": 1718,
+        "height": 2000
       },
       {
         "name": "Moustache Portrait",
         "description": "",
         "link": "/art/drawing/moustache-portrait-study.jpg",
-        "descriptionLink": ""
+        "descriptionLink": "",
+        "width": 1363,
+        "height": 2000
       },
       {
         "name": "Cartoon colored portrait",
         "description": "",
         "link": "/art/drawing/cartoon-anime-head.jpg",
-        "descriptionLink": ""
+        "descriptionLink": "",
+        "width": 1254,
+        "height": 1606
       },
       {
         "name": "Anime Girl Portrait",
         "description": "",
         "link": "/art/drawing/anime-girl-portrait.jpg",
-        "descriptionLink": ""
+        "descriptionLink": "",
+        "width": 780,
+        "height": 977
       },
       {
         "name": "figure study in italy from museum",
         "description": "",
         "link": "/art/drawing/IMG_7355.jpg",
-        "descriptionLink": ""
+        "descriptionLink": "",
+        "width": 1344,
+        "height": 2000
       },
       {
         "name": "Pencil Experiment Portrait",
         "description": "",
         "link": "/art/drawing/pencil-experiment-portrait.jpg",
-        "descriptionLink": ""
+        "descriptionLink": "",
+        "width": 1424,
+        "height": 2000
       },
       {
         "name": "portrait from flight to SF",
         "description": "",
         "link": "/art/drawing/IMG_6705.jpg",
-        "descriptionLink": ""
+        "descriptionLink": "",
+        "width": 1521,
+        "height": 2000
       },
       {
         "name": "Lemons Study",
         "description": "",
         "link": "/art/drawing/lemons-study.jpg",
-        "descriptionLink": ""
+        "descriptionLink": "",
+        "width": 1479,
+        "height": 2000
       },
       {
         "name": "Rose Study",
         "description": "",
         "link": "/art/drawing/rose-study.jpg",
-        "descriptionLink": ""
+        "descriptionLink": "",
+        "width": 1118,
+        "height": 1776
       },
       {
         "name": "Camellia Study",
         "description": "",
         "link": "/art/drawing/camellia-study.jpg",
-        "descriptionLink": ""
+        "descriptionLink": "",
+        "width": 1133,
+        "height": 1836
       },
       {
         "name": "Live Flower Study",
         "description": "",
         "link": "/art/drawing/live-flower-study.jpg",
-        "descriptionLink": ""
+        "descriptionLink": "",
+        "width": 1061,
+        "height": 1725
       },
       {
         "name": "Stylized portrait colored",
         "description": "",
         "link": "/art/drawing/stylized-portrait.jpg",
-        "descriptionLink": ""
+        "descriptionLink": "",
+        "width": 1433,
+        "height": 1796
       },
       {
         "name": "Anime portrait Study",
         "description": "",
         "link": "/art/drawing/anime-portrait-study.jpg",
-        "descriptionLink": ""
+        "descriptionLink": "",
+        "width": 683,
+        "height": 1044
       },
       {
         "name": "Solo Leveling fan art",
         "description": "",
         "link": "/art/drawing/solo-leveling-anime.jpg",
-        "descriptionLink": ""
+        "descriptionLink": "",
+        "width": 1008,
+        "height": 1623
       },
       {
         "name": "Floral Study Portrait",
         "description": "",
         "link": "/art/drawing/floral-portrait.jpg",
-        "descriptionLink": ""
+        "descriptionLink": "",
+        "width": 812,
+        "height": 1291
       },
       {
         "name": "Zeus",
         "description": "",
         "link": "/art/drawing/zeus.jpg",
-        "descriptionLink": ""
+        "descriptionLink": "",
+        "width": 665,
+        "height": 1012
       },
       {
         "name": "Pen marble torso study",
         "description": "",
         "link": "/art/drawing/pen-marble-torso.jpg",
-        "descriptionLink": ""
+        "descriptionLink": "",
+        "width": 1403,
+        "height": 1684
       },
       {
         "name": "Full body figure studies",
         "description": "",
         "link": "/art/drawing/full-body-study.jpg",
-        "descriptionLink": ""
+        "descriptionLink": "",
+        "width": 1012,
+        "height": 1629
       },
       {
         "name": "Full body figure studies",
         "description": "",
         "link": "/art/drawing/full-body-studies.jpg",
-        "descriptionLink": ""
+        "descriptionLink": "",
+        "width": 1475,
+        "height": 1289
       },
       {
         "name": "Figure Study",
         "description": "",
         "link": "/art/drawing/figure-study.jpg",
-        "descriptionLink": ""
+        "descriptionLink": "",
+        "width": 1294,
+        "height": 1959
       },
       {
         "name": "Figure from live Figure Drawing Class",
         "description": "",
         "link": "/art/drawing/figure-drawing-class.jpg",
-        "descriptionLink": ""
+        "descriptionLink": "",
+        "width": 1304,
+        "height": 1979
       },
       {
         "name": "Pen portrait and figure studies",
         "description": "",
         "link": "/art/drawing/pen-portrait-n-figure.jpg",
-        "descriptionLink": ""
+        "descriptionLink": "",
+        "width": 1785,
+        "height": 1362
       },
       {
         "name": "Red Coloring Pencil Portrait Study",
         "description": "",
         "link": "/art/drawing/red-pencil-portrait.jpg",
-        "descriptionLink": ""
+        "descriptionLink": "",
+        "width": 1461,
+        "height": 1838
       },
       {
         "name": "Portrait Study",
         "description": "",
         "link": "/art/drawing/pen-portrait-3.jpg",
-        "descriptionLink": ""
+        "descriptionLink": "",
+        "width": 1279,
+        "height": 1707
       },
       {
         "name": "Fallen Angel Stylized",
         "description": "",
         "link": "/art/drawing/fallen-angel.jpg",
-        "descriptionLink": ""
+        "descriptionLink": "",
+        "width": 1440,
+        "height": 1080
       },
       {
         "name": "soldier portrait",
         "description": "",
         "link": "/art/drawing/IMG_6544.jpg",
-        "descriptionLink": ""
+        "descriptionLink": "",
+        "width": 1318,
+        "height": 2000
       },
       {
         "name": "Dramatic Figure holding Flower",
         "description": "",
         "link": "/art/drawing/dramatic-flower-figure.jpg",
-        "descriptionLink": ""
+        "descriptionLink": "",
+        "width": 1423,
+        "height": 1813
       },
       {
         "name": "Portrait Study",
         "description": "",
         "link": "/art/drawing/pen-portrait-2.jpg",
-        "descriptionLink": ""
+        "descriptionLink": "",
+        "width": 1398,
+        "height": 1804
       },
       {
         "name": "Portrait Study",
         "description": "",
         "link": "/art/drawing/pencil-portrait.jpg",
-        "descriptionLink": ""
+        "descriptionLink": "",
+        "width": 1119,
+        "height": 1604
       },
       {
         "name": "Portrait Study",
         "description": "",
         "link": "/art/drawing/pencil-portrait-2.jpg",
-        "descriptionLink": ""
+        "descriptionLink": "",
+        "width": 1117,
+        "height": 1535
       },
       {
         "name": "Male Marble Torso",
         "description": "",
         "link": "/art/drawing/marble-torso.jpg",
-        "descriptionLink": ""
+        "descriptionLink": "",
+        "width": 1207,
+        "height": 1651
       },
       {
         "name": "Female Marble Torso",
         "description": "",
         "link": "/art/drawing/female-marble-torso.jpg",
-        "descriptionLink": ""
+        "descriptionLink": "",
+        "width": 1270,
+        "height": 1737
       },
       {
         "name": "soldier ready for conflict",
         "description": "",
         "link": "/art/drawing/IMG_6616.jpg",
-        "descriptionLink": ""
+        "descriptionLink": "",
+        "width": 1244,
+        "height": 2000
       },
       {
         "name": "tree drawings at the dog park",
         "description": "",
         "link": "/art/drawing/IMG_6464.heic.jpg",
-        "descriptionLink": ""
+        "descriptionLink": "",
+        "width": 1381,
+        "height": 2000
       },
       {
         "name": "Tranquility Portrait",
         "description": "",
         "link": "/art/drawing/tranquility.jpg",
-        "descriptionLink": ""
+        "descriptionLink": "",
+        "width": 1100,
+        "height": 1510
       },
       {
         "name": "Portrait Study",
         "description": "",
         "link": "/art/drawing/bummed.jpg",
-        "descriptionLink": ""
+        "descriptionLink": "",
+        "width": 1177,
+        "height": 1624
       },
       {
         "name": "David Status Portrait Study",
         "description": "",
         "link": "/art/drawing/david.jpg",
-        "descriptionLink": ""
+        "descriptionLink": "",
+        "width": 1462,
+        "height": 1949
       },
       {
         "name": "Figure Study",
         "description": "",
         "link": "/art/drawing/figure-2.jpg",
-        "descriptionLink": ""
+        "descriptionLink": "",
+        "width": 1287,
+        "height": 1905
       },
       {
         "name": "Figure Study",
         "description": "",
         "link": "/art/drawing/figure.jpg",
-        "descriptionLink": ""
+        "descriptionLink": "",
+        "width": 1208,
+        "height": 1663
       },
       {
         "name": "Portrait Study",
         "description": "",
         "link": "/art/drawing/pen-portrait.jpg",
-        "descriptionLink": ""
+        "descriptionLink": "",
+        "width": 911,
+        "height": 1235
       }
     ]
   },
@@ -526,6 +692,8 @@
         "description": "",
         "link": "/art/generative/lucid-paths-unrevealed.MP4",
         "cover": "/art/generative/lucid-paths-unrevealed.png",
+        "coverWidth": 392,
+        "coverHeight": 393,
         "descriptionLink": "",
         "isVideo": true
       },
@@ -534,6 +702,8 @@
         "description": "",
         "link": "/art/generative/lucid-paths-1.MP4",
         "cover": "/art/generative/lucid-paths-1.png",
+        "coverWidth": 388,
+        "coverHeight": 388,
         "descriptionLink": "",
         "isVideo": true
       },
@@ -542,6 +712,8 @@
         "description": "",
         "link": "/art/generative/lucid-paths-2.MP4",
         "cover": "/art/generative/lucid-paths-2.png",
+        "coverWidth": 385,
+        "coverHeight": 386,
         "descriptionLink": "",
         "isVideo": true
       },
@@ -550,6 +722,8 @@
         "description": "",
         "link": "/art/generative/lucid-paths-39.MP4",
         "cover": "/art/generative/lucid-paths-39.png",
+        "coverWidth": 391,
+        "coverHeight": 391,
         "descriptionLink": "",
         "isVideo": true
       },
@@ -558,6 +732,8 @@
         "description": "",
         "link": "/art/generative/lucid-paths-437.MP4",
         "cover": "/art/generative/lucid-paths-437.png",
+        "coverWidth": 391,
+        "coverHeight": 391,
         "descriptionLink": "",
         "isVideo": true
       }

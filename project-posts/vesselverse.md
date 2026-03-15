@@ -2,6 +2,8 @@
 title: 'VesselVerse'
 date: '2022'
 description: 'A NFT art project built for NBA Trophy artist Victor Solomon. A Convergence of Art, Basketball, and Blockchain.'
+tags: ['Web3', 'React', 'NFT', 'Art']
+featured: true
 ---
 
 A NFT art project built for NBA Trophy artist Victor Solomon. A Convergence of Art, Basketball, and Blockchain.
