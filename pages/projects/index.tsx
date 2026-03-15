@@ -49,6 +49,11 @@ export default function Projects(props: ProjectsProps) {
           name="description"
           content="Victor Gomes' projects — personal experiments, professional work, and creative builds at the intersection of code and craft."
         />
+        <link rel="canonical" href="https://www.vgomes.co/projects" />
+        <meta name="robots" content="index, follow" />
+        <meta property="og:title" content="Projects | Victor Gomes" key="og:title" />
+        <meta property="og:description" content="Victor Gomes' projects — personal experiments, professional work, and creative builds at the intersection of code and craft." key="og:description" />
+        <meta property="og:url" content="https://www.vgomes.co/projects" key="og:url" />
       </Head>
 
       <div className="max-w-4xl mx-auto px-6">

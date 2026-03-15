@@ -1,38 +1,87 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+    <!-- Core pages -->
     <url>
         <loc>https://www.vgomes.co/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
     </url>
     <url>
-        <loc>https://www.vgomes.co/art</loc>
+        <loc>https://www.vgomes.co/projects</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
     </url>
     <url>
         <loc>https://www.vgomes.co/blog</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
     </url>
-    
     <url>
-        <loc>https://www.vgomes.co/blog/build-after-work</loc>
+        <loc>https://www.vgomes.co/art</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
     </url>
-    
     <url>
-        <loc>https://www.vgomes.co/blog/google-chrome-productivity</loc>
+        <loc>https://www.vgomes.co/movies</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
     </url>
-    
-    <url>
-        <loc>https://www.vgomes.co/blog/how-to-export-vscode-extensions</loc>
-    </url>
-    
-    <url>
-        <loc>https://www.vgomes.co/blog/how-to-nextjs-blog</loc>
-    </url>
-    
+
+    <!-- Blog posts -->
     <url>
         <loc>https://www.vgomes.co/blog/thoughts-on-switching-jobs</loc>
+        <lastmod>2024-07-03</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.7</priority>
     </url>
-    
+    <url>
+        <loc>https://www.vgomes.co/blog/build-after-work</loc>
+        <lastmod>2023-11-21</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://www.vgomes.co/blog/google-chrome-productivity</loc>
+        <changefreq>yearly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>https://www.vgomes.co/blog/how-to-export-vscode-extensions</loc>
+        <changefreq>yearly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>https://www.vgomes.co/blog/how-to-nextjs-blog</loc>
+        <changefreq>yearly</changefreq>
+        <priority>0.6</priority>
+    </url>
     <url>
         <loc>https://www.vgomes.co/blog/video-tag-in-html</loc>
+        <changefreq>yearly</changefreq>
+        <priority>0.6</priority>
     </url>
-    
+
+    <!-- Project posts -->
+    <url>
+        <loc>https://www.vgomes.co/projects/taskventure</loc>
+        <changefreq>yearly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://www.vgomes.co/projects/vesselverse</loc>
+        <changefreq>yearly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://www.vgomes.co/projects/lucid-paths</loc>
+        <changefreq>yearly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://www.vgomes.co/projects/gold-farmers</loc>
+        <changefreq>yearly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
 </urlset>
-  

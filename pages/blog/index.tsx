@@ -45,6 +45,11 @@ export default function Blog(props: BlogProps) {
           name="description"
           content="Victor Gomes' blog — technical deep-dives, front-end engineering insights, tutorials, and the occasional personal thought."
         />
+        <link rel="canonical" href="https://www.vgomes.co/blog" />
+        <meta name="robots" content="index, follow" />
+        <meta property="og:title" content="Blog | Victor Gomes" key="og:title" />
+        <meta property="og:description" content="Victor Gomes' blog — technical deep-dives, front-end engineering insights, tutorials, and the occasional personal thought." key="og:description" />
+        <meta property="og:url" content="https://www.vgomes.co/blog" key="og:url" />
       </Head>
 
       <div className="max-w-4xl mx-auto px-6">
