@@ -2,6 +2,7 @@ import { Menu, X } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import React, { useState, useEffect, useRef } from "react";
+import { X_TWITTER_URL, INSTAGRAM_URL, GITHUB_URL, LINKEDIN_URL } from "../model/constants";
 
 export interface NavBarProps {}
 
@@ -228,7 +229,7 @@ export function NavBar(props: NavBarProps) {
           {/* Social links in mobile menu */}
           <div className="mt-12 flex gap-6 text-[hsl(var(--text-secondary))]">
             <a
-              href="https://x.com/vgomes_tech"
+              href={X_TWITTER_URL}
               target="_blank"
               rel="noreferrer"
               className="hover:text-[hsl(var(--accent))] transition-colors"
@@ -236,7 +237,7 @@ export function NavBar(props: NavBarProps) {
               X
             </a>
             <a
-              href="https://instagram.com/coolcodeguy"
+              href={INSTAGRAM_URL}
               target="_blank"
               rel="noreferrer"
               className="hover:text-[hsl(var(--accent))] transition-colors"
@@ -244,7 +245,7 @@ export function NavBar(props: NavBarProps) {
               IG
             </a>
             <a
-              href="https://github.com/victorluizgomes"
+              href={GITHUB_URL}
               target="_blank"
               rel="noreferrer"
               className="hover:text-[hsl(var(--accent))] transition-colors"
@@ -252,7 +253,7 @@ export function NavBar(props: NavBarProps) {
               GH
             </a>
             <a
-              href="https://www.linkedin.com/in/victorluizgomes/"
+              href={LINKEDIN_URL}
               target="_blank"
               rel="noreferrer"
               className="hover:text-[hsl(var(--accent))] transition-colors"

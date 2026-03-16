@@ -37,7 +37,8 @@ export function formatDate(dateString: string): string {
 
 function estimateReadTime(content: string): number {
   const wordsPerMinute = 200;
-  const wordCount = content.split(/\s+/).length;
+  const plainText = content.replace(/<[^>]+>/g, " ");
+  const wordCount = plainText.trim().split(/\s+/).filter(Boolean).length;
   return Math.ceil(wordCount / wordsPerMinute);
 }
 

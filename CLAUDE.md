@@ -14,7 +14,7 @@ Live at **vgomes.co** · Linear project: **"Re-do design of vgomes.co"** (team: 
 - **Install deps:** `~/.bun/bin/bun install`
 - **preview tool launch config:** `/Users/vgomes/Gitrepos/vgomes-site/.claude/launch.json`
   uses full binary path `/Users/vgomes/.bun/bin/bun` because the preview tool doesn't load `.zshrc`
-- **Git branch:** `neon-redesign`
+- **Git branch:** `main` (neon-redesign has been merged — all work goes to main)
 
 ---
 
@@ -168,11 +168,63 @@ styles/
 
 ## Movies Page (`pages/movies.tsx`)
 
-- Fetches Letterboxd RSS at `https://letterboxd.com/vgomes/rss/` server-side via `getStaticProps` (ISR: revalidate every hour)
-- Custom XML parser (`extractTag`, `parseLetterboxdRSS`) — no external XML library, uses regex + CDATA stripping
-- Layout: vertical editorial list, each card = poster (left) + title/year/date/rating/review (right)
-- Star ratings rendered as CSS-clipped `★` glyphs (filled/half/empty) — no fraction Unicode characters
-- Letterboxd image domain `a.ltrbxd.com` is allowed in `next.config.js`
+### Data sources
+- **Letterboxd RSS** — `https://letterboxd.com/vgomes/rss/` — fetched server-side in `getStaticProps` (ISR: revalidate every hour). Parsed with a custom regex-based XML parser (`extractTag`, `parseLetterboxdRSS`) — no external XML library. Capped at the **50 most recent diary entries** (RSS only returns ~50 anyway; entries beyond that may be lists, not films).
+- **TMDB API** — used only for the All-Time Favorites poster images, fetched at build time in `getStaticProps`. Endpoint: `https://api.themoviedb.org/3/movie/{tmdbId}?api_key=KEY`. Returns `poster_path` → full URL `https://image.tmdb.org/t/p/w500{poster_path}`. The domain `image.tmdb.org` is allowed in `next.config.js`.
+
+### TMDB API key setup
+- **Env var:** `TMDB_API_KEY` — set in `.env.local` (already gitignored). Get a free key at https://www.themoviedb.org/settings/api (use the **API Key (v3 auth)** string, not the Bearer token).
+- Vercel: add `TMDB_API_KEY` as an environment variable in the project settings.
+- **Graceful fallback:** if `TMDB_API_KEY` is not set, favorites render without posters (shows a 🎬 placeholder). The page still works fully — no error thrown.
+- **Do not commit the key.** `.env.local` is gitignored.
+
+### All-Time Favorites config
+Hardcoded in `FAVORITE_MOVIES_CONFIG` at the top of `movies.tsx`:
+```ts
+const FAVORITE_MOVIES_CONFIG = [
+  { title: "Troy",           year: "2004", tmdbId: 652    },
+  { title: "Interstellar",   year: "2014", tmdbId: 157336 },
+  { title: "Knives Out",     year: "2019", tmdbId: 546554 },
+  { title: "American Psycho",year: "2000", tmdbId: 1359   },
+] as const;
+```
+To change a favorite: update the array and the matching TMDB ID. Look up IDs at https://www.themoviedb.org (the numeric ID is in the movie's URL, e.g. `/movie/652-troy`).
+
+### RSS parser details
+- `extractTag(xml, tag)` — regex extracts content between `<tag>…</tag>`, strips CDATA wrappers.
+- Fields read per `<item>`: `letterboxd:filmTitle`, `letterboxd:filmYear`, `letterboxd:rating` (or `letterboxd:memberRating` as fallback), `letterboxd:watchedDate`, `letterboxd:rewatch`, `letterboxd:memberLike`.
+- Poster URL is extracted from the `<description>` HTML `<img src="…">` attribute.
+- Review text is extracted from `<description>` by stripping the `<img>` tag and all other HTML.
+- **HTML entities in RSS:** titles and review text contain encoded entities (`&#039;`, `&amp;`, `&quot;`, etc.). The `decodeHtmlEntities()` helper is applied to the title field. The review text pipeline also manually replaces the most common ones inline.
+
+### Star rating rendering
+Ratings are `0.5` increments (0–5). The `StarRow` component renders `★` glyphs:
+- **`STAR_SLOT` constant** (`React.CSSProperties`) gives every star character (full, half, empty) identical fixed width (`0.85em`) so horizontal spacing is perfectly uniform regardless of font advance width:
+  ```ts
+  const STAR_SLOT: React.CSSProperties = {
+    display: "inline-block", width: "0.85em", textAlign: "center",
+    lineHeight: 1, fontSize: "1em", flexShrink: 0,
+  };
+  ```
+- **Half star:** two overlapping `★` glyphs — dim background star + coral filled star clipped with `clipPath: "inset(0 50% 0 0)"`. This is more reliable than `overflow:hidden + width:50%` (which can clip unevenly on subpixel layouts).
+- **Heart icon (♥):** rendered with the same `STAR_SLOT` dimensions so it aligns visually with stars. Separated from stars by `gap-2` (8px) on the wrapper div.
+
+### Infinite scroll
+- `INITIAL_COUNT = 10`, `LOAD_MORE_COUNT = 10` — all 50 movies are passed as props; the component progressively reveals them.
+- An `IntersectionObserver` watches a sentinel `<div>` at the bottom of the list (`rootMargin: "300px"`) and increments `visibleCount` by 10 whenever it enters the viewport.
+- No additional network fetches — data is all pre-loaded in props.
+
+### Watching Stats
+Computed in `getStaticProps` via `computeStats(movies)` and passed as the `stats` prop:
+- `avgRating` — mean of all rated entries (rounded to 1 decimal)
+- `fiveStarCount` — entries with `rating === 5.0` (perfect scores)
+- `rewatchCount` — entries where `letterboxd:rewatch === "yes"`
+- `likedCount` — entries where `letterboxd:memberLike === "yes"`
+- `ratingDistribution` — array of 10 buckets (0.5–5.0), each with a `count` — rendered as a bar chart histogram
+
+### Layout
+- Vertical editorial list, each card = poster left + title / year / date / rating / review right
+- Poster uses `width={150} height={225}` with `className="w-full h-auto"` for natural 2:3 aspect ratio without stretching (never use `fill` on movie list posters — `fill` causes stretching when review text makes the card taller than the poster)
 - All accents use `--accent-secondary` (coral red)
 
 ---
@@ -191,7 +243,7 @@ styles/
 
 - **Blog posts:** Markdown files (parsed via gray-matter + remark)
 - **Art:** Static JSON at `model/artworks.json` — array of category objects, each keyed by category name (e.g. `[{ "digital": [...] }, { "drawing": [...] }]`). Each artwork has `link`, `name`, `isVideo?`, and optionally `cover` (poster image for videos). See `model/art.interface.tsx` for the `ArtPropertiesInterface` type.
-- **Movies:** Letterboxd RSS feed — `https://letterboxd.com/vgomes/rss/`
+- **Movies:** Letterboxd RSS feed — `https://letterboxd.com/vgomes/rss/` (capped at 50 entries). Favorites poster images fetched from TMDB API at build time using `TMDB_API_KEY` env var (see Movies Page section for setup).
 - **Projects:** Markdown files in `project-posts/` directory. Frontmatter: `title`, `date`, `description`, `tags[]`, `featured`. The home page `getStaticProps` reads these to populate `FeaturedProjects` (top 3 by date). The `FeaturedProjects` component accepts `projects` as props — do NOT hardcode projects in the component.
 
 ---
@@ -204,7 +256,7 @@ list issues in project "Re-do design of vgomes.co"
 ```
 Remaining open issues include VIC-19 (scroll animations), VIC-22 (projects/blog editorial layout), VIC-23 (Framer Motion transitions).
 
-**Completed:** VIC-17 (copy updates), VIC-25 (art teaser real artwork), VIC-28 (lightbox stale media bug), VIC-29 (masonry CLS), VIC-21 (movies page redesign), VIC-24 (navbar refinement), VIC-33 (video click opens lightbox), VIC-36 (featured projects from real posts), VIC-37 (per-route accent colors), VIC-34 (art masonry natural aspect ratios), VIC-30 (SEO audit).
+**Completed:** VIC-17 (copy updates), VIC-25 (art teaser real artwork), VIC-28 (lightbox stale media bug), VIC-29 (masonry CLS), VIC-21 (movies page redesign), VIC-24 (navbar refinement), VIC-33 (video click opens lightbox), VIC-36 (featured projects from real posts), VIC-37 (per-route accent colors), VIC-34 (art masonry natural aspect ratios), VIC-30 (SEO audit), VIC-44 (movies page — favorites, stats, infinite scroll, TMDB posters, star/entity fixes), VIC-46 (movies footer mobile layout + half-star clip-path fix), VIC-27 (art gallery curation).
 
 **Note:** Framer Motion is NOT yet installed. VIC-23 covers adding it. When doing animation work, use CSS transitions/keyframes or `IntersectionObserver` until Framer Motion is added.
 
@@ -232,6 +284,13 @@ Remaining open issues include VIC-19 (scroll animations), VIC-22 (projects/blog 
 - **`.accent-pill` is always mint:** The `.accent-pill` CSS class hard-codes `--accent` (mint). For pages using different accent colors (blog, projects, art, movies), render the pill manually with inline `style` to match the page accent. See `pages/projects/index.tsx` for the emerald pill pattern.
 - **Section labels with non-mint accent:** The `.section-label` CSS class is always mint. For non-mint sections, render manually: `<p className="text-sm font-mono tracking-widest uppercase inline-flex items-center gap-2" style={{ color: "hsl(var(--accent-X))" }}><span style={{ transform: "translateY(-1px)", display: "inline-block" }}>◆</span> Label</p>`. Used in `featuredProjects.tsx` (emerald) and `latestBlogPosts.tsx` (blue).
 - **Bun `ERR_ENCODING_INVALID_ENCODED_DATA` in dev:** Bun's stricter `TextDecoder` throws `Invalid byte sequence` / `ERR_ENCODING_INVALID_ENCODED_DATA` inside `pages.runtime.dev.js` on every request in some environments. This is a Bun + Next.js 14 incompatibility — it does NOT affect production (Vercel uses Node). Workaround for local preview: use Node directly in `launch.json` → `node /Users/vgomes/Gitrepos/vgomes-site/node_modules/.bin/next dev`. node_modules live only in the main repo root, not in each worktree.
+- **TMDB API key is v3 API Key, not Bearer token:** TMDB provides two credentials — "API Key (v3 auth)" and "API Read Access Token (v4 auth)". The movies page uses the v3 API key as a `?api_key=` query parameter. Do NOT use the Bearer token here. Key is stored in `.env.local` as `TMDB_API_KEY` and must also be set in Vercel environment variables for production builds.
+- **TMDB env var must be in the worktree's `.env.local`:** When running a dev server from a git worktree (`.claude/worktrees/<name>/`), Next.js looks for `.env.local` relative to the CWD (the worktree dir), not the main repo root. Copy it: `cp /path/to/repo/.env.local /path/to/worktree/.env.local`. The worktree `.env.local` is gitignored automatically because `.env*.local` is in `.gitignore`.
+- **`STAR_SLOT` pattern for uniform star sizing:** When rendering `★` glyphs for ratings, apply a fixed-width wrapper to every slot (full, half, empty) so horizontal spacing is identical regardless of font advance width. See `movies.tsx` `STAR_SLOT` constant. Without this, character-width variance causes uneven star spacing.
+- **Half-star with `clipPath`:** Use `clipPath: "inset(0 50% 0 0)"` on an absolutely-positioned overlay star to show only the left half filled. More reliable than `overflow:hidden + width:50%` which can clip unevenly on subpixel-rendered layouts.
+- **HTML entities in Letterboxd RSS:** RSS content includes encoded HTML entities (`&#039;` for apostrophes, `&amp;`, `&quot;`, etc.) in both title fields and review text. Always run title strings through `decodeHtmlEntities()`. Review text has inline replacements in the parser. Never display raw RSS strings without decoding.
+- **Movie poster `fill` vs natural size:** On editorial list cards where card height is driven by review text, use `<Image width={150} height={225} className="w-full h-auto" />` with `alignSelf: "flex-start"` on the container. Never use `fill` + `aspectRatio` on these cards — `fill` stretches the poster to match the card's full height when a long review makes it tall.
+- **Infinite scroll without extra fetches:** For paginated-style reveals of already-loaded data, pass all items as props and use `useState(initialCount)` + `IntersectionObserver` on a sentinel div. No API calls needed — just slice `items.slice(0, visibleCount)` on render.
 
 ---
 
@@ -265,5 +324,5 @@ Static file (manually maintained). Includes all routes: `/`, `/projects`, `/blog
 
 The Claude Code worktree workflow creates isolated branches under `.claude/worktrees/`. Key notes:
 - Each worktree gets its own `.claude/launch.json` — update it to point at the worktree directory
-- The active design branch is `neon-redesign`. All feature work should branch from this, not from `main`. Push completed work back to `neon-redesign`.
-- `main` is the live production branch — never push experimental or in-progress work directly to it
+- `neon-redesign` has been merged into `main`. All feature work now branches from `main` and merges back via PR.
+- `main` is the live production branch
