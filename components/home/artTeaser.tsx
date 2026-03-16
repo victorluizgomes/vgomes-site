@@ -5,24 +5,29 @@ import { useEffect, useRef, useState } from "react";
 
 const featuredArt = [
   {
-    src: "/art/digital/tentacle-portrait.heic.jpg",
-    name: "Tentacle Portrait",
-    medium: "Digital",
+    src: "/art/painting/realite-virtuelle.jpg",
+    name: "Réalité Virtuelle",
+    medium: "Painting",
   },
   {
-    src: "/art/drawing/fallen-angel.jpg",
-    name: "Fallen Angel Stylized",
+    src: "/art/drawing/pen-portrait-3.jpg",
+    name: "Portrait Study",
     medium: "Drawing",
   },
   {
-    src: "/art/pixel/purple-moonbird.png",
-    name: "Purple Moonbird",
-    medium: "Pixel Art",
+    src: "/art/drawing/full-body-study.jpg",
+    name: "Full Body Figure Studies",
+    medium: "Drawing",
   },
   {
-    src: "/art/generative/lucid-paths-unrevealed.png",
-    name: "Lucid Paths Unrevealed",
-    medium: "Generative",
+    src: "/art/drawing/IMG_8861.jpg",
+    name: "Portrait of an Old Man",
+    medium: "Drawing",
+  },
+  {
+    src: "/art/pixel/red-eye.png",
+    name: "Red Eye",
+    medium: "Pixel Art",
   },
 ];
 
