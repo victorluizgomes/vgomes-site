@@ -12,25 +12,6 @@ interface LatestBlogPostsProps {
   posts?: BlogPost[];
 }
 
-// Default posts for when none are provided
-const defaultPosts: BlogPost[] = [
-  {
-    title: 'Building Pixel Art Games with React and TypeScript',
-    date: '2024-08',
-    slug: 'building-pixel-art-games'
-  },
-  {
-    title: 'My Journey from BlackRock to Coinbase',
-    date: '2024-07',
-    slug: 'blackrock-to-coinbase'
-  },
-  {
-    title: 'Design Systems at Scale: Lessons Learned',
-    date: '2024-03',
-    slug: 'design-systems-at-scale'
-  },
-];
-
 function formatDate(dateString: string): string {
   const parts = dateString.split('-');
   if (parts.length === 2) {
@@ -43,7 +24,7 @@ function formatDate(dateString: string): string {
   return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
 }
 
-export function LatestBlogPosts({ posts = defaultPosts }: LatestBlogPostsProps) {
+export function LatestBlogPosts({ posts = [] }: LatestBlogPostsProps) {
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
 
