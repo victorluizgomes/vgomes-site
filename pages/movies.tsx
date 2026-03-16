@@ -87,18 +87,17 @@ function StarRow({ rating }: { rating: number }) {
       {Array.from({ length: full }).map((_, i) => (
         <span key={`f${i}`} style={{ color: "hsl(var(--accent-secondary))", fontSize: "1em", lineHeight: 1 }}>★</span>
       ))}
-      {/* Half star: two overlapping stars, clipped */}
+      {/* Half star: two overlapping stars, right half clipped */}
       {half && (
-        <span style={{ position: "relative", display: "inline-block", width: "0.6em", lineHeight: 1 }}>
+        <span style={{ position: "relative", display: "inline-block", width: "1em", lineHeight: 1 }}>
           {/* Empty background */}
           <span style={{ color: "hsl(var(--accent-secondary) / 0.25)", fontSize: "1em", lineHeight: 1 }}>★</span>
-          {/* Filled half — clipped to left 50% */}
+          {/* Filled half — clip-path removes right 50% of the glyph */}
           <span style={{
             position: "absolute",
             left: 0,
             top: 0,
-            overflow: "hidden",
-            width: "50%",
+            clipPath: "inset(0 50% 0 0)",
             color: "hsl(var(--accent-secondary))",
             fontSize: "1em",
             lineHeight: 1,
@@ -331,7 +330,7 @@ export default function MoviesPage({ movies }: Props) {
 
         {/* Footer */}
         <div
-          className="mt-10 flex items-center justify-between fade-in-up"
+          className="mt-10 flex flex-col-reverse gap-3 sm:flex-row sm:items-center sm:justify-between sm:gap-0 fade-in-up"
           style={{ animationDelay: "500ms" }}
         >
           <a
