@@ -294,7 +294,7 @@ function StatsSection({ stats }: { stats: Stats }) {
     {
       label: "liked",
       value: String(stats.likedCount),
-      suffix: " ♥",
+      suffix: " ♥\uFE0E",
     },
   ];
 
@@ -472,7 +472,7 @@ function MovieCard({ movie, index }: { movie: Movie; index: number }) {
                   style={{ ...STAR_SLOT, color: "hsl(var(--accent-secondary))" }}
                   title="Liked"
                 >
-                  ♥
+                  {"♥\uFE0E"}
                 </span>
               )}
               <StarRow rating={movie.rating} />
