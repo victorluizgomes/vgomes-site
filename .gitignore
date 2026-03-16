@@ -19,8 +19,9 @@
 .DS_Store
 tsconfig.tsbuildinfo
 
-# Claude Code worktrees (local dev only)
+# Claude Code — local dev only (machine-specific paths, causes per-worktree conflicts)
 .claude/worktrees/
+.claude/launch.json
 
 # debug
 npm-debug.log*
