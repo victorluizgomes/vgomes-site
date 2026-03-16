@@ -14,7 +14,7 @@ Live at **vgomes.co** · Linear project: **"Re-do design of vgomes.co"** (team: 
 - **Install deps:** `~/.bun/bin/bun install`
 - **preview tool launch config:** `/Users/vgomes/Gitrepos/vgomes-site/.claude/launch.json`
   uses full binary path `/Users/vgomes/.bun/bin/bun` because the preview tool doesn't load `.zshrc`
-- **Git branch:** `neon-redesign`
+- **Git branch:** `main` (neon-redesign has been merged — all work goes to main)
 
 ---
 
@@ -265,5 +265,5 @@ Static file (manually maintained). Includes all routes: `/`, `/projects`, `/blog
 
 The Claude Code worktree workflow creates isolated branches under `.claude/worktrees/`. Key notes:
 - Each worktree gets its own `.claude/launch.json` — update it to point at the worktree directory
-- The active design branch is `neon-redesign`. All feature work should branch from this, not from `main`. Push completed work back to `neon-redesign`.
-- `main` is the live production branch — never push experimental or in-progress work directly to it
+- `neon-redesign` has been merged into `main`. All feature work now branches from `main` and merges back via PR.
+- `main` is the live production branch
