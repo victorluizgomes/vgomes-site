@@ -3,12 +3,12 @@ import { useEffect, useRef, useState } from 'react';
 
 const ARTICLES = [
   {
-    source: "UArizona News",
-    tag: "Research",
-    title: "Googly Eyes Bridge the Gap Between Virtual and Actual Reality",
+    source: "Built In",
+    tag: "Spotlight",
+    title: "Companies Grounded in Powerful Missions",
     description:
-      "VR research at the University of Arizona exploring how simulated eye contact affects social presence and immersion in virtual environments.",
-    url: "https://news.arizona.edu/news/googly-eyes-bridge-gap-between-virtual-and-actual-reality",
+      "Featured alongside Coinbase in Built In's spotlight on purpose-driven companies building meaningful products at scale.",
+    url: "https://builtin.com/articles/these-13-companies-are-grounded-powerful-missions-and-theyre-hiring#Coinbase",
   },
   {
     source: "BlackRock",
@@ -19,19 +19,19 @@ const ARTICLES = [
     url: "https://careers.blackrock.com/blog-social-impact-codeathon-2021",
   },
   {
-    source: "Built In",
-    tag: "Spotlight",
-    title: "Companies Grounded in Powerful Missions — and Hiring",
+    source: "UArizona News",
+    tag: "Research",
+    title: "Googly Eyes Bridge the Gap Between Virtual and Actual Reality",
     description:
-      "Featured alongside Coinbase in Built In's spotlight on purpose-driven companies building meaningful products at scale.",
-    url: "https://builtin.com/articles/these-13-companies-are-grounded-powerful-missions-and-theyre-hiring#Coinbase",
+      "VR research at the University of Arizona exploring how simulated eye contact affects social presence and immersion in virtual environments.",
+    url: "https://news.arizona.edu/news/googly-eyes-bridge-gap-between-virtual-and-actual-reality",
   },
   {
     source: "Lua Labs",
     tag: "Studio",
-    title: "Lua Labs — Creative Technology Studio",
+    title: "Lua Labs - Web3 Development Studio",
     description:
-      "Co-founded Lua Labs, a creative studio at the intersection of design, code, and interactive storytelling.",
+      "Co-founded Lua Labs, a Web3 development studio building NFT platforms, blockchain integrations, and decentralised applications at the intersection of design and emerging crypto technology.",
     url: "https://lualabs.xyz/",
   },
 ];
@@ -53,7 +53,7 @@ export function FeaturedArticles() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="py-24 md:py-32 bg-[hsl(var(--surface))]">
+    <section ref={sectionRef} className="py-24 md:py-32">
       <div className="max-w-6xl mx-auto px-6">
         {/* Section Header */}
         <div className={`mb-12 md:mb-16 ${isVisible ? 'fade-in-up' : 'opacity-0'}`}>
