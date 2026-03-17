@@ -4,6 +4,7 @@ import AboutSnapshot from '../components/home/aboutSnapshot';
 import FeaturedProjects from '../components/home/featuredProjects';
 import LatestBlogPosts from '../components/home/latestBlogPosts';
 import ArtTeaser from '../components/home/artTeaser';
+import FeaturedArticles from '../components/home/featuredArticles';
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
@@ -95,6 +96,7 @@ export default function Home({ latestPosts, featuredProjects }: HomeProps) {
       <AboutSnapshot />
       <FeaturedProjects projects={featuredProjects} />
       <LatestBlogPosts posts={latestPosts} />
+      <FeaturedArticles />
       <ArtTeaser />
     </>
   );

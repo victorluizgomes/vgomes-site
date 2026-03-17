@@ -144,8 +144,9 @@ components/
     heroSection.tsx  — Full-screen hero with aurora background, profile photo, stat chips
     aboutSnapshot.tsx — Skills marquee + about pull quote
     featuredProjects.tsx
-    artTeaser.tsx
     latestBlogPosts.tsx
+    featuredArticles.tsx  — 2×2 grid of external press/article cards (static data, mint accent)
+    artTeaser.tsx
   art/
     artGallery.tsx   — Masonry grid
     expandedArt.tsx  — Lightbox
@@ -256,7 +257,7 @@ list issues in project "Re-do design of vgomes.co"
 ```
 Remaining open issues include VIC-19 (scroll animations), VIC-22 (projects/blog editorial layout), VIC-23 (Framer Motion transitions).
 
-**Completed:** VIC-17 (copy updates), VIC-25 (art teaser real artwork), VIC-28 (lightbox stale media bug), VIC-29 (masonry CLS), VIC-21 (movies page redesign), VIC-24 (navbar refinement), VIC-33 (video click opens lightbox), VIC-36 (featured projects from real posts), VIC-37 (per-route accent colors), VIC-34 (art masonry natural aspect ratios), VIC-30 (SEO audit), VIC-44 (movies page — favorites, stats, infinite scroll, TMDB posters, star/entity fixes), VIC-46 (movies footer mobile layout + half-star clip-path fix), VIC-27 (art gallery curation).
+**Completed:** VIC-17 (copy updates), VIC-25 (art teaser real artwork), VIC-28 (lightbox stale media bug), VIC-29 (masonry CLS), VIC-21 (movies page redesign), VIC-24 (navbar refinement), VIC-33 (video click opens lightbox), VIC-36 (featured projects from real posts), VIC-37 (per-route accent colors), VIC-34 (art masonry natural aspect ratios), VIC-30 (SEO audit), VIC-44 (movies page — favorites, stats, infinite scroll, TMDB posters, star/entity fixes), VIC-46 (movies footer mobile layout + half-star clip-path fix), VIC-27 (art gallery curation), VIC-47 (featured articles section — 2×2 card grid on homepage).
 
 **Note:** Framer Motion is NOT yet installed. VIC-23 covers adding it. When doing animation work, use CSS transitions/keyframes or `IntersectionObserver` until Framer Motion is added.
 
@@ -291,6 +292,8 @@ Remaining open issues include VIC-19 (scroll animations), VIC-22 (projects/blog 
 - **HTML entities in Letterboxd RSS:** RSS content includes encoded HTML entities (`&#039;` for apostrophes, `&amp;`, `&quot;`, etc.) in both title fields and review text. Always run title strings through `decodeHtmlEntities()`. Review text has inline replacements in the parser. Never display raw RSS strings without decoding.
 - **Movie poster `fill` vs natural size:** On editorial list cards where card height is driven by review text, use `<Image width={150} height={225} className="w-full h-auto" />` with `alignSelf: "flex-start"` on the container. Never use `fill` + `aspectRatio` on these cards — `fill` stretches the poster to match the card's full height when a long review makes it tall.
 - **Infinite scroll without extra fetches:** For paginated-style reveals of already-loaded data, pass all items as props and use `useState(initialCount)` + `IntersectionObserver` on a sentinel div. No API calls needed — just slice `items.slice(0, visibleCount)` on render.
+- **FeaturedArticles component:** `components/home/featuredArticles.tsx` — static 2×2 grid of external press cards. Data is hardcoded as `ARTICLES` array (no props needed). Uses mint (`--accent`) since it lives on the home page. Each card has a top-border sweep animation on hover, source pill badge, category label, display-font title, and an `<ExternalLink>` icon. Section background alternates with `bg-[hsl(var(--surface))]` to complement LatestBlogPosts (surface) before it and ArtTeaser (default) after it. To add/change articles, edit the `ARTICLES` array at the top of the file.
+- **Homepage section order:** HeroSection → AboutSnapshot → FeaturedProjects → LatestBlogPosts → FeaturedArticles → ArtTeaser.
 
 ---
 

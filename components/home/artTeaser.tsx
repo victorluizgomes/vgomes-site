@@ -49,7 +49,7 @@ export function ArtTeaser() {
   const visible = isVisible ? "fade-in-up" : "opacity-0";
 
   return (
-    <section ref={sectionRef} className="py-24 md:py-32">
+    <section ref={sectionRef} className="py-24 md:py-32 bg-[hsl(var(--surface))]">
       {/* Header */}
       <div className="max-w-6xl mx-auto px-6">
         <div className={`mb-12 md:mb-16 ${visible}`}>
