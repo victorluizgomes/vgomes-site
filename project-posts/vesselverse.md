@@ -10,8 +10,6 @@ VesselVerse merges basketball culture with blockchain technology through a colla
 
 ![Vesselverse dapp landing page](/projects/vesselverse/vesselverse-landing.png "Vesselverse dapp landing page")
 
-![VesselVerse project writeup](/projects/vesselverse/vesselverse-article.png "VesselVerse — A Convergence of Art, Basketball, and Blockchain")
-
 ## About Victor Solomon
 
 Victor Solomon is a multidisciplinary artist and creative director whose work spans the NBA, NFL, Nike, Kith, ESPN, and more. He's responsible for the "Literally Balling" series — stained glass, fine jewelry, and furniture all riffing on basketball iconography — and redesigned the official trophies for the NBA, WNBA, G League, and NBA 2K. VesselVerse brought his physical sculptural art onto the blockchain.
