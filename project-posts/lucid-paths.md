@@ -10,8 +10,6 @@ Lucid Paths is an exclusive collection of 1,000 generative NFTs — each one a u
 
 ![Lucid Paths Landing page screenshot](/projects/lucid-paths/lucid-paths-landing.png "Lucid Paths landing page screenshot")
 
-![Lucid Paths website hero](/projects/lucid-paths/lucid-paths-hero.png "Lucid Paths — 1000/1000 sold out")
-
 ## Highlights
 
 - **200+ ETH** in secondary trading volume
