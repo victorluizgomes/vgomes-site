@@ -6,6 +6,30 @@ import {
 } from "../model/constants";
 import { useState } from "react";
 import { Check, Copy, Github, Linkedin } from "lucide-react";
+import Link from "next/link";
+
+const NAV_LINKS = [
+  { href: "/",         label: "About",    accent: "--accent"          },
+  { href: "/projects", label: "Projects", accent: "--accent-projects" },
+  { href: "/blog",     label: "Blog",     accent: "--accent-blog"     },
+  { href: "/art",      label: "Art",      accent: "--accent-tertiary" },
+  { href: "/movies",   label: "Movies",   accent: "--accent-secondary"},
+];
+
+function FooterNavLink({ href, label, accent }: { href: string; label: string; accent: string }) {
+  const [hovered, setHovered] = useState(false);
+  return (
+    <Link
+      href={href}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+      style={{ color: hovered ? `hsl(var(${accent}))` : undefined }}
+      className="text-sm font-mono tracking-wide text-[hsl(var(--text-secondary))] transition-colors duration-150"
+    >
+      {label}
+    </Link>
+  );
+}
 
 export interface FooterProps {}
 
@@ -99,6 +123,13 @@ export function Footer(props: FooterProps) {
             </a>
           </div>
         </div>
+
+        {/* Nav Links */}
+        <nav aria-label="Footer navigation" className="flex flex-wrap gap-x-8 gap-y-3 mb-12">
+          {NAV_LINKS.map((item) => (
+            <FooterNavLink key={item.href} {...item} />
+          ))}
+        </nav>
 
         {/* Divider */}
         <div className="h-px bg-[hsl(var(--border))] mb-8" />
