@@ -5,7 +5,7 @@ import {
   LINKEDIN_URL,
 } from "../model/constants";
 import { useState } from "react";
-import { Check, Copy } from "lucide-react";
+import { Check, Copy, Github, Linkedin } from "lucide-react";
 
 export interface FooterProps {}
 
@@ -54,38 +54,48 @@ export function Footer(props: FooterProps) {
           </div>
 
           {/* Social Links */}
-          <div className="flex gap-6">
+          <div className="flex gap-5">
             <a
               href={X_TWITTER_URL}
               target="_blank"
               rel="noreferrer"
-              className="group flex items-center gap-2 text-[hsl(var(--text-secondary))] hover:text-[hsl(var(--accent))] transition-colors"
+              aria-label="X (Twitter)"
+              className="text-[hsl(var(--text-secondary))] hover:text-[hsl(var(--accent))] transition-colors"
             >
-              <span className="font-medium">X</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.253 5.622 5.91-5.622Zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+              </svg>
             </a>
             <a
               href={INSTAGRAM_URL}
               target="_blank"
               rel="noreferrer"
-              className="group flex items-center gap-2 text-[hsl(var(--text-secondary))] hover:text-[hsl(var(--accent))] transition-colors"
+              aria-label="Instagram"
+              className="text-[hsl(var(--text-secondary))] hover:text-[hsl(var(--accent))] transition-colors"
             >
-              <span className="font-medium">IG</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                <circle cx="12" cy="12" r="4" />
+                <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
+              </svg>
             </a>
             <a
               href={GITHUB_URL}
               target="_blank"
               rel="noreferrer"
-              className="group flex items-center gap-2 text-[hsl(var(--text-secondary))] hover:text-[hsl(var(--accent))] transition-colors"
+              aria-label="GitHub"
+              className="text-[hsl(var(--text-secondary))] hover:text-[hsl(var(--accent))] transition-colors"
             >
-              <span className="font-medium">GH</span>
+              <Github size={18} aria-hidden="true" />
             </a>
             <a
               href={LINKEDIN_URL}
               target="_blank"
               rel="noreferrer"
-              className="group flex items-center gap-2 text-[hsl(var(--text-secondary))] hover:text-[hsl(var(--accent))] transition-colors"
+              aria-label="LinkedIn"
+              className="text-[hsl(var(--text-secondary))] hover:text-[hsl(var(--accent))] transition-colors"
             >
-              <span className="font-medium">LN</span>
+              <Linkedin size={18} aria-hidden="true" />
             </a>
           </div>
         </div>
