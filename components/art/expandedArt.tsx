@@ -11,6 +11,7 @@ export interface ExpandedArtProps {
 }
 
 export function ExpandedArt(props: ExpandedArtProps) {
+  const { onClose } = props;
   const [currentIndex, setCurrentIndex] = useState(props.currentIndex);
   const [currArt, setCurrArt] = useState(props.art);
   const [isAnimating, setIsAnimating] = useState(false);
@@ -41,7 +42,7 @@ export function ExpandedArt(props: ExpandedArtProps) {
 
     // Keyboard navigation
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "Escape") props.onClose();
+      if (e.key === "Escape") onClose();
       if (e.key === "ArrowLeft") goToPrevious();
       if (e.key === "ArrowRight") goToNext();
     };
@@ -52,7 +53,7 @@ export function ExpandedArt(props: ExpandedArtProps) {
       document.body.style.overflow = "auto";
       window.removeEventListener("keydown", handleKeyDown);
     };
-  }, [props.onClose, goToPrevious, goToNext]);
+  }, [onClose, goToPrevious, goToNext]);
 
   return (
     <div

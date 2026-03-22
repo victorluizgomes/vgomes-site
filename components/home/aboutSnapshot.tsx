@@ -59,7 +59,7 @@ export function AboutSnapshot() {
             className={`${isVisible ? "fade-in-up stagger-2" : "opacity-0"}`}
           >
             <p className="text-[hsl(var(--text-secondary))] text-base md:text-lg leading-relaxed mb-6">
-              I'm a senior front-end engineer with a sharp eye for design and
+              I&apos;m a senior front-end engineer with a sharp eye for design and
               product. I believe great products are technically solid and
               visually refined. My passion for art is a big part of why.
             </p>
