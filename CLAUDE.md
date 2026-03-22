@@ -311,18 +311,28 @@ Every page should have: `<title>`, `<meta name="description">`, `<link rel="cano
 Provides fallback OG/Twitter tags for any page that doesn't override them. All defaults use `key` props so per-page `<Head>` blocks can override. Fontshare (`api.fontshare.com`) preconnect is declared here alongside Google Fonts preconnect.
 
 ### Structured data (JSON-LD)
-- **Homepage** (`pages/index.tsx`): `Person` schema — name, jobTitle, worksFor (Coinbase), alumniOf (U of A), sameAs social links, image. Defined as a module-level const `personSchema`.
+- **Homepage** (`pages/index.tsx`): `Person` schema — name, `givenName`, `familyName`, jobTitle, worksFor (Coinbase), alumniOf (U of A), sameAs social links, image. Defined as a module-level const `personSchema`. `givenName`/`familyName` help Google disambiguate from other people named "Victor Gomes".
 - **Blog posts** (`pages/blog/[slug].tsx`): `BlogPosting` schema — headline, author, datePublished, mainEntityOfPage. Built inside the component from frontmatter.
 - Social URLs live in `model/constants.tsx` — use those as the source of truth for `sameAs` links.
 
 ### `public/sitemap.xml`
-Static file (manually maintained). Includes all routes: `/`, `/projects`, `/blog`, `/art`, `/movies`, plus all blog post slugs and project post slugs. When adding a new blog post or project, add its URL to `sitemap.xml`. Uses `changefreq` and `priority` hints.
+**Auto-generated** by `scripts/generate-sitemap.js` on every Vercel build (build script: `node scripts/generate-sitemap.js && next build`). Do NOT hand-edit `public/sitemap.xml` — changes will be overwritten on the next build. To change sitemap behavior, edit the script.
+- Core pages use today's build date as `lastmod`
+- Blog posts use the `date` frontmatter field from each `.md` file as `lastmod`
+- Project posts use the `date` frontmatter field from each `.md` file as `lastmod`
+- All entries include `changefreq` and `priority` hints
 
 ### `public/robots.txt`
 `Allow: /` with `Sitemap:` pointer — no paths blocked.
 
 ### OG image
-`public/og-image.jpg` is the default social share image. It is currently small — ideally replace with a proper 1200×630 image for rich link previews. The meta tags already declare `1200×630` dimensions.
+`public/og-image.jpg` — 1200×630 social share image. Generated once by `node scripts/generate-og-image.js` (uses `sharp` + the profile photo at `public/profile-picture-2024.jpeg`). Re-run this script if branding changes. The script is NOT part of the build — the image is committed to the repo.
+
+### "Victor Gomes" name SEO notes
+- A major site redesign causes a temporary ranking drop (1–4 weeks) as Google re-evaluates. Recovery is expected without any changes.
+- **Most impactful action:** Submit `https://www.vgomes.co/` to **Google Search Console** → URL Inspection → Request Indexing after any major redesign or content change.
+- **Backlinks are the biggest lever.** LinkedIn profile, GitHub profile, and any other platform profiles should link back to `vgomes.co`. The `sameAs` JSON-LD array already lists these as authoritative identity signals.
+- Resharing the site URL on LinkedIn/X after a redesign generates social engagement signals which trigger faster re-crawls.
 
 ---
 

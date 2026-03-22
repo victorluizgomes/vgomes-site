@@ -32,6 +32,8 @@ const personSchema = {
   "@context": "https://schema.org",
   "@type": "Person",
   name: "Victor Gomes",
+  givenName: "Victor",
+  familyName: "Gomes",
   url: SITE_URL,
   jobTitle: "Front-end Software Engineer",
   description:
