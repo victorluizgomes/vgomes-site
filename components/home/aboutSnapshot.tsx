@@ -45,9 +45,11 @@ export function AboutSnapshot() {
           {/* Left - Pull Quote */}
           <div className={`${isVisible ? "fade-in-up" : "opacity-0"}`}>
             <blockquote className="text-2xl md:text-3xl lg:text-4xl font-display leading-snug text-[hsl(var(--foreground))]">
-              &ldquo;I love building things, especially digital experiences that
-              feel <span className="text-[hsl(var(--accent))]">beautiful</span>{" "}
-              and delightful.&rdquo;
+              &ldquo;Great products need{" "}
+              <span className="text-[hsl(var(--accent))]">
+                speed, polish, and soul
+              </span>
+              . I refuse to pick only two.&rdquo;
             </blockquote>
             <div className="mt-6 h-1 w-16 bg-[hsl(var(--accent))]" />
           </div>
@@ -57,16 +59,15 @@ export function AboutSnapshot() {
             className={`${isVisible ? "fade-in-up stagger-2" : "opacity-0"}`}
           >
             <p className="text-[hsl(var(--text-secondary))] text-base md:text-lg leading-relaxed mb-6">
-              A senior front-end engineer with a sharp eye for design and
-              product. The best digital products are technically solid{" "}
-              <em>and</em> visually refined, and my passion for making and
-              appreciating art is a big part of why.
+              I'm a senior front-end engineer with a sharp eye for design and
+              product. I believe great products are technically solid and
+              visually refined. My passion for art is a big part of why.
             </p>
             <p className="text-[hsl(var(--text-secondary))] text-base md:text-lg leading-relaxed">
               Originally from Brazil, grew up gaming, drawing, and staying
               active. Outside of engineering, you&apos;ll find me on the soccer
-              field, at the ping pong table, or lifting some weights. That same
-              restless energy is what makes me obsess over every pixel.
+              field, running, at the local jazz bar, or traveling and exploring
+              new places.
             </p>
           </div>
         </div>
