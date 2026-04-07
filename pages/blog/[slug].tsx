@@ -106,7 +106,7 @@ export default function BlogPost(props: BlogPostProps) {
         {/* Back Navigation */}
         <Link
           href="/blog"
-          className="inline-flex items-center gap-2 text-[hsl(var(--text-secondary))] hover:text-[hsl(var(--accent))] transition-colors mb-8"
+          className="inline-flex items-center gap-2 text-[hsl(var(--text-secondary))] hover:text-[hsl(var(--accent-blog))] transition-colors mb-8"
         >
           <ArrowLeft className="w-4 h-4" />
           <span>Back to Blog</span>
@@ -117,7 +117,17 @@ export default function BlogPost(props: BlogPostProps) {
           {props.frontmatter.tags && props.frontmatter.tags.length > 0 && (
             <div className="flex flex-wrap gap-2 mb-4">
               {props.frontmatter.tags.map((tag) => (
-                <span key={tag} className="accent-pill">{tag}</span>
+                <span
+                  key={tag}
+                  className="font-mono text-xs tracking-widest uppercase px-3 py-1 rounded-full"
+                  style={{
+                    color: "hsl(var(--accent-blog))",
+                    background: "hsl(var(--accent-blog) / 0.1)",
+                    border: "1px solid hsl(var(--accent-blog) / 0.2)",
+                  }}
+                >
+                  {tag}
+                </span>
               ))}
             </div>
           )}
@@ -174,19 +184,19 @@ export default function BlogPost(props: BlogPostProps) {
           margin: 1.25rem 0;
         }
         .prose a {
-          color: hsl(var(--accent));
+          color: hsl(var(--accent-blog));
           text-decoration: none;
           border-bottom: 1px solid transparent;
           transition: border-color 0.2s;
         }
         .prose a:hover {
-          border-bottom-color: hsl(var(--accent));
+          border-bottom-color: hsl(var(--accent-blog));
         }
         .prose strong {
           color: hsl(var(--foreground));
         }
         .prose blockquote {
-          border-left: 4px solid hsl(var(--accent));
+          border-left: 4px solid hsl(var(--accent-blog));
           padding-left: 1.5rem;
           margin: 2rem 0;
           font-style: italic;
@@ -194,9 +204,11 @@ export default function BlogPost(props: BlogPostProps) {
         }
         .prose code {
           font-family: 'JetBrains Mono', monospace;
-          font-size: 0.9em;
-          padding: 0.2em 0.4em;
-          background: hsl(var(--surface));
+          font-size: 0.85em;
+          padding: 0.2em 0.5em;
+          background: hsl(var(--accent-blog) / 0.1);
+          color: hsl(var(--accent-blog));
+          border: 1px solid hsl(var(--accent-blog) / 0.2);
           border-radius: 0.25rem;
         }
         .prose pre {
