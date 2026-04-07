@@ -2,8 +2,7 @@
 title: "Claude Code vs Cursor: Why I Switched and What I Still Use Cursor For"
 date: "2026-04-07"
 description: "I used Cursor for almost a year before switching to Claude Code for most of my development. Here is an honest breakdown of both tools, what each one does better, and why I now default to Claude."
-category: "Productivity"
-tags: ["productivity", "AI"]
+tags: ["Productivity", "AI"]
 ---
 
 I used Cursor for a long time. It felt like a natural upgrade from VS Code — same editor, same shortcuts, same extensions, but with AI baked in. It was genuinely great at first.

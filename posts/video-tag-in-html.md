@@ -2,6 +2,7 @@
 title: 'How to make video HTML tag work on mobile'
 date: '2024-03-03'
 description: "The video tag doesn't automatically work in mobile, I will show you what you need to do to make it work."
+tags: ["Tutorial", "HTML"]
 ---
 
 I was implementing video capabilities for my art page when I came across this issue again, videos weren't working the same on desktop and mobile. Here is everything you need to know to have videos work how you intend them on mobile.

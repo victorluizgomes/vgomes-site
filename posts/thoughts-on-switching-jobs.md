@@ -2,6 +2,7 @@
 title: 'Personal Experience Switching Jobs as a Software Engineer 2024'
 date: '2024-07-03'
 description: 'From working a great job as a Software Engineer at BlackRock for almost 5 years to getting an offer to work fully remote at Coinbase.'
+tags: ["Career"]
 ---
 
 This blog post will be a little different; it will be more for myself but also share openly my reasons and experience. This way, I can look back and reflect on how switching my job for the first time was like.

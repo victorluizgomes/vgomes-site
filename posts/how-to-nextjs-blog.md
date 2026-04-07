@@ -2,6 +2,7 @@
 title: 'How to build a SEO ready Next.js Blog using Markdown'
 date: '2023-11-26'
 description: 'Learn from a step-by-step guide how to build a simple markdown blog using Next.js, ready with SEO.'
+tags: ["Tutorial", "Next.js", "SEO"]
 ---
 
 I have been wanting to build a blog for awhile, I have heard of the wonders of blogs for site discoverability with Search Engine Optimization. I always thought it would be hard to build, or that I would need to use something like Wordpress. One weekend I finally watched a few videos, read some articles and worked with ChatGPT to learn, it wasn't that bad. So in this article, I will show you all the steps I took to build this blog, so that you can have a working blog in no time.

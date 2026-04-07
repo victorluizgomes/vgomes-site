@@ -17,7 +17,7 @@ export interface BlogPostProps {
     title: string;
     description: string;
     date: string;
-    category?: string;
+    tags?: string[];
   };
   content: string;
   slug: string;
@@ -114,10 +114,12 @@ export default function BlogPost(props: BlogPostProps) {
 
         {/* Article Header */}
         <header className="mb-12">
-          {props.frontmatter.category && (
-            <span className="accent-pill mb-4 inline-block">
-              {props.frontmatter.category}
-            </span>
+          {props.frontmatter.tags && props.frontmatter.tags.length > 0 && (
+            <div className="flex flex-wrap gap-2 mb-4">
+              {props.frontmatter.tags.map((tag) => (
+                <span key={tag} className="accent-pill">{tag}</span>
+              ))}
+            </div>
           )}
           <h1 className="font-display text-3xl md:text-4xl lg:text-5xl text-[hsl(var(--foreground))] leading-tight mb-6">
             {props.frontmatter.title}
