@@ -2,6 +2,7 @@
 title: 'How to export your VSCode extensions on Mac'
 date: '2024-02-18'
 description: 'Learn how to easily export all your Visual Studio Code extensions to another machine.'
+tags: ["Tutorial", "Tools"]
 ---
 
 ## 1. Make sure you have the `code` command enabled

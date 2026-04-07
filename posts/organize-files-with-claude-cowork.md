@@ -2,7 +2,7 @@
 title: "How to Organize All Your Files and Photos Effortlessly with Claude Cowork"
 date: "2026-03-16"
 description: "Your Downloads folder is a disaster. Your Desktop has 80 screenshots on it. I get it. Here is how to fix all of that in minutes using Claude Cowork."
-category: "Productivity"
+tags: ["Productivity", "AI"]
 ---
 
 Let's be honest most of us have a Downloads folder that looks like a digital junk drawer. Screenshots named `Screenshot 2024-11-03 at 4.12.22 PM.png`, random PDFs you downloaded once and never opened again, zip files from last year. Sound familiar?

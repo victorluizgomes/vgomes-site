@@ -13,7 +13,7 @@ export interface BlogProps {
       title: string;
       description: string;
       date: string;
-      category?: string;
+      tags?: string[];
     };
   }[];
 }
@@ -92,18 +92,23 @@ export default function Blog(props: BlogProps) {
                   {post.frontmatter.description}
                 </p>
                 
-                {/* Category */}
-                {post.frontmatter.category && (
-                  <span
-                    className="inline-block mt-3 font-mono text-xs tracking-widest uppercase px-3 py-1 rounded-full"
-                    style={{
-                      color: "hsl(var(--accent-blog))",
-                      background: "hsl(var(--accent-blog) / 0.1)",
-                      border: "1px solid hsl(var(--accent-blog) / 0.2)",
-                    }}
-                  >
-                    {post.frontmatter.category}
-                  </span>
+                {/* Tags */}
+                {post.frontmatter.tags && post.frontmatter.tags.length > 0 && (
+                  <div className="flex flex-wrap gap-2 mt-3">
+                    {post.frontmatter.tags.map((tag) => (
+                      <span
+                        key={tag}
+                        className="font-mono text-xs tracking-widest uppercase px-3 py-1 rounded-full"
+                        style={{
+                          color: "hsl(var(--accent-blog))",
+                          background: "hsl(var(--accent-blog) / 0.1)",
+                          border: "1px solid hsl(var(--accent-blog) / 0.2)",
+                        }}
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
                 )}
               </div>
 

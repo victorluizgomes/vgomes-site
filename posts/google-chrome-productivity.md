@@ -2,6 +2,7 @@
 title: "Turn any Google Chrome Website into a Native MacOS App and Helpful Shortcuts"
 date: "2024-08-24"
 description: "You can turn most websites into a native MacOs app that opens in a separate window, I will show you how."
+tags: ["Productivity", "Tools"]
 ---
 
 Have you ever wanted to use a website as if it were a native MacOS app? Maybe you have a favorite site like Gmail that you check frequently and would prefer it opened on its own window. In this guide, I'll show you how you can turn most websites into a native MacOS app using Google Chrome. Plus, I'll share some useful Google Chrome keyboard that will make your life easier.
