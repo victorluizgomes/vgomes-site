@@ -1,8 +1,8 @@
 ---
-title: 'How to Work on a WordPress Website Locally with Local Sites'
-date: '2026-04-15'
-description: 'Local Sites makes it easy to run WordPress on your machine for fast, clean theme development — no staging servers, no FTP, no round-trips.'
-tags: ["Tutorial", "Tools"]
+title: "How to Work on a WordPress Website Locally with Local Sites"
+date: "2026-04-15"
+description: "Local Sites makes it easy to run WordPress on your machine for fast, clean theme development — no staging servers, no FTP, no round-trips."
+tags: ["Tutorial", "Tools", "Wordpress"]
 ---
 
 If you are building or customizing a WordPress site, trying to do that work directly on a live server is painful. Every small CSS tweak requires an upload. Every PHP error is public. Every test is slow.
