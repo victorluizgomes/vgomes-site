@@ -1,6 +1,6 @@
 ---
 title: 'HQ Partners Consulting'
-date: '2025'
+date: '2026'
 description: 'A custom WordPress block theme for a business strategy consulting firm — built so the client can fully edit and manage their site without ever touching code.'
 tags: ['WordPress', 'PHP', 'Custom Theme', 'Web Design']
 featured: true
